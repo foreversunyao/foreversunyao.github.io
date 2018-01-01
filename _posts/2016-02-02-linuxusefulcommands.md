@@ -1,13 +1,12 @@
 ---
 layout: post
 title: "Linux Useful Commands"
-date: 2016-03-02 16:25:06
+date: 2016-02-02 10:25:06
 description: Linux Usefull Commands
 tags: 
  - linux
 ---
 
-## Linux Usefull Commands
 
 ## Command  
 __1, auto exit telnet__     
