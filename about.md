@@ -4,5 +4,5 @@ title: About
 
 ---
 
-# Some info 
-...about how cool you are ;)
+# Samuel's info 
+A happy Engineer and focus on automation and data storage.
