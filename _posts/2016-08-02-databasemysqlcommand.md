@@ -7,6 +7,12 @@ tags:
  - database
 ---
 
+**MySQL Backup and restore:**
+backup:
+innobackupex --defaults-file=/etc/my.cnf --parallel=4 --slave-info --rsync --user=user --password=aaa --tmpdir=$backup_dir --no-timestamp $backup_dir/$date
+restore:
+innobackupex --defaults-file=/etc/my.cnf --use-memory=1G --apply-log --tmpdir=$backup_dir $backup_dir/$date   
+
 **MySQL QPS Monitor:**
 
     mysqladmin -P3306 -uroot -p -h127.0.0.1 -r -i 1 ext |\
