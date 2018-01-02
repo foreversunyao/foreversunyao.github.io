@@ -74,6 +74,7 @@ top or cat /proc/cpuinfo
 
  - process diagnosis:
 strace -c -p pid
+
 **File**  
 
  - list open files
