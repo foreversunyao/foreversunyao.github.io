@@ -45,3 +45,61 @@ UDP is used when speed is desirable and error correction isn’t necessary. For 
 **ICMP**
 
 ![img]({{ '/assets/images/linux/ICMP-head.png' | relative_url }}){: .center-image }*(°0°)*
+
+
+**NAT**
+
+Network Address Translation (NAT) is a deceptively simple concept. NAT is the technique of rewriting addresses on a packet as it passes through a routing device. There are far reaching ramifications on network design and protocol compatibility wherever NAT is used.
+
+To set a linux machine as a router you need the following
+
+1- Enable forwarding on the box with
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+Assuming your public interface is eth1 and local interface is eth0
+
+2- Set natting the natting rule with:
+
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+3- Accept traffic from eth0:
+
+iptables -A INPUT -i eth0 -j ACCEPT
+4- Allow established connections from the public interface.
+
+iptables -A INPUT -i eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+5- Allow outgoing connections:
+
+iptables -A OUTPUT -j ACCEPT
+
+**KeepAlived**
+
+Keepalived is a routing software written in C. The main goal of this project is to provide simple and robust facilities for loadbalancing and high-availability to Linux system and Linux based infrastructures. Loadbalancing framework relies on well-known and widely used Linux Virtual Server (IPVS) kernel module providing Layer4 loadbalancing. Keepalived implements a set of checkers to dynamically and adaptively maintain and manage loadbalanced server pool according their health. On the other hand high-availability is achieved by VRRP protocol. VRRP is a fundamental brick for router failover. In addition, Keepalived implements a set of hooks to the VRRP finite state machine providing low-level and high-speed protocol interactions. Keepalived frameworks can be used independently or all together to provide resilient infrastructures.
+
+**Nginx**
+![img]({{ '/assets/images/linux/Nginx-internal.png' | relative_url }}){: .center-image }*(°0°)*
+
+![img]({{ '/assets/images/linux/Nginx.png' | relative_url }}){: .center-image }*(°0°)*
+
+Kill old worker process(after reload): ps aux |grep "worker process is shutting down"|grep -v grep |awk {"print $2"}|xargs -r kill
+
+Linux configuration for Nginx:
+net.ipv4.tcp_max_tw_buckets=260000 -- permit how many TIME_WAIT sockets open, if system is strong, can use a big number.
+net.ipv4.tcp_tw_reuse = 0 -- not use TIME_WAIT sockets
+net.ipv4.tcp_tw_recycle = 1 -- recycle TIME_WAIT sockets quickly  --dangerous, better not to use this
+net.ipv4.tcp_fin_timeout = 8 --- for recycle TIME_WAIT TCP AND PORT
+net.ipv4.ip_local_port_range = 10000 65000 ---for port range
+net.ipv4.tcp_max_syn_backlog = 8192 -- add queue for ack
+
+**Security Auditd**
+
+![img]({{ '/assets/images/linux/Auditd.png' | relative_url }}){: .center-image }*(°0°)*
+
+The auditd subsystem is an access monitoring and accounting for Linux developed and maintained by RedHat. It was designed to integrate pretty tightly with the kernel and watch for interesting system calls. Additionally, likely because of this level of integration and detailed logging, it is used as the logger for SELinux. 
+
+First let me explain the colors. Light blue are the things that create the events, purple is the reporting tools, red is the controller, gray is the logs, and green is the real-time components.
+
+Audit events can be created in two ways. There are applications that send events any time something specific happens. For example, if you log in to sshd, it will send a series of events as the log in proceeds. It is considered a trusted application and it always tries to send events. If the audit system is not enabled, the event is discarded. Otherwise the kernel accepts the event, time stamps it, adds sender information to the event, and queues it for delivery to the audit daemon, auditd. The only job that the audit daemon has is to reliably dequeue and write events to the log and the event dispatcher, audispd.
+
+The other way that events are created is by the kernel observing system activity that matches a rule loaded by auditctl. The kernel is the thing that creates most events...assuming you loaded rules. It uses a first matching rule system to decide if a syscall is of any interest.
+
+
