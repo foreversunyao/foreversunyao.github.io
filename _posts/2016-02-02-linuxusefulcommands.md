@@ -8,36 +8,52 @@ tags:
 ---
 
 
-## Command  
-__1, auto exit telnet__     
-echo -e "^]\nclose"| telnet hostname 3306  
-__2, create raid 10__ 
-mdadm --create /dev/md3 --run --level=10 --chunk=4 --raid-devices=4 /dev/sdf1 /dev/sdg1 /dev/sdh1 /dev/sdi1  
-__3, tcpdump__  
-tcpdump -n dst host 192.168.1.1  
-__4, memory leak check__  
-valgrind --leak-check=yes myprog arg1 arg2  
-__5, network__  
-netstat -an|awk '/^tcp/{++S[$NF]}END{for (a in S)print a,S[a]}'    
-__6, nat__  
-A(wan server):  
-iptables -t nat -A POSTROUTING -s source/24 -o em1 -j MASQUERADE  
-iptables -A FORWARD -s source/24 -o em1 -j ACCEPT  
-iptables -A FORWARD -d source/24 -m state --state ESTABLISHED,RELATED -i em1 -j ACCEPT  
-B(lan server):  
-route add default gw Aip em2  
-__7, limit network bandwidth__   
-$ sudo wondershaper {interface} {down} {up}  -- limit network interface  
-the {down} and {up} are bandwidth in kilobits. So for example if you want to limit the bandwidth of interface eth1 to 256kbps uplink and 128kbps downlink,  
-$ sudo wondershaper eth1 256 128  
-To clear the limit,  
-$ sudo wondershaper clear eth1  
-$ trickle -u {up} -d {down} {program}   -- limit programe  
-Both {up} and {down} and bandwidth in KB/s. Now if you invoke it as,  
-$ trickle -u 8 -d 8 firefox    
-__8, search rpm repo__
-yum whatprovides *tshark*  
-__9, test open port__  
-$ timeout 1 bash -c 'cat < /dev/null > /dev/tcp/ipaddress/80'  
-$ echo $?  
-0  
+
+**Network**
+
+ - auto exit telnet
+echo -e "^]\nclose"| telnet hostname 3306
+
+ - tcpdump
+
+ - tcp state
+     netstat -an|awk '/^tcp/{++S[$NF]}END{for (a in S)print a,S[a]}'
+ - nat
+A(wan server):
+iptables -t nat -A POSTROUTING -s source/24 -o em1 -j MASQUERADE
+iptables -A FORWARD -s source/24 -o em1 -j ACCEPT
+iptables -A FORWARD -d source/24 -m state --state ESTABLISHED,RELATED -i em1 -j ACCEPT
+B(lan server):
+route add default gw Aip em2
+
+ - network limit(wondershaper and trickle)
+wondershaper {interface} {down} {up}  -- limit network interface
+the {down} and {up} are bandwidth in kilobits. So for example if you want to limit the bandwidth of interface eth1 to 256kbps uplink and 128kbps downlink,
+wondershaper eth1 256 128
+To clear the limit,
+wondershaper clear eth1
+trickle -u {up} -d {down} {program}   -- limit programe
+Both {up} and {down} and bandwidth in KB/s. Now if you invoke it as,
+trickle -u 8 -d 8 firefox  
+
+ - test open port(without telnet)
+ $ timeout 1 bash -c 'cat < /dev/null > /dev/tcp/ipaddress/80'
+ $ echo $?
+
+**Memory**
+
+ - memory leak check
+valgrind --leak-check=yes myprog arg1 arg2
+
+**Disk**
+
+ - create raid 10
+mdadm --create /dev/md3 --run --level=10 --chunk=4 --raid-devices=4 /dev/sdf1 /dev/sdg1 /dev/sdh1 /dev/sdi1
+   
+**CPU**
+  
+**Software**
+
+ - search rpm repo
+ yum whatprovides *tshark*
+
