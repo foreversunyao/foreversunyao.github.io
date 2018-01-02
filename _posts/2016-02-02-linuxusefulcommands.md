@@ -7,6 +7,10 @@ tags:
  - linux
 ---
 
+**Overview**
+
+![img]({{ '/assets/images/Linux-Diagnosis.png' | relative_url }}){: .center-image }*(°0°)*
+
 
 
 **Network**
@@ -40,10 +44,16 @@ trickle -u 8 -d 8 firefox
  $ timeout 1 bash -c 'cat < /dev/null > /dev/tcp/ipaddress/80'
  $ echo $?
 
+ - mtr(ping and traceroute)
+mtr ip_address or dns
+
 **Memory**
 
  - memory leak check
 valgrind --leak-check=yes myprog arg1 arg2
+ - memory stats
+cat /proc/meminfo
+vmstat -s
 
 **Disk**
 
@@ -51,9 +61,39 @@ valgrind --leak-check=yes myprog arg1 arg2
 mdadm --create /dev/md3 --run --level=10 --chunk=4 --raid-devices=4 /dev/sdf1 /dev/sdg1 /dev/sdh1 /dev/sdi1
    
 **CPU**
-  
+
+ - command command
+top or cat /proc/cpuinfo
+
 **Software**
 
  - search rpm repo
  yum whatprovides *tshark*
 
+**Process**
+
+ - process diagnosis:
+strace -c -p pid
+**File**  
+
+ - list open files
+lsof:COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME
+FD – Represents the file descriptor. Some of the values of FDs are,
+cwd – Current Working Directory
+txt – Text file
+mem – Memory mapped file
+mmap – Memory mapped device
+NUMBER – Represent the actual file descriptor. The character after the number i.e ‘1u’, represents the mode in which the file is opened. r for read, w for write, u for read and write.
+TYPE – Specifies the type of the file. Some of the values of TYPEs are,
+REG – Regular File
+DIR – Directory
+FIFO – First In First Out
+CHR – Character special file 
+
+**Hardware**
+
+ - hardware info:
+dmidecode
+ 
+ - hardware digest:
+demsg
