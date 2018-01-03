@@ -46,6 +46,7 @@ UDP is used when speed is desirable and error correction isn’t necessary. For 
 
 ![img]({{ '/assets/images/linux/ICMP-head.png' | relative_url }}){: .center-image }*(°0°)*
 
+disable ping command: echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
 
 **NAT**
 
