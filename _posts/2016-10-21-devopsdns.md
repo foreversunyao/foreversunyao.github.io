@@ -7,3 +7,6 @@ tags:
  - devops
 ---
 
+**Consul based DNS and Auto Failover**
+
+![img]({{ '/assets/images/devops/Smart-DNS-based-on-consul-and-dnsmasq.jpg' | relative_url }}){: .center-image }*(°0°)*
