@@ -10,3 +10,6 @@ tags:
 **My HA Concept **
 
 
+![img]({{ '/assets/images/linux/MySQL-HA-1.png' | relative_url }}){: .center-image }*(°0°)*
+
+![img]({{ '/assets/images/linux/MySQL-HA-2.png' | relative_url }}){: .center-image }*(°0°)*
