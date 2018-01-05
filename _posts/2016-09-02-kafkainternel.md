@@ -35,4 +35,4 @@ Performance Kafka has high throughput for both publishing and subscribing messag
 
 **Kafka Internal**
 
-![img]({{ '/assets/images/kafka/kafka-broker-internals.png' | relative_url }}){: .center-image }*(°0°)*
+![img]({{ '/assets/images/kafka/Kafka-broker-internals.png' | relative_url }}){: .center-image }*(°0°)*
