@@ -10,12 +10,12 @@ tags:
 **What is Sharding**
 Sharding is a scale-out approach in which database tables are partitioned, and each partition is put on a separate RDBMS server.
 
-**Why MySQL need Sharding **
+**Why MySQL need Sharding**
  - Very large working set
  - Too many writes
  - Hight response time(Slow query or Lock)
 
-**How MySQL Sharding **
+**How MySQL Sharding**
  - Partitioning by Application Function
  - Sharding by hash or key(table-->table000..table999)
  - Sharding by hash or key(database-->db00...db99)
