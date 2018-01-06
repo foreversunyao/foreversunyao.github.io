@@ -27,4 +27,4 @@ High availability environments provide substantial benefit for databases that mu
 
 **A HA Design demo**
 
-![img]({{ '/assets/images/databases/MySQL-HA-2.png' | relative_url }}){: .center-image }*(°0°)*
+![img]({{ '/assets/images/database/MySQL-HA-2.png' | relative_url }}){: .center-image }*(°0°)*
