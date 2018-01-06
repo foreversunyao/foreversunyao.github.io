@@ -7,9 +7,24 @@ tags:
  - database
 ---
 
-**My HA Concept **
+**MySQL HA**
+High availability environments provide substantial benefit for databases that must remain available.
+
+**MySQL Slave HA**
+
+ - load balancer: HAProxy, ELB, SQL-aware proxy
+
+**MySQL Master HA**
+ - MHA
+ - MMM
+ - Cluster
+
+**MySQL HA between Datacenter**
+
+ - DNS
+ - Semi-sync(if you don't want to loss any data)
 
 
-![img]({{ '/assets/images/linux/MySQL-HA-1.png' | relative_url }}){: .center-image }*(°0°)*
+**A HA Design demo**
 
 ![img]({{ '/assets/images/linux/MySQL-HA-2.png' | relative_url }}){: .center-image }*(°0°)*
