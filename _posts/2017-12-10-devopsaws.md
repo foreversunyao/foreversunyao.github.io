@@ -41,10 +41,7 @@ tags:
 
 ![img]({{ '/assets/images/devops/acl_security.png' | relative_url }}){: .center-image }*(°0°)*
 
-**aws security_password_type**
+**aws security_auth_type**
 
 ![img]({{ '/assets/images/devops/security_password_type.png' | relative_url }}){: .center-image }*(°0°)*
 
-**aws VPC**
-
-![img]({{ '/assets/images/devops/VPC.png' | relative_url }}){: .center-image }*(°0°)*
