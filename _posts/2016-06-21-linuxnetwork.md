@@ -7,6 +7,35 @@ tags:
  - linux
 ---
 
+**ss command**
+ss | less  
+Netid  State      Recv-Q Send-Q   Local Address:Port       Peer Address:Port   
+u_str  ESTAB      0      0                    * 15545                 * 15544  
+u_str  ESTAB      0      0                    * 12240                 * 12241  
+u_str  ESTAB      0      0      @/tmp/dbus-2hQdRvvg49 12726                 * 12159  
+u_str  ESTAB      0      0                    * 11808                 * 11256  
+u_str  ESTAB      0      0                    * 15204                 * 15205 
+
+ss -ltp(pid and conn)
+
+Display sockets with state x 
+ss -t4 state x  
+1. established
+2. syn-sent
+3. syn-recv
+4. fin-wait-1
+5. fin-wait-2
+6. time-wait
+7. closed
+8. close-wait
+9. last-ack
+10. closing
+11. all - All of the above states
+12. connected - All the states except for listen and closed
+13. synchronized - All the connected states except for syn-sent
+14. bucket - Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
+15. big - Opposite to bucket state.
+
 **Netfilter System**
 
 ![img]({{ '/assets/images/linux/Iptables.jpg' | relative_url }}){: .center-image }*(°0°)*
