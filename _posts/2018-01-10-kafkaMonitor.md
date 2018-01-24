@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Kafka Details"
+title: "Kafka Monitor"
 date: 2016-10-12 12:25:06
-description: Apache Kafka Details
+description: Apache Kafka Monitor and Grafana Template
 tags: 
  - kafka
 ---
