@@ -10,7 +10,7 @@ tags:
 
 **Kafka metrics**
 
-Avaiable:
+Available:
  - UnderReplicatedPartitions: Number of under-replicated partitions. Alert when UnderReplicatedPartitions > 0.
    MBean Name: kafka_server_replicamanager_underreplicatedpartitions
  - UncleanLeaderElectionsRate: Number of disputed leader elections rate. Alert when UncleanLeaderElectionsPerSec != 0.
