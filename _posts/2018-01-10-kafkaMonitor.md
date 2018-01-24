@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kafka Monitor"
-date: 2016-10-12 12:25:06
+date: 2017-12-30 12:25:06
 description: Apache Kafka Monitor and Grafana Template
 tags: 
  - kafka
