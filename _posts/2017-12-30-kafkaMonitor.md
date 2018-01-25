@@ -35,6 +35,8 @@ Performance:
    MBean Name: kafka_server_brokertopicmetrics_bytesin_total 
  - BytesOutPerSec: Incoming/outgoing bytes per second.
    MBean Name: kafka_server_brokertopicmetrics_bytesout_total
+ - ZookeeperReuqestLatency: Kafka Request Zookeeper Latency
+   MBean Name: kafka_server_zookeeperclientmetrics_zookeeperrequestlatencyms
 
 Misc:
  - PurgatorySize: Number of requests waiting in producer purgatory, Number of requests waiting in fetch purgatory
