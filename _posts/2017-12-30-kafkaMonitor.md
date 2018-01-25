@@ -7,6 +7,9 @@ tags:
  - kafka
 ---
 
+**Kafka Monitor Prometheus Template**
+https://github.com/foreversunyao/Apache-Kafka-Tech/blob/master/Kafka_Monitor_Prometheus.json  
+
 
 **Kafka metrics**
 
