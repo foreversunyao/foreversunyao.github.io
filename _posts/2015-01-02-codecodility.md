@@ -8,7 +8,7 @@ tags:
 ---
 
 
-** 1. TapeEquilibrium **
+**1. TapeEquilibrium**
 ```
 def solution(A):
     # write your code in Python 3.6
@@ -26,7 +26,7 @@ def solution(A):
 ```
  
 
-** 2. FrogJmp **
+**2. FrogJmp**
 ```
 import math
 def solution(X, Y, D):
@@ -37,7 +37,7 @@ def solution(X, Y, D):
         return (math.ceil((Y-X)/D))
 ```
 
-** 3. PermMissingElem **
+**3. PermMissingElem**
 ```
 def solution(A):
     # write your code in Python 3.6
