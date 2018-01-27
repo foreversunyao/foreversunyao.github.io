@@ -9,7 +9,7 @@ tags:
 
 
 ** 1. TapeEquilibrium **
-
+```
 def solution(A):
     # write your code in Python 3.6
     left = A[0]
@@ -23,9 +23,11 @@ def solution(A):
         if abs(left - right)<min:
             min = abs(left - right)
     return min
-    
+```
+ 
 
 ** 2. FrogJmp **
+```
 import math
 def solution(X, Y, D):
     # write your code in Python 3.6
@@ -33,9 +35,10 @@ def solution(X, Y, D):
         return 0
     else: 
         return (math.ceil((Y-X)/D))
-
+```
 
 ** 3. PermMissingElem **
+```
 def solution(A):
     # write your code in Python 3.6
     B = [0 for i in range(len(A)+2)]
@@ -44,4 +47,4 @@ def solution(A):
     for i in range(1,len(B)):
         if B[i] == 0:
             return i
-
+```
