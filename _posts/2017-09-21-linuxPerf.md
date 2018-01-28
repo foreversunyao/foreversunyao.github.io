@@ -10,7 +10,7 @@ tags:
 **Perf Tool**
 
  - Usage
-{%
+```
 The most commonly used perf commands are:
      annotate        Read perf.data (created by perf record) and display annotated code
      archive         Create archive with object files with build-ids found in perf.data file
@@ -37,7 +37,7 @@ The most commonly used perf commands are:
      probe           Define new dynamic tracepoints
      trace           strace inspired tool
 
-%}
+```
 
  - Event:
 Hardware cache event
@@ -48,6 +48,7 @@ Software event
 Tracepoint event
 
 **Perf Example**
+```
 perf stat -d -a -g -- sleep 5
 
  Performance counter stats for 'system wide':
@@ -68,7 +69,7 @@ perf stat -d -a -g -- sleep 5
    <not supported>      LLC-load-misses:HG
 
        5.000903836 seconds time elapsed
-
+```
 The key metric here is instructions per cycle (insns per cycle: IPC), which shows on average how many instructions we were completed for each CPU clock cycle. The higher, the better (a simplification).
 If your IPC is < 1.0, you are likely memory stalled, and software tuning strategies include reducing memory I/O, and improving CPU caching and memory locality, especially on NUMA systems. Hardware tuning includes using processors with larger CPU caches, and faster memory, busses, and interconnects.
 If your IPC is > 1.0, you are likely instruction bound. Look for ways to reduce code execution: eliminate unnecessary work, cache operations, etc. CPU flame graphs are a great tool for this investigation. For hardware tuning, try a faster clock rate, and more cores/hyperthreads.
