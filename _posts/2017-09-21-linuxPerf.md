@@ -75,7 +75,7 @@ perf stat -d -a -g -- sleep 5
 The key metric here is instructions per cycle (insns per cycle: IPC), which shows on average how many instructions we were completed for each CPU clock cycle. The higher, the better (a simplification).
 If your IPC is < 1.0, you are likely memory stalled, and software tuning strategies include reducing memory I/O, and improving CPU caching and memory locality, especially on NUMA systems. Hardware tuning includes using processors with larger CPU caches, and faster memory, busses, and interconnects.
 If your IPC is > 1.0, you are likely instruction bound. Look for ways to reduce code execution: eliminate unnecessary work, cache operations, etc. CPU flame graphs are a great tool for this investigation. For hardware tuning, try a faster clock rate, and more cores/hyperthreads.
-[http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html]
+[refer](http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html)
 
 task-clock: clock time for running tasks
 context-switches: occur when the processor switches from one thread to another
