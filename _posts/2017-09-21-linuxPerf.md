@@ -10,7 +10,7 @@ tags:
 **Perf Tool**
 
  - Usage
-
+{%
 The most commonly used perf commands are:
      annotate        Read perf.data (created by perf record) and display annotated code
      archive         Create archive with object files with build-ids found in perf.data file
@@ -37,6 +37,7 @@ The most commonly used perf commands are:
      probe           Define new dynamic tracepoints
      trace           strace inspired tool
 
+%}
 
  - Event:
 Hardware cache event
