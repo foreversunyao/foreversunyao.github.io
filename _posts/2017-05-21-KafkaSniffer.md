@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kafka Sniffer(On going)"
+title: "Kafka Sniffer"
 date: 2017-05-21 12:25:06
 description: Kafka Sniffer
 tags: 
@@ -11,7 +11,7 @@ tags:
 
  - Code:
 
-https://github.com/foreversunyao/Kafka-related/blob/master/kafka_sniffer_v4.py
+[kafka_sniffer_code](https://github.com/foreversunyao/Kafka-related/blob/master/kafka_sniffer_v4.py)
 
  - Usage:
 
