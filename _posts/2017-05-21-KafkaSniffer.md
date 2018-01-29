@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kafka Sinffer(On going)"
+title: "Kafka Sniffer(On going)"
 date: 2017-05-21 12:25:06
 description: Kafka Sniffer
 tags: 
