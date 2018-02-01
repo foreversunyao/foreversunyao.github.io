@@ -36,6 +36,11 @@ ss -t4 state x
 14. bucket - Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
 15. big - Opposite to bucket state.
 
+**ISO**
+
+![img]({{ '/assets/images/linux/ISO.png' | relative_url }}){: .center-image }*(°0°)*
+
+
 **Netfilter System**
 
 ![img]({{ '/assets/images/linux/Iptables.jpg' | relative_url }}){: .center-image }*(°0°)*
@@ -105,19 +110,5 @@ iptables -A OUTPUT -j ACCEPT
 
 Keepalived is a routing software written in C. The main goal of this project is to provide simple and robust facilities for loadbalancing and high-availability to Linux system and Linux based infrastructures. Loadbalancing framework relies on well-known and widely used Linux Virtual Server (IPVS) kernel module providing Layer4 loadbalancing. Keepalived implements a set of checkers to dynamically and adaptively maintain and manage loadbalanced server pool according their health. On the other hand high-availability is achieved by VRRP protocol. VRRP is a fundamental brick for router failover. In addition, Keepalived implements a set of hooks to the VRRP finite state machine providing low-level and high-speed protocol interactions. Keepalived frameworks can be used independently or all together to provide resilient infrastructures.
 
-**Nginx**
-![img]({{ '/assets/images/linux/Nginx-internal.png' | relative_url }}){: .center-image }*(°0°)*
-
-![img]({{ '/assets/images/linux/Nginx.png' | relative_url }}){: .center-image }*(°0°)*
-
-Kill old worker process(after reload): ps aux |grep "worker process is shutting down"|grep -v grep |awk {"print $2"}|xargs -r kill
-
-Linux configuration for Nginx:
-net.ipv4.tcp_max_tw_buckets=260000 -- permit how many TIME_WAIT sockets open, if system is strong, can use a big number.
-net.ipv4.tcp_tw_reuse = 0 -- not use TIME_WAIT sockets
-net.ipv4.tcp_tw_recycle = 1 -- recycle TIME_WAIT sockets quickly  --dangerous, better not to use this
-net.ipv4.tcp_fin_timeout = 8 --- for recycle TIME_WAIT TCP AND PORT
-net.ipv4.ip_local_port_range = 10000 65000 ---for port range
-net.ipv4.tcp_max_syn_backlog = 8192 -- add queue for ack
 
 
