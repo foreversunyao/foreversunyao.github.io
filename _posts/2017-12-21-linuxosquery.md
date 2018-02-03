@@ -13,3 +13,7 @@ osquery is an operating system instrumentation framework for Windows, OS X (macO
 
 osquery exposes an operating system as a high-performance relational database. This allows you to write SQL queries to explore operating system data. With osquery, SQL tables represent abstract concepts such as running processes, loaded kernel modules, open network connections, browser plugins, hardware events or file hashes.
 
+
+
+[osquerygithub](https://github.com/facebook/osquery)
+[osquerywebmanager](https://kolide.com/fleet)
