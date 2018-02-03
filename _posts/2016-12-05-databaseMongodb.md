@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MongoDB"
+title: MongoDB
 date: 2016-12-05 09:25:06
 description: a scalability and flexibility document database
 tags: 
@@ -8,6 +8,8 @@ tags:
 ---
 
 **Mongodb vs MySQL**
+
+![img]({{ '/assets/images/database/MySQLvsMongodb.png' | relative_url }}){: .center-image }*(°0°)*
 
 **Mongodb Key Parameters**
  - system:
