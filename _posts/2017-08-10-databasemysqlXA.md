@@ -8,7 +8,7 @@ tags:
 ---
 
 **MySQL XA **
-[MySQL XA Blog(in Chinese)](https://www.jianshu.com/p/7003d58ea182)
+[MySQL XA Introduction(in Chinese)](https://www.jianshu.com/p/7003d58ea182)
 
 ![img]({{ '/assets/images/database/MySQl-XA.png' | relative_url }}){: .center-image }*(°0°)*
 
