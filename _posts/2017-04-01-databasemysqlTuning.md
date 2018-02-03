@@ -9,6 +9,7 @@ tags:
 
 **MySQL Tuning **
 
+[my.cnf.example](https://github.com/foreversunyao/Configuration_Example/blob/master/my.cnf)
 
 ![img]({{ '/assets/images/database/MySQL-Tuning.png' | relative_url }}){: .center-image }*(°0°)*
 
