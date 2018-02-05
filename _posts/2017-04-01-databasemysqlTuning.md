@@ -15,7 +15,7 @@ Hardware --> OS --> MySQL --> Table --> SQL --> Other alternative
 	1, Decrease the size of one table to improve index efficiency
         2, Decrease the skew in one table
         3, Add Mem in Buffer Pool if possible, check Buffer pool hit rate parameter
-
+        4, Decrease the Innodb_pages_read
 mem used:
 used_Mem =
 + key_buffer_size
