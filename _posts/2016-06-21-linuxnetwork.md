@@ -18,6 +18,8 @@ u_str  ESTAB      0      0                    * 15204                 * 15205
 
 ss -ltp(pid and conn)
 
+ss -t4 |awk '{print $1}'|sort |uniq -c
+
 Display sockets with state x 
 ss -t4 state x  
 1. established
