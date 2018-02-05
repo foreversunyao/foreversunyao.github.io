@@ -35,6 +35,7 @@ used_Mem =
 )
 
  - Decrease concurrent connection and request to MySQL
+        1, enable pool thread thread_handling/thread_pool_size
  - Decrease the disk io operation
         1, innodb_flush_log_at_trx_commit
         2, sync_binlog
