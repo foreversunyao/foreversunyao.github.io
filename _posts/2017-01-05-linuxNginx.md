@@ -13,7 +13,17 @@ tags:
 
 
 **epoll,poll,select**
+Nginx supports the following connection method (I/O multiplexing method), these methods can be specified through the use command.
 
+　　* select – The standard method. If the current platform is no more effective method, it is the compiler default. You can use configuration parameters - with-select_module and - without-select_module to enable or disable this module.
+
+　　* poll – The standard method. If the current platform is no more effective method, it is the compiler default. You can use configuration parameters - with-poll_module and - without-poll_module to enable or disable this module.
+
+　　* kqueue – Efficient method, used in FreeBSD 4.1+, OpenBSD 2.9+, MacOS NetBSD 2 and MacOS X. X system using dual processor using kqueue may cause kernel crash.
+
+　　* epoll – Efficient method, system used in the Linux kernel version 2.6 and later. In some distributions, such as SuSE 8.2, there are 2.4 versions of epoll support in the kernel patch.
+
+　　* rtsig – Real time signal can be performed using in the system, Linux kernel version 2.2.19 later. Not by default in the whole system more than 1024 real time POSIX (queuing) signal. This is inefficient for highly loaded servers; it is necessary to adjust the kernel parameter /proc/sys/kernel/rtsig-max to increase the queue size. 
 
 **nginx worker,fastcgi,socket**
 
