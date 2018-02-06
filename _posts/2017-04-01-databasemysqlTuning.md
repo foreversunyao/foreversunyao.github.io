@@ -17,22 +17,22 @@ Hardware --> OS --> MySQL --> Table --> SQL --> Other alternative
         3, Add Mem in Buffer Pool if possible, check Buffer pool hit rate parameter
         4, Decrease the Innodb_pages_read
 mem used:
-used_Mem =
-+ key_buffer_size
-+ query_cache_size
-+ innodb_buffer_pool_size
-+ innodb_additional_mem_pool_size
-+ innodb_log_buffer_size
-+ max_connections *(
-       + read_buffer_size
-    + read_rnd_buffer_size
-    + sort_buffer_size
-    + join_buffer_size
-    + binlog_cache_size
-    + thread_stack
-    + tmp_table_size
-    + bulk_insert_buffer_size
-)
+	used_Mem =
+	+ key_buffer_size
+	+ query_cache_size
+	+ innodb_buffer_pool_size
+	+ innodb_additional_mem_pool_size
+	+ innodb_log_buffer_size
+	+ max_connections *(
+       		+ read_buffer_size
+    		+ read_rnd_buffer_size
+    		+ sort_buffer_size
+    		+ join_buffer_size
+    		+ binlog_cache_size
+    		+ thread_stack
+    		+ tmp_table_size
+    		+ bulk_insert_buffer_size
+	)
 
  - Decrease concurrent connection and request to MySQL
         1, enable pool thread thread_handling/thread_pool_size
