@@ -78,6 +78,10 @@ When an app uses UDP, packets are just sent to the recipient. The sender doesn�
 
 UDP is used when speed is desirable and error correction isn’t necessary. For example, UDP is frequently used for live broadcasts and online games.
 
+TCP – is for connection orientated applications. It has built in error checking and will re transmit missing packets.
+
+UDP – is for connection less applications. It has no has built in error checking and will not re transmit missing packets.
+
 **ICMP**
 
 ![img]({{ '/assets/images/linux/ICMP-head.png' | relative_url }}){: .center-image }*(°0°)*
