@@ -59,6 +59,12 @@ vmstat -s
 
  - create raid 10
 mdadm --create /dev/md3 --run --level=10 --chunk=4 --raid-devices=4 /dev/sdf1 /dev/sdg1 /dev/sdh1 /dev/sdi1
+
+ - MegaCli64
+MegaCli64 -PdList -aAll
+
+ - hdparm(diagnosis and tuning of hard drives)
+hdparm -I /dev/sda | more
    
 **CPU**
 
