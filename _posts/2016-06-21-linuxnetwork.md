@@ -38,6 +38,42 @@ ss -t4 state x
 14. bucket - Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
 15. big - Opposite to bucket state.
 
+
+**Socket**
+It is the socket pair (the 4-tuple consisting of the client IP address, client port number, server IP address, and server port number) that specifies the two endpoints that uniquely identifies each TCP connection in an internet. 
+
+
+For tcp:
+Clinet:
+The steps involved in establishing a socket on the client side are as follows:
+1,Create a socket with the socket() system call
+2,Connect the socket to the address of the server using the connect() system call
+3,Send and receive data. There are a number of ways to do this, but the simplest is to use the read() and write() system calls.
+
+Server:
+1,Create a socket with the socket() system call
+2,Bind the socket to an address using the bind() system call. For a server socket on the Internet, an address consists of a port number on the host machine.
+3,Listen for connections with the listen() system call
+4,Accept a connection with the accept() system call. This call typically blocks until a client connects with the server.
+5,Send and receive data
+
+Often, the servicing of a request on behalf of a client may take a considerable length of time. It would be more efficient in such a case to accept and deal with new connections while a request is being processed. The most common way of doing this is for the server to fork a new copy of itself after accepting the new connection.
+
+For udp:
+Clinet:
+The socket() API returns a socket descriptor, which represents an endpoint. The statement also identifies that the Internet Protocol version 6 address family (AF_INET6) with the UDP transport (SOCK_DGRAM) is used for this socket.
+In the client example program, the getaddrinfo() API is used to retrieve the IP address of the server. getaddrinfo() handles a server string that is passed as a valid IPv6 address string or a host name of the server.
+Use the sendto() API to send the data to the server.
+Use the recvfrom() API to receive the data from the server.
+The close() API ends any open socket descriptors.
+
+Server:
+The socket() API returns a socket descriptor, which represents an endpoint. The statement also identifies that the Internet Protocol version 6 address family (AF_INET6) with the UDP transport (SOCK_DGRAM) is used for this socket.
+After the socket descriptor is created, a bind() API gets a unique name for the socket. In this example, the user sets the s6_addr to zero, which means that the UDP port of 3555 is bound to all IPv4 and IPv6 addresses on the system.
+The server uses the recvfrom() API to receive that data. The recvfrom() API waits indefinitely for data to arrive.
+The sendto() API echoes the data back to the client.
+The close() API ends any open socket descriptors.
+
 **ISO**
 
 ![img]({{ '/assets/images/linux/ISO.png' | relative_url }}){: .center-image }*(°0°)*
@@ -76,9 +112,9 @@ UDP works: The UDP protocol works similarly to TCP, but it throws out all the er
 
 When an app uses UDP, packets are just sent to the recipient. The sender doesn’t wait to make sure the recipient received the packet—it just continues sending the next packets. If the recipient misses a few UDP packets here and there, they are just lost—the sender won’t resend them. Losing all this overhead means the devices can communicate more quickly.
 
-UDP is used when speed is desirable and error correction isn’t necessary. For example, UDP is frequently used for live broadcasts and online games.
+UDP is used when speed is desirable and error correction isn’t necessary. For example, UDP is frequently used for live broadcasts and online games, and it is used by DNS, DHCP, TFTP, SNMP, RIP, VOIP.
 
-TCP – is for connection orientated applications. It has built in error checking and will re transmit missing packets.
+TCP – is for connection orientated applications. It has built in error checking and will re transmit missing packets and it used by HTTP, HTTPs, FTP, SMTP, Telnet protocols.
 
 UDP – is for connection less applications. It has no has built in error checking and will not re transmit missing packets.
 
