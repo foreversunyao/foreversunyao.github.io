@@ -153,4 +153,21 @@ iptables -A OUTPUT -j ACCEPT
 Keepalived is a routing software written in C. The main goal of this project is to provide simple and robust facilities for loadbalancing and high-availability to Linux system and Linux based infrastructures. Loadbalancing framework relies on well-known and widely used Linux Virtual Server (IPVS) kernel module providing Layer4 loadbalancing. Keepalived implements a set of checkers to dynamically and adaptively maintain and manage loadbalanced server pool according their health. On the other hand high-availability is achieved by VRRP protocol. VRRP is a fundamental brick for router failover. In addition, Keepalived implements a set of hooks to the VRRP finite state machine providing low-level and high-speed protocol interactions. Keepalived frameworks can be used independently or all together to provide resilient infrastructures.
 
 
+**Network conf**
+lo: is a loopback device, a specific virtual interface, which system uses to communicate with itself. Thanks to lo, local applications can communicate with each other even without a network connection.
+arp: allows us to look at the table of MAC-addresses the device knows and IP-addresses mapped to them.
 
+**DHCP**
+In case of DHCP, it happens like this:
+A DHCP-client sends a broadcast message with a request "I need an IP-address"
+A DHCP-server catches it and sends back also a broadcast message "I have an IP-address x.x.x.x, do you want it?"
+The DHCP-client receives the message and sends another one: "Yes, I want the address x.x.x.x"
+The DHCP-server answers "Ok, then x.x.x.x belongs to you"
+
+VPN:
+Different protocols: IP security,Layer 2 Tunnerling, Secure Sockets Layer/Transport Layer Security,Point-to-Point Tunneling Protocol,Secure Shell.
+vpn client -(encrpted)-> vpn server(judge and permit or deny)
+
+LDAP:
+LDAP directory service is based on a client/server model. One or more LDAP servers contain the data making up the LDAP directory tree. An LDAP client application connects to an LDAP server using LDAP APIs and asks it a question. The server responds with the answer, or with a pointer to where the application can get more information (typically, another LDAP server). With a properly constructed namespace, no matter which LDAP server an application connects to, it sees the same view of the directory; a name presented to one LDAP server references the same entry it would at another LDAP server. This is an important feature of a global directory service, which LDAP servers can provide.
+file:/etc/sssd/sssd.conf 
