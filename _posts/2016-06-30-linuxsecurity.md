@@ -24,3 +24,8 @@ The other way that events are created is by the kernel observing system activity
 ![img]({{ '/assets/images/linux/ossec-desc.png' | relative_url }}){: .center-image }*(°0°)*
 
 OSSEC is an Open Source Host-based Intrusion Detection System. It performs log analysis, integrity checking, Windows registry monitoring, rootkit detection, real-time alerting and active response. 
+
+
+**LADP**
+LDAP directory service is based on a client/server model. One or more LDAP servers contain the data making up the LDAP directory tree. An LDAP client application connects to an LDAP server using LDAP APIs and asks it a question. The server responds with the answer, or with a pointer to where the application can get more information (typically, another LDAP server). With a properly constructed namespace, no matter which LDAP server an application connects to, it sees the same view of the directory; a name presented to one LDAP server references the same entry it would at another LDAP server. This is an important feature of a global directory service, which LDAP servers can provide.
+file:/etc/sssd/sssd.conf
