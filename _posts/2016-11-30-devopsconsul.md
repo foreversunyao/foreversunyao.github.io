@@ -86,4 +86,8 @@ dig @127.0.0.1 -p 8600 servicename.service.consul
 curl  http://localhost:8500/v1/agent/checks
 curl http://localhost:8500/v1/agent/check/pass/nginx1
 curl http://localhost:8500/v1/kv/commons/test/config?raw
+
 **Consul demo**
+![img]({{ '/assets/images/devops/consul_demo.png' | relative_url }}){: .center-image }*(°0°)*
+[consul template](https://github.com/foreversunyao/Scripts-and-Configuration_Example/blob/master/nginx_confupdate_by_consul_template.sh)
+
