@@ -14,6 +14,12 @@ Key features:
 Consul makes it simple for services to register themselves and to discover other services via a DNS or HTTP interface. Register external services such as SaaS providers as well.
  - Failure Detection
 Pairing service discovery with health checking prevents routing requests to unhealthy hosts and enables services to easily provide circuit breakers.
+Script + Interval 
+HTTP + Interval
+TCP + Interval
+Time to Live (TTL)
+Docker + Interval
+
  - Multi Datacenter
 Consul scales to multiple datacenters out of the box with no complicated configuration. Look up services in other datacenters, or keep the request local.
  - KV Storage
@@ -48,6 +54,36 @@ Every communication in Raft includes an exchange and comparison of currentTerms.
 **Configuration**
 [consul](https://github.com/foreversunyao/Scripts-and-Configuration_Example/blob/master/consul_config.json)
 **Monitor**
-[grafana](11)
+[grafana](https://grafana.com/dashboards/2351)
 
 **CommandsandTools**
+check members:
+curl --header "X-Consul-Token: abcd1234" https://consul.rocks/v1/agent/members
+add key:
+curl --request PUT --data 'hello consul' https://consul.rocks/v1/kv/foo
+add service:
+curl  --request PUT  --data @test.json http://localhost:8500/v1/agent/service/register
+test.json:
+   {
+    "ID": "nginx1",
+    "Name": "nginx",
+    "Tags": [
+    "primary",
+    "v1"
+    ],
+    "Address": "127.0.0.1",
+    "Port": 80,
+    "EnableTagOverride": false,
+    "Check": {
+    "DeregisterCriticalServiceAfter": “12h",
+    "HTTP": "http://localhost:5000/health",
+    "Interval": "1s"
+    }
+    }
+delete service:curl  --request PUT  http://localhost:8500/v1/agent/service/deregister/nginx1
+
+dig @127.0.0.1 -p 8600 servicename.service.consul
+curl  http://localhost:8500/v1/agent/checks
+curl http://localhost:8500/v1/agent/check/pass/nginx1
+curl http://localhost:8500/v1/kv/commons/test/config?raw
+**Consul demo**
