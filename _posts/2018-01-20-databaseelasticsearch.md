@@ -20,6 +20,19 @@ Reverse_index:
 ![img]({{ '/assets/images/devops/es_post.png' | relative_url }}){: .center-image }*(°0°)*
 ![img]({{ '/assets/images/devops/es_get.png' | relative_url }}){: .center-image }*(°0°)*
 
+Node type:
+Master-eligible node
+A node that has node.master set to true (default), which makes it eligible to be elected as the master node, which controls the cluster.
+Data node
+A node that has node.data set to true (default). Data nodes hold data and perform data related operations such as CRUD, search, and aggregations.
+Ingest node
+A node that has node.ingest set to true (default). Ingest nodes are able to apply an ingest pipeline to a document in order to transform and enrich the document before indexing. With a heavy ingest load, it makes sense to use dedicated ingest nodes and to mark the master and data nodes as node.ingest: false.
+Tribe node
+A tribe node, configured via the tribe.* settings, is a special type of coordinating only node that can connect to multiple clusters and perform search and other operations across all connected clusters.
+
+Coordinating node:
+Every node is implicitly a coordinating node.A search request, for example, is executed in two phases which are coordinated by the node which receives the client request — the coordinating node.In the scatter phase, the coordinating node forwards the request to the data nodes which hold the data. Each data node executes the request locally and returns its results to the coordinating node. In the gather phase, the coordinating node reduces each data node’s results into a single global resultset.
+Every node is implicitly a coordinating node. This means that a node that has all three node.master, node.data and node.ingest set to false will only act as a coordinating node, which cannot be disabled. As a result, such a node needs to have enough memory and CPU in order to deal with the gather phase.
 
 **Configuration**
 
