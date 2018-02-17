@@ -34,6 +34,23 @@ Coordinating node:
 Every node is implicitly a coordinating node.A search request, for example, is executed in two phases which are coordinated by the node which receives the client request — the coordinating node.In the scatter phase, the coordinating node forwards the request to the data nodes which hold the data. Each data node executes the request locally and returns its results to the coordinating node. In the gather phase, the coordinating node reduces each data node’s results into a single global resultset.
 Every node is implicitly a coordinating node. This means that a node that has all three node.master, node.data and node.ingest set to false will only act as a coordinating node, which cannot be disabled. As a result, such a node needs to have enough memory and CPU in order to deal with the gather phase.
 
+**Storage**
+![img]({{ '/assets/images/devops/es_storage.png' | relative_url }}){: .center-image }*(°0°)*
+
+**Index updated**
+ - Index refresh
+When new information is added to an index, or existing information is updated or deleted, each shard in the index is updated via two processes: refresh and flush.
+Newly indexed documents are not immediately made available for search. First they are written to an in-memory buffer where they await the next index refresh, which occurs once per second by default. The refresh process creates a new in-memory segment from the contents of the in-memory buffer (making the newly indexed documents searchable), then empties the buffer, as shown below.
+A segment is immutable, so updating a document means:
+writing the information to a new segment during the refresh process
+marking the old information as deleted
+The old information is eventually deleted when the outdated segment is merged with another segment.
+![img]({{ '/assets/images/devops/es_refresh.png' | relative_url }}){: .center-image }*(°0°)*
+
+ - Index flush
+At the same time that newly indexed documents are added to the in-memory buffer, they are also appended to the shard’s translog: a persistent, write-ahead transaction log of operations. Every 30 minutes, or whenever the translog reaches a maximum size (by default, 512MB), a flush is triggered. During a flush, any documents in the in-memory buffer are refreshed (stored on new segments), all in-memory segments are committed to disk, and the translog is cleared.
+![img]({{ '/assets/images/devops/es_flush.png' | relative_url }}){: .center-image }*(°0°)*
+
 **Configuration**
 
  - Cluster:
@@ -50,6 +67,7 @@ cluster.routing.allocation.same_shard.host
 index.number_of_replicas
  - Durable:
 gateway.type
+index.refresh_interval
  - Transport:
 transport.tcp.port
 http.port
@@ -88,6 +106,14 @@ index.translog.flush_threshold_size
 index.translog.flush_threshold_period
 index.translog.interval
 index.gateway.local.sync
+ - Merge
+index.merge.policy.expunge_deletes_allowed
+index.merge.policy.floor_segment
+index.merge.policy.max_merge_at_once
+index.merge.policy.max_merge_at_once_explicit
+index.merge.policy.max_merged_segment
+index.merge.policy.segments_per_tier
+index.merge.policy.reclaim_deletes_weight
  - Other:
 action.destructive_requires_name
 
@@ -142,3 +168,5 @@ curl -XGET -u elastic:password http://localhost:9200/_cluster/pending_tasks?pret
 curl -XPOST 'http://localhost:9200/_tasks/task_id:175591/_cancel'
 curl -XGET -u elastic:password http://localhost:9200/_cat/nodes?help
 curl -XPOST 'http://localhost:9200/xx/_optimize'
+curl -XGET localhost:9200/_cluster/state?pretty=true
+
