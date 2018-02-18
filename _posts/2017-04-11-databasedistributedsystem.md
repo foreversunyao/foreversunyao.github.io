@@ -8,7 +8,11 @@ tags:
 ---
 
 **CAP**
+![img]({{ '/assets/images/database/cap.png' | relative_url }}){: .center-image }*(°0°)*
 
+CA: single server
+CP: multi servers, like 2pc
+AP: multi servers, like raft
 
 **consistent**
 
