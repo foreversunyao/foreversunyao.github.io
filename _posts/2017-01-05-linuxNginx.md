@@ -40,14 +40,59 @@ net.core.netdev_max_backlog = 65535
 sys.fs.file_max = 3252969
 nofile = 655350
 
+for tcp keepalive:
+net.ipv4.tcp_keepalive_time = 900  --try to send detect package after no data
+net.ipv4.tcp_keepalive_intvl = 30  -- interval between two detect
+net.ipv4.tcp_keepalive_probes = 3  --detect times
+so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]
+
+for http keep-alive:
+keepalive_timeout timeout [header_timeout]  --
+keepalive_requests  --
 
 **Nginx Configuration Tuning**
+worker_processes -- more than 1/2 cpu cores
+worker_cpu_affinity 
+worker_connections
+client_body_buffer_size 10K;
+client_header_buffer_size 1k;
+client_max_body_size 8m;
+large_client_header_buffers 2 1k;
+client_body_timeout 12;
+client_header_timeout 12;
+keepalive_timeout 15;
+send_timeout 10;
+gzip             on;
+gzip_comp_level  2;
+gzip_min_length  1000;
+gzip_proxied     expired no-cache no-store private auth;
+gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
+location ~* .(jpg|jpeg|png|gif|ico|css|js)$ {
+expires 365d;
+}
+access_log off;
 
+**keepalive**
 
+HTTP Keep-Alive is a feature that allows HTTP client (usually browser) and server (webserver) to send multiple request/response pairs over the same TCP connection. This decreases latency for 2nd, 3rd,... HTTP request, decreases network traffic and similar.
+TCP keepalive is a totally different beast. It keeps TCP connection opened by sending small packets. Additionally, when the packet is sent this serves as a check so the sender is notified as soon as connection drops (note that this is NOT the case otherwise - until we try to communicate through TCP connection we have no idea if it is ok or not).
+for tcp keepalive:
+net.ipv4.tcp_keepalive_time = 900  --try to send detect package after no data
+net.ipv4.tcp_keepalive_intvl = 30  -- interval between two detect
+net.ipv4.tcp_keepalive_probes = 3  --detect times
+so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]
+keepalive --upstream
+proxy_http_version 1.1
+proxy_set_header Connection ""
+
+for http keep-alive:
+keepalive_timeout timeout [header_timeout]
+keepalive_requests
 
 **HTTP(S) Web Server**
 
 static:
+{% highlight bash %}
 http {
 	    server {
 			    listen 80;
@@ -58,8 +103,9 @@ http {
 			    }
 	    }
 }
-
+{% endhighlight %}
 dynamic:
+{% highlight bash %}
 http {
 	    server {
 			    listen 80;
@@ -75,8 +121,9 @@ http {
     			}
 		}
 }
-
+{% endhighlight %}
 https:
+{% highlight bash %}
 http {
     ssl_session_cache   shared:SSL:10m;
     ssl_session_timeout 10m;
@@ -95,9 +142,11 @@ http {
 		   	}
 	}
 }
+{% endhighlight %}
 
 **TCP PROXY SERVER**
 tcp:
+{% highlight bash %}
 upstream db-mysql1 {
     server ip:3306 max_fails=3 fail_timeout=60 weight=1;
     server ip:3306 max_fails=3 fail_timeout=60 weight=1;
@@ -109,4 +158,4 @@ server {
     proxy_pass db-mysql1;
     allow ip1;
 }
-
+{% endhighlight %}
