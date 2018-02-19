@@ -13,6 +13,7 @@ tags:
 **Zabbix**
 has push and pull mode
 lots of templates and powerfull agent
+tcp communication
 Database performance maybe the bottleneck
 good for network devices and physical servers
 
@@ -21,6 +22,7 @@ pull mode
 similar levedb engine
 good for container and services
 has collector and alert systems
+http communication
 no cluster right now
 
 **Influxdb**
