@@ -35,3 +35,7 @@ file:/etc/sssd/sssd.conf
 SUID(4):SUID stands for Set User ID. This means that If SUID bit is set on a file and a user executed it. The process will have the same rights as the owner of the file being executed.
 SGID(2):SGID stands for Set Group ID. The process will have the same group rights of the file being executed. If SGID bit is set on any directory, all subdirectories and files created inside will get same group ownership as the main directory, it doesn’t matter who is creating.
 SBIT(1): The sticky bit is used to indicate special permissions for files and directories. If a directory with sticky bit enabled will restrict deletion of the file inside it. It can be removed by root, owner of the file or who have to write permission on it. This is useful for publically accessible directories like /tmp.
+
+
+**encrypt-gpg**
+mysqldump --all-databases | gpg --encrypt -r root 
