@@ -134,14 +134,37 @@ threadpool.bulk.queue_size: 5000
 threadpool:
     index:
         type: fixed
-        size: 100
+        size: 1000
     search:
         type: fixed
-        size: 1000
+        size: 3000
+index.search.slowlog.threshold.query.warn: 5s
+index.search.slowlog.threshold.query.info: 1s
+index.search.slowlog.threshold.query.debug: 500ms
+index.search.slowlog.threshold.query.trace: 200ms
+index.search.slowlog.threshold.fetch.warn: 1s
+index.search.slowlog.threshold.fetch.info: 800ms
+index.search.slowlog.threshold.fetch.debug: 500ms
+index.search.slowlog.threshold.fetch.trace: 200ms
+index.indexing.slowlog.threshold.index.warn: 5s
+index.indexing.slowlog.threshold.index.info: 2s
+index.indexing.slowlog.threshold.index.debug: 1s
+index.indexing.slowlog.threshold.index.trace: 100ms
+script.engine.groovy.inline.aggs: true
+script.engine.groovy.inline.search: true
+index.cache.field.type: soft
+index.cache.field.expire: 1m
+index.cache.field.max_size: 5000
+indices.cache.query.size: 2gb
+indices.cache.filter.size: 2gb
+indices.fielddata.cache.size: 2gb
+#enable scripting to calculate distance
+
 jvm:
 -Xmx16g -Xms16g
-JAVA_OPTS=”$JAVA_OPTS -XX:+UseG1GC”
-JAVA_OPTS=”$JAVA_OPTS -XX:MaxGCPauseMillis=200″
+ES_JAVA_OPTS="-XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=100 -XX:GCLogFileSize=10M -XX:+CMSIncrementalMode -XX:+CMSScavengeBeforeRemark -XX:+ParallelRefProcEnabled -XX:NewSize=5G -XX:MaxTenuringThreshold=15 -XX:SurvivorRatio=20 -XX:CMSInitiatingOccupancyFraction=50 -XX:+UseCMSInitiatingOccupancyOnly
+MAX_LOCKED_MEMORY=unlimited
+ES_GC_LOG_FILE=xx.gc.log
 
 os:
 vm.swappiness = 1
@@ -161,6 +184,7 @@ NIC 10Gb
 [grafana](https://grafana.com/dashboards/878)
 
 **CommandsandTools**
+curl -XGET http://localhost:9200/_cat/indices
 curl -XGET -u elastic:password http://localhost:9200/_cluster/health?pretty
 status:green/yellow(replicate has issue)/red(master has issue)
 curl -XGET -u elastic:password http://localhost:9200/_nodes/stats?pretty=true
@@ -169,4 +193,4 @@ curl -XPOST 'http://localhost:9200/_tasks/task_id:175591/_cancel'
 curl -XGET -u elastic:password http://localhost:9200/_cat/nodes?help
 curl -XPOST 'http://localhost:9200/xx/_optimize'
 curl -XGET localhost:9200/_cluster/state?pretty=true
-
+curl -XGET -u elastic:password 'http://localhost:9200/_cat/master'
