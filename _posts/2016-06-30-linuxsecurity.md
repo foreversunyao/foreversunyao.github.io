@@ -24,6 +24,54 @@ The other way that events are created is by the kernel observing system activity
 ![img]({{ '/assets/images/linux/ossec-desc.png' | relative_url }}){: .center-image }*(°0°)*
 
 OSSEC is an Open Source Host-based Intrusion Detection System. It performs log analysis, integrity checking, Windows registry monitoring, rootkit detection, real-time alerting and active response. 
+**SSL/TLS**
+[refer](https://blogs.msdn.microsoft.com/kaushal/2013/08/02/ssl-handshake-and-https-bindings-on-iis/)
+
+TLS is the successor of SSL.
+SSL 2.0
+SSL 3.0
+TLS 1.0 (SSL 3.1)
+TLS 1.1 (SSL 3.2)
+TLS 1.2 (SSL 3.3)
+
+![img]({{ '/assets/images/linux/ssl_tls1.png' | relative_url }}){: .center-image }*(°0°)*
+![img]({{ '/assets/images/linux/ssl_tls2.png' | relative_url }}){: .center-image }*(°0°)*
+
+ - Client will try to resolve the hostname to an IPAddress via DNS.
+ - Once the client has the Destination IP, it will send a TCP SYN to the server.
+ - The Server responds with ACK to this SYN.
+ - The client responds with an ACK to the ACK it received from the server. Now a TCP connection has been established between the client and the server. The client will now forward the requests to the Destination IP on port 443 (Default TLS/SSL port)
+ - The control is now transferred to the SSL Protocol in the application layer. It has the IP & the Port information handy from previous steps. However, it still has no clue whatsoever about the hostname.
+ - The client creates a TLS Packet called as CLIENT HELLO. This contains the following details:
+SSL Protocol version
+Session ID
+List of Cipher Suites supported by the client.
+List of CLIENT HELLO Extensions
+ - The client sends a CLIENT HELLO to the server on the IP & Port it obtained during TCP handshake.
+ - The client sends a CLIENT HELLO to the server on the IP & Port it obtained during TCP handshake.
+For this scenario I will consider IIS 7.5 as the SERVER entity. Upon receiving the CLIENT HELLO, the server has access to the following information:
+IP Address (10.168.3.213)
+Port Number (443)
+Protocol Version (TLS 1.0)
+List of Cipher Suites
+Session ID
+List of CLIENT HELLO Extensions etc.
+The Server will first check if it supports the above protocol version and if any of the cipher suites in the provided list. If not, the handshake fails there itself.
+ - The Server typically responds back with the following details:
+SSL/TLS Protocol version.
+One of the cipher suites from the list of cipher suites provided by client. (whichever is the most secure)
+Certificate of the server (Without the private key of course)
+List of SERVER HELLO Extensions.
+(OPTIONAL)If the web app associated with this binding requires a Client Certificate for authentication then it would request the client to send the certificate. Here the IIS Sever would send the client the distinguished names of the list of TRUSTED ROOT CA it supports.
+ - The Client uses the SERVER HELLO to perform SERVER AUTHENTICATION. If the server cannot be authenticated, the user is warned and informed that an encrypted and authenticated connection cannot be established. If the server is successfully authenticated, the client proceeds to the next step.
+ - The Client uses the data provided from the server to generate a pre-master secret for the session, encrypts it with the server's public key (obtained from the server's certificate), and then sends the encrypted pre-master secret to the server. If the server had requested for CLIENT CERTIFICATE, then client also signs another piece of data that is unique to this handshake and known by both the client and server. In this case, the client sends both the signed data and the client's own certificate to the server along with the encrypted pre-master secret.
+ - If the server had requested for client authentication, the server attempts to authenticate the client. If the client cannot be authenticated, the session ends. If the client is successfully authenticated, the server uses its private key to decrypt the pre-master secret, and then performs a series of steps (which the client also performs, starting from the same pre-master secret) to generate the master secret.
+ - Both the client and the server use the master secret to generate the session keys, which are symmetric keys used to encrypt and decrypt information exchanged during the SSL session and to verify its integrity (that is, to detect any changes in the data between the time it was sent and the time it is received over the SSL connection).
+ - The CLIENT & the SERVER send each other a message informing that future messages from them will be encrypted with the session key. It then sends a separate (encrypted) message indicating that its portion of the handshake is finished.
+ - The SSL Handshake is done. The Client and the Server send each other messages which are encrypted/decrypted using the session keys generated in the previous step.
+ - It is now that the Client sends the actual HTTP Request packet to the Server in the encrypted form.
+ - The Server decrypts the request via the symmetric key and generates a response, encrypts it and sends it back to the client.
+ - This continues normally for the entire session of secure communication. However, at any time either the client or the server may renegotiate the connection. In this case the process repeats again.
 
 
 **LADP**
