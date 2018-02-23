@@ -38,6 +38,10 @@ ss -t4 state x
 14. bucket - Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
 15. big - Opposite to bucket state.
 
+**interface**
+ip link add
+ip link show
+ip link del docker0
 
 **Socket**
 It is the socket pair (the 4-tuple consisting of the client IP address, client port number, server IP address, and server port number) that specifies the two endpoints that uniquely identifies each TCP connection in an internet. 
