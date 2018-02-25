@@ -55,4 +55,47 @@ def solution(A):
         if B[i] == -1:
             return i
     return len(A)+1
+```
+
+**4.MaxCounters** 
+```
+### need to be improved
+def solution(N, A):
+    # write your code in Python 3.6
+    before_max =0
+    current_max = 0
+    n_array = [0 for x in range(N+1)]
+    for i in range(len(A)):
+        if A[i] <= N and n_array[A[i]] < before_max:
+                n_array[A[i]] = before_max + 1
+                if  n_array[A[i]] > current_max:
+                    current_max = n_array[A[i]]
+        elif A[i] <= N and n_array[A[i]] >= before_max:
+                n_array[A[i]] = n_array[A[i]] + 1
+                current_max =  n_array[A[i]]
+        elif A[i] >= N + 1:
+            before_max = current_max
+        else:
+            pass
+    for i in range(len(n_array)):
+        if n_array[i] < before_max:
+            n_array[i] = before_max
+    return n_array
+
+def solution(N, A):
+    # write your code in Python 3.6
+    before_max =0
+    current_max = 0
+    n_array = [0 for x in range(N+1)]
+    for i in range(len(A)):
+        if A[i] <= N:
+            n_array[A[i]] =  max(before_max+1,n_array[A[i]] + 1)
+            if current_max < n_array[A[i]]:
+                current_max =  n_array[A[i]]
+        else :
+            before_max = current_max
+    for i in range(1,len(n_array)):
+        if n_array[i] < before_max:
+            n_array[i] = before_max
+    return n_array[1:]
 ``` 

@@ -18,6 +18,8 @@ Each partition is an ordered, immutable sequence of records that is continually 
  
  - ISR
 
+Kafka don't use any zab or paxos to ensure data consistent in cluster, it use isr to ensure it. isr only needs f+1 copy(less than 2f+1 than zab and paxos).
+
 ![img]({{ '/assets/images/kafka/kafka_isr.png' | relative_url }}){: .center-image }*(°0°)*
 
 acks=0 If set to zero then the producer will not wait for any acknowledgment from the server at all. The record will be immediately added to the socket buffer and considered sent. No guarantee can be made that the server has received the record in this case, and theretries configuration will not take effect (as the client won't generally know of any failures). The offset given back for each record will always be set to -1.

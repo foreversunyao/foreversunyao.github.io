@@ -27,3 +27,22 @@ autopurge.purgeInterval=24
 maxClientCnxns=1000
 minSessionTimeout=30000
 maxSessionTimeout=60000
+
+**Monitor**
+zookeeper.bytes_outstanding
+zookeeper.bytes_received
+zookeeper.bytes_sent
+zookeeper.connections
+zookeeper.latency.avg
+zookeeper.latency.max
+zookeeper.latency.min
+zookeeper.nodes
+zookeeper.outstanding_request
+zookeeper.zxid.count
+zookeeper.zxid.epoch
+
+**Some Commands**
+echo mntr | nc localhost 2181
+echo stat|nc localhost 2181
+echo conf| nc localhost 2181
+echo ruok| nc localhost 2181
