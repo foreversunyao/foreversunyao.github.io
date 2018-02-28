@@ -29,3 +29,18 @@ def solution(A, B, K):
         return int((B-A)/K) + border
 
 ```
+
+**2.Passing Cars**
+```
+def solution(A):
+    # write your code in Python 3.6
+    count = 0
+    zero_count = 0
+    one_count = 0
+    for i in range(len(A)):
+        if A[i] == 0:
+            zero_count = zero_count + 1
+        if A[i] == 1 and zero_count > 0:
+            count = count + zero_count
+    return count
+```
