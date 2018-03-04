@@ -122,6 +122,8 @@ TCP – is for connection orientated applications. It has built in error checkin
 
 UDP – is for connection less applications. It has no has built in error checking and will not re transmit missing packets.
 
+![img]({{ '/assets/images/linux/tcp_udp.png' | relative_url }}){: .center-image }*(°0°)*
+
 **ICMP**
 
 ![img]({{ '/assets/images/linux/ICMP-head.png' | relative_url }}){: .center-image }*(°0°)*
