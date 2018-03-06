@@ -43,7 +43,7 @@ trickle -u 8 -d 8 firefox
  - test open port(without telnet)
  $ timeout 1 bash -c 'cat < /dev/null > /dev/tcp/ipaddress/80'
  $ echo $?
-
+ cat < /dev/tcp/ipaddress/22
  - mtr(ping and traceroute)
 mtr ip_address or dns
 
