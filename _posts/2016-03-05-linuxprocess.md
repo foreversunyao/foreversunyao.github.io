@@ -11,6 +11,21 @@ tags:
 
 ![img]({{ '/assets/images/linux/Process-Life-cycle.png' | relative_url }}){: .center-image }*(°0°)*
 
+```
+D Uninterruptible sleep (usually IO)
+
+R Running or runnable (on run queue)
+
+S Interruptible sleep (waiting for an event to complete)
+
+T Stopped, either by a job control signal or because it is being traced.
+
+W paging (not valid since the 2.6.xx kernel)
+
+X dead (should never be seen)
+
+Z Defunct ("zombie") process, terminated but not reaped by its parent.
+```
 
 A process is an executing (i.e., running) instance of a program. Processes are also frequently referred to as tasks.
 We already know that process and thread are mostly similar. So, why do we use thread in application? Process with multithread is very useful in great server. Switching between processes is slower than thread. Thread uses very light weight resource and context switching fast. It can share common data without the need of IPC. Two or more threads are communicated to each other without pipe or FIFO. Multithreading technique is helpful to develop effective application.
