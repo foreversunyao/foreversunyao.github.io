@@ -47,6 +47,8 @@ Can therefore use one connection for parallelism
 Uses header compression to reduce overhead
 Allows servers to “push” responses proactively into client caches
 
+[refer](https://www.upwork.com/hiring/development/the-http2-protocol-its-pros-cons-and-how-to-start-using-it/)
+
 **curl**
 curl is mostly used for test website working and where is this page deploying
 
