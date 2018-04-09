@@ -36,6 +36,17 @@ Date: Tue, 20 Mar 2018 13:37:24 GMT
 Content-Length: 45736
 Connection: keep-alive
 
+
+**http 2.0 vs http 1.1**
+
+Key differences with http1.1
+
+It is binary, instead of textual
+Fully multiplexed, instead of ordered and blocking
+Can therefore use one connection for parallelism
+Uses header compression to reduce overhead
+Allows servers to “push” responses proactively into client caches
+
 **curl**
 curl is mostly used for test website working and where is this page deploying
 
