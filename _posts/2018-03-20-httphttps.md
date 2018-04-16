@@ -59,3 +59,4 @@ curl is mostly used for test website working and where is this page deploying
 
 curl --user-agent "[User Agent]" [URL]
 curl --header "Content-Type:application/json" http://example.com
+curl --head -v https://www.baidu.com
