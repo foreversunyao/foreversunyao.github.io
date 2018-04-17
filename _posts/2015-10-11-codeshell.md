@@ -9,3 +9,6 @@ tags:
 
 **insert a string after every N lines**
 1, sed '0~1000 s/$/new line;/g' < aaa > bbb.new
+
+**date**
+1, date -d "2015-12-25" '+%m-%d-%y' &&  date -d "2015-12-25" "+A %A in %B"
