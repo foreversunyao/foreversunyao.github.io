@@ -46,6 +46,9 @@ trickle -u 8 -d 8 firefox
  cat < /dev/tcp/ipaddress/22
  - mtr(ping and traceroute)
 mtr ip_address or dns
+The Loss% column shows the percentage of packet loss at each hop. 
+The Snt column counts the number of packets sent.
+Last is the latency(ms) of the last packet sent, Avg is average latency of all packets, while Best and Wrst display the best (shortest) and worst (longest) round trip time for a packet to this host.
 
 **Memory**
 
