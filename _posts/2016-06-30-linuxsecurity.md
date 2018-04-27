@@ -72,7 +72,7 @@ List of SERVER HELLO Extensions.
  - It is now that the Client sends the actual HTTP Request packet to the Server in the encrypted form.
  - The Server decrypts the request via the symmetric key and generates a response, encrypts it and sends it back to the client.
  - This continues normally for the entire session of secure communication. However, at any time either the client or the server may renegotiate the connection. In this case the process repeats again.
-
+[cryptographic security protocols:ssl and tls _refer](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.5.0/com.ibm.mq.sec.doc/q009910_.htm)
 
 **LADP**
 LDAP directory service is based on a client/server model. One or more LDAP servers contain the data making up the LDAP directory tree. An LDAP client application connects to an LDAP server using LDAP APIs and asks it a question. The server responds with the answer, or with a pointer to where the application can get more information (typically, another LDAP server). With a properly constructed namespace, no matter which LDAP server an application connects to, it sees the same view of the directory; a name presented to one LDAP server references the same entry it would at another LDAP server. This is an important feature of a global directory service, which LDAP servers can provide.
