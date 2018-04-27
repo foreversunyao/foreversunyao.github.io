@@ -104,6 +104,8 @@ TCP is all about reliability—packets sent with TCP are tracked so no data is l
 
 TCP achieves this in two ways. First, it orders packets by numbering them. Second, it error-checks by having the recipient send a response back to the sender saying that it has received the message. If the sender doesn’t get a correct response, it can resend the packets to ensure the recipient receives them correctly.
 
+[best parctices for tcp optimization](https://www.extrahop.com/company/blog/2016/tcp-nodelay-nagle-quickack-best-practices/#1)
+
 **HTTP**
 
 ![img]({{ '/assets/images/linux/HTTP-head.png' | relative_url }}){: .center-image }*(°0°)*
