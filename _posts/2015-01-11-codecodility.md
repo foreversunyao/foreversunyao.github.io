@@ -68,19 +68,36 @@ def solution(A):
 solution 1:
 def solution(S, P, Q):
     # write your code in Python 3.6
+    dicx = {'A':1,'C':2,'G':3,'T':4}
+    Smin = [0 for x in range(len(P))]
     min = 4
-    dictx = {'A': 1,'C': 2,'G': 3,'T': 4}
-    result = [ 0 for x in range(len(P))]
-    for i in range(len(P)):
-        left = P[i]
-        right = Q[i]
+
+    for x in range(len(P)):
+        left = P[x]
+        right = Q[x]
         if left == right:
-            result[i] = dictx[S[left]]
+            Smin[x] = dicx[S[left]]
         else:
-            for j in range(left,right):
-                if dictx[S[j]] < min:
-                    min = dictx[S[j]]
-            result[i] = min
-    return result
+            for y in range(left,right+1):
+                if dicx[S[y]] < min:
+                    min = dicx[S[y]]
+            Smin[x] = min
+        min = 4
+    return Smin
 ```
-**
+**4,Triangle
+```
+def compare(A,i,j,k):
+    if A[i]+ A[j] > A[k] and A[k]+ A[j] > A[k] and A[i]+ A[k] > A[j]:
+        return True
+
+def solution(A):
+    # write your code in Python 3.6
+    A.sort()
+    for i in range(len(A)-2):
+        j = i + 1
+        k = i + 2
+        if compare(A,i,j,k):
+            return 1
+    return 0
+```
