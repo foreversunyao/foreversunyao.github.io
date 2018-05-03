@@ -9,7 +9,7 @@ tags:
 
 **Overview**
 
-![img]({{ '/assets/images/linux/Linux-Diagnosis.png' | relative_url }}){: .center-image }*(°0°)*
+![img]({{ '/assets/images/linux/Linux-diagnosis.png' | relative_url }}){: .center-image }*(°0°)*
 
 
 
