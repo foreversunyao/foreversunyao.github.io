@@ -120,6 +120,10 @@ action.destructive_requires_name
 **Tuning**
  - Tips:
 
+shard:
+around 30G per shard.
+[refer](https://qbox.io/blog/optimizing-elasticsearch-how-many-shards-per-index)
+
 es:
 datanode: node.master: false;node.data: true;http.enabled: false
 masternode: node.master: true;node.data: false; http.enabled: true
@@ -161,7 +165,8 @@ indices.fielddata.cache.size: 2gb
 #enable scripting to calculate distance
 
 jvm:
--Xmx16g -Xms16g
+the maximum JVM heap size recommendation for Elasticsearch is approximately 30-32GB.
+-Xmx31g -Xms31g
 ES_JAVA_OPTS="-XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=100 -XX:GCLogFileSize=10M -XX:+CMSIncrementalMode -XX:+CMSScavengeBeforeRemark -XX:+ParallelRefProcEnabled -XX:NewSize=5G -XX:MaxTenuringThreshold=15 -XX:SurvivorRatio=20 -XX:CMSInitiatingOccupancyFraction=50 -XX:+UseCMSInitiatingOccupancyOnly
 MAX_LOCKED_MEMORY=unlimited
 ES_GC_LOG_FILE=xx.gc.log
