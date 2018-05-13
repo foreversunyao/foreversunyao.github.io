@@ -4,7 +4,7 @@ title: "Nginx"
 date: 2016-02-02 10:25:06
 description: HTTP(S) TCP of Nginx
 tags: 
- - linux
+ - devops
 ---
 
 ![img]({{ '/assets/images/linux/Nginx-internal.png' | relative_url }}){: .center-image }*(°0°)*
