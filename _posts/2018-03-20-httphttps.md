@@ -60,3 +60,5 @@ curl is mostly used for test website working and where is this page deploying
 curl --user-agent "[User Agent]" [URL]
 curl --header "Content-Type:application/json" http://example.com
 curl --head -v https://www.baidu.com
+curl -v --trace-time https://www.google.com
+curl -w "dns_resolution: %{time_namelookup}, tcp_established: %{time_connect}, ssl_handshake_done: %{time_appconnect}, TTFB: %{time_starttransfer}\n" -o /dev/null -s "https://sushi.herokuapp.com/"
