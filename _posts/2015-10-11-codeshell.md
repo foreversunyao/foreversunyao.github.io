@@ -12,3 +12,28 @@ tags:
 
 **date**
 1, date -d "2015-12-25" '+%m-%d-%y' &&  date -d "2015-12-25" "+A %A in %B"
+
+**bash parameter test**
+```
+#!/bin/bash
+
+echo "Using \"\$*\":"
+for a in "$*"; do
+    echo $a;
+done
+
+echo -e "\nUsing \$*:"
+for a in $*; do
+    echo $a;
+done
+
+echo -e "\nUsing \"\$@\":"
+for a in "$@"; do
+    echo $a;
+done
+
+echo -e "\nUsing \$@:"
+for a in $@; do
+    echo $a;
+done
+```
