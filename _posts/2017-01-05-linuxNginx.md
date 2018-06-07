@@ -159,3 +159,5 @@ server {
     allow ip1;
 }
 {% endhighlight %}
+
+[refer](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
