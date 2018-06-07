@@ -122,6 +122,24 @@ http {
 		}
 }
 {% endhighlight %}
+
+http forward proxy:
+{% highlight bash %}
+server {
+    listen 80;
+    server_name kafka_offset_monitor.com;
+    charset utf-8;
+
+    location /kafka_1/ {
+        proxy_pass http://ip1:8089/;
+    }
+
+    location /kafka_2/ {
+        proxy_pass http://ip2:8083/;
+    }
+}
+{% endhighlight %}
+
 https:
 {% highlight bash %}
 http {
