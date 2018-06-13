@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Mesos(Ongoing)"
+title: "Mesos"
 date: 2018-05-30 20:50:06
-description: Apache Mesos
+description: Apache Mesos,Marathon
 tags: 
  - cloud
 ---
