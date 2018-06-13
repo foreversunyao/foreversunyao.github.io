@@ -8,4 +8,4 @@ tags:
 ---
 
 
-
+network router --> physical machine --> calico (router) --> container

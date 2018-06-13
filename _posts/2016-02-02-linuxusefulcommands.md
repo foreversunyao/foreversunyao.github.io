@@ -84,6 +84,8 @@ top or cat /proc/cpuinfo
  - process diagnosis:
 strace -c -p pid
 
+ - process env
+/proc/$(pidof kafka)/limits
 **File**  
 
  - list open files
