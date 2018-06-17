@@ -25,6 +25,38 @@ auth.conf -- ACL
 autosign.conf
 fileserver.conf
 
+[main]
+server = master.file
+autoflush = fals # flush log
+logdir = /var/log/puppet
+rundir = /var/run/puppet
+
+[master]
+reportdir = /var/lib/puppet/reports
+autosign = true
+autosign = /etc/puppet/autosign.conf
+bindaddress = 0.0.0.0
+masterport = 8140
+evaltrace = true
+
+[agent]
+certname = slave1.file
+daemonize = true
+allow_duplicate_certs = true
+report = true
+reports = store, http
+report_server = master.file
+report_port = 8140
+reporturl = http://localhost:3000/reports/upload
+runinterval = 20m
+splay = true
+splaylimit = 10m
+configtimeout = 2m
+color = ansi
+ignorecache = true
+
+[puppet_nginx](https://github.com/voxpupuli/puppet-nginx/blob/master/manifests/service.pp)
+
 **Puppet Command**
 apply，agent，master，cert，describe，module，kick(master push)
 
