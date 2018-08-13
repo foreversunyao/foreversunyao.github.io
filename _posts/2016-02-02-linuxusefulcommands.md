@@ -68,6 +68,9 @@ MegaCli64 -PdList -aAll
 
  - hdparm(diagnosis and tuning of hard drives)
 hdparm -I /dev/sda | more
+
+ - smartctl
+sudo smartctl --all /dev/sda
    
 **CPU**
 
