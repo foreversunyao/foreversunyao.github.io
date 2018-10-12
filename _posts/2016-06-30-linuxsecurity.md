@@ -77,7 +77,8 @@ List of SERVER HELLO Extensions.
 **LADP**
 LDAP directory service is based on a client/server model. One or more LDAP servers contain the data making up the LDAP directory tree. An LDAP client application connects to an LDAP server using LDAP APIs and asks it a question. The server responds with the answer, or with a pointer to where the application can get more information (typically, another LDAP server). With a properly constructed namespace, no matter which LDAP server an application connects to, it sees the same view of the directory; a name presented to one LDAP server references the same entry it would at another LDAP server. This is an important feature of a global directory service, which LDAP servers can provide.
 file:/etc/sssd/sssd.conf
-
+slapd:
+ldapsearch -x -h ldap (http://ldap) -D "uid=*ldap_account*,ou=people,dc=xxx,dc=xxx,dc=com" -b "ou=people,dc=xxx,dc=xxx,dc=com" -W -ZZ -s sub "uid=*ldap_account*"
 
 **File permission**
 SUID(4):SUID stands for Set User ID. This means that If SUID bit is set on a file and a user executed it. The process will have the same rights as the owner of the file being executed.
