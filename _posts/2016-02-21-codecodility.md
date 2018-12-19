@@ -13,6 +13,8 @@ tags:
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 
+## Use space to reduce time complexity, due to what we need to get, we don't need to get all the results from the array, just TOP 3 for posistive and negative.
+
 def solution(A):
     # write your code in Python 3.6
     if len(A) == 3:
