@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Distributed System(Ongoing)"
+title: "Distributed System"
 date: 2017-04-11 09:25:06
 description: CAP, consistent, quorum, zab, raft, paxos, 2pc, gossip
 tags: 
