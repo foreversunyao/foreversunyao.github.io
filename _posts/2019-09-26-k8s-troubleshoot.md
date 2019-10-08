@@ -74,3 +74,20 @@ If you can connect to the service, but the connection is immediately dropped, an
 Are your pods working correctly? Look for restart count, and debug pods.
 Can you connect to your pods directly? Get the IP address for the Pod, and try to connect directly to that IP.
 Is your application serving on the port that you configured? Kubernetes doesn’t do port remapping, so if your application serves on 8080, the containerPort field needs to be 8080.
+
+- network connection
+```
+kubectl get pods -o wide
+kubectl port-forward NAME 8800 &
+curl localhost:8080
+```
+```
+PID=$(docker inspect --format '{{ .State.Pid }}' ContainerID)
+nsenter -t ${PID} -n ip addr/ping/curl/nslookup
+```
+```
+kubectl exec -it POD -- ping -c 2 $ip
+```
+```
+sudo conntrack -L | grep $ip
+```
