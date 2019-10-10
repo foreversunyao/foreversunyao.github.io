@@ -5,6 +5,7 @@ date: 2019-09-04 22:25:06
 description: Kubernetes kube-proxy
 tags:
  - cloud
+---
 
 **kube-proxy**
 As a reverse proxy, kube-proxy is responsible for watching client requests to some IP:port  and forwarding/proxying them to the corresponding service/application on the private network. However, the difference between the kube-proxy and a normal reverse proxy is that the kube-proxy proxies requests to Kubernetes Services and their backend Pods, not hosts.

@@ -5,6 +5,7 @@ date: 2019-09-26 19:25:06
 description: Kubernetes troubleshoot
 tags:
  - cloud
+---
 
 **Nodes**
 - inidivdual node shuts down

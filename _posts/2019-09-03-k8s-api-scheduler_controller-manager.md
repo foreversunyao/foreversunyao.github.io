@@ -5,6 +5,7 @@ date: 2019-09-03 01:25:06
 description: Kubernetes api scheduler controller-manager
 tags:
  - cloud
+---
 
 **api**
 The API Server is the main management point of the entire cluster. In short, it processes REST operations, validates them, and updates the corresponding objects in etcd.
