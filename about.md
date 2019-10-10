@@ -5,4 +5,4 @@ title: About
 ---
 
 # Samuel's info 
-A happy Engineer and focus on automation and data storage.
+A happy Engineer likes solving problem by code
