@@ -92,3 +92,6 @@ kubectl exec -it POD -- ping -c 2 $ip
 ```
 sudo conntrack -L | grep $ip
 ```
+
+- others
+[k8s failure stories](https://k8s.af)
