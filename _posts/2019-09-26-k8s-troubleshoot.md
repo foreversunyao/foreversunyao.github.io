@@ -47,8 +47,13 @@ replication controllers start new pods elsewhere
 
 
 **Troulbeshoot**
+```
+Internet -- LB -- k8s ingress -- k8s service -- k8s pods
+```
+
 - ingress
 [tracing through an ingress](https://managedkube.com/kubernetes/trace/ingress/service/port/not/matching/pod/k8sbot/2019/02/13/trace-ingress.html)
+[ingress and traffic flow](https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120)
 
 - pods
 Pending: Generally this is because there are insufficient resources of one type or another that prevent scheduling. Look at the output of the kubectl describe ... 
