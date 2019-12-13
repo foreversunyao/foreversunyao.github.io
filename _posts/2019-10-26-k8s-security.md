@@ -9,6 +9,9 @@ tags:
 
 [refer](https://kubernetes.io/docs/concepts/security/)
 
+API requests go through a security pipeline (authentication, authorization, and admission control)
+
+
 **k8s cluster**
 - TLS for all API traffic & Ingress
 - API authentication/authorization

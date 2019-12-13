@@ -10,6 +10,8 @@ tags:
 **Nodes**
 - inidivdual node shuts down
 pods on that node stop running
+- Node Problem Detector(DaemonSet)
+Collects node problems from daemons and reports them to the apiserver as NodeCondition and Event
 
 **Network**
 - network partition
@@ -22,6 +24,7 @@ unable to stop, update, or start new pods, services, replication controller, exi
 apiserver should fail to come up
 kubelets will not be able to reach it but will continue to run the same pods and provide the same service proxying
 manual recovery or recreation of apiserver state necessary before apiserver is restarted
+- kubectl get cs
 
 **Supporting services**
 node controller, replication controller manager, scheduler, etc , it would be like apiserver
@@ -50,12 +53,16 @@ replication controllers start new pods elsewhere
 ```
 Internet -- LB -- k8s ingress -- k8s service -- k8s pods
 ```
+- cluster
+kubectl top
 
 - ingress
 [tracing through an ingress](https://managedkube.com/kubernetes/trace/ingress/service/port/not/matching/pod/k8sbot/2019/02/13/trace-ingress.html)
 [ingress and traffic flow](https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120)
 
 - pods
+terminationMessagePath
+
 Pending: Generally this is because there are insufficient resources of one type or another that prevent scheduling. Look at the output of the kubectl describe ... 
 
 Waiting: If a Pod is stuck in the Waiting state, then it has been scheduled to a worker node, but it can’t run on that machine. The most common cause of Waiting pods is a failure to pull the image. There are three things to check:
@@ -80,6 +87,19 @@ If you can connect to the service, but the connection is immediately dropped, an
 Are your pods working correctly? Look for restart count, and debug pods.
 Can you connect to your pods directly? Get the IP address for the Pod, and try to connect directly to that IP.
 Is your application serving on the port that you configured? Kubernetes doesn’t do port remapping, so if your application serves on 8080, the containerPort field needs to be 8080.
+
+
+- containers
+ - nsenter
+ - container_id: hash 
+docker container ls -f name=logger -aq --no-trunc
+ls /var/lib/docker/containers/[hash]
+Docker captures the stdout and stderr streams from detached containers and forwards them to the configured logging driver.
+
+ctr containers - manage containers
+
+ - docker events
+docker events --filter 'event=stop'
 
 - network connection
 ```

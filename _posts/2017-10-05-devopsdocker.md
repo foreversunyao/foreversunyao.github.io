@@ -65,3 +65,12 @@ Overlay	The overlay driver creates an overlay network that supports multi-host n
 **Docker Security**
 
 By default, many containers use UID 0 to launch processes. Because the container is contained, this seems safe , but in reality it isn't. Because everything is running on the same kernel, many types of security vulnerabilities or simple misconfiguration can give the containers' root user unauthorized access to the host's system resources,files,and proceses.
+
+**dockerd,containerd,runc**
+![img]({{ '/assets/images/devops/container_lifecycle.png' | relative_url }}){: .center-image }*(°0°)*
+
+**containerd**
+![img]({{ '/assets/images/devops/containerd.png' | relative_url }}){: .center-image }*(°0°)*
+
+**k8s-containerd**
+![img]({{ '/assets/images/devops/container-k8s.png' | relative_url }}){: .center-image }*(°0°)*
