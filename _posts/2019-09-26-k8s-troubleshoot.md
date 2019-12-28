@@ -6,6 +6,8 @@ description: Kubernetes troubleshoot
 tags:
  - cloud
 ---
+**troubleshooting-graph**
+[refer](https://learnk8s.io/a/troubleshooting-kubernetes.pdf)
 
 **Nodes**
 - inidivdual node shuts down
