@@ -44,5 +44,5 @@ Canary is a deployment process in which a change is partially rolled out, then e
 
 
 **Demo**
-[hello-deployment](https://www.spinnaker.io/guides/tutorials/codelabs/hello-deployment/)
-[materials](https://www.spinnaker.io/guides/tutorials/videos/)
+[workflow](https://aws.amazon.com/blogs/opensource/deployment-pipeline-spinnaker-kubernetes/)
+[setup](https://opnfv-clover.readthedocs.io/en/latest/release/configguide/spinnaker_config_guide.html#bake-manifest-stage)
