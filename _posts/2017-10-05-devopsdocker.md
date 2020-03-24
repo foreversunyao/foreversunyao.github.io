@@ -74,3 +74,10 @@ By default, many containers use UID 0 to launch processes. Because the container
 
 **k8s-containerd**
 ![img]({{ '/assets/images/devops/container-k8s.png' | relative_url }}){: .center-image }*(°0°)*
+
+**how to make image smaller**
+- alpine
+alpine linux use musl , on the other hand, most linux distributions use glibc.
+busybox
+
+[refer](https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34)
