@@ -55,7 +55,13 @@ All other commands:
     push               Obsolete command for Terraform Enterprise legacy (v1)
     state              Advanced state management
 ```
-
+**import**
+terraform can import current arn config to terraform state, example as bellow
+```
+#list arn
+aws kafka list-configurations
+terraform import  aws_msk_configuration.cfg_msg_limit_10mb [arn]
+```
 **Terraform vs Ansible**
 - Ansible 
 is a configuration management tool and to install and mamange software on **exisiting server instances**. (e.g., installation of packages, starting of services, installing scripts or config files on the instance). They do the heavy lifting of making one or many instances perform their roles without the user needing to specify the exact commands.
