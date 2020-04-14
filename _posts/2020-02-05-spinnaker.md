@@ -35,13 +35,50 @@ The base resource, the Server Group, identifies the deployable artifact (VM imag
 [pipeline](https://www.spinnaker.io/concepts/#pipeline)
 ![img]({{ '/assets/images/devops/spinnaker_pipeline.png ' | relative_url }}){: .center-image }*(°0°)*
 The pipeline is the key deployment management construct in Spinnaker. It consists of a sequence of actions, known as stages. You can pass parameters from stage to stage along the pipeline.
-A Stage in Spinnaker is an atomic building block for a pipeline, describing an action that the pipeline will perform. 
+A Stage in Spinnaker is an atomic building block for a pipeline, describing an action that the pipeline will perform, like Deploy, Resize, Disable, Manual Judgment(Evaluate) 
 
 - Deployment strategies
 Spinnaker supports the red/black (a.k.a. blue/green) strategy, with rolling red/black and canary strategies in active development.
 Canary is a deployment process in which a change is partially rolled out, then evaluated against the current deployment (baseline) to ensure that the new deployment is operating at least as well as the old. This evaluation is done using key metrics that are chosen when the canary is configured.
 ![img]({{ '/assets/images/devops/spinnaker_strategies.png ' | relative_url }}){: .center-image }*(°0°)*
 
+- workflow
+spinnaker --> git repo -- > aws(infra) --> eks(services) --> jenkins(post-check)
+ 1, pipeline invoke jenkins(stage) to generate manifest
+ 2, next stage deploy manifests which is in jenkins response
+ 3, monitor status
+ 4, post-check and qa test
+
+- pipeline template
+Pipeline Templates help you standardize and distribute reusable Pipelines across your team or among multiple teams. Like "app" is variable with other static env configs.
+
+- spin command
+```
+$ cat ~/.spin/config
+gate:
+  endpoint: https://gate.spinnaker.domain
+auth:
+  enabled: true
+  basic:
+    username: LDAP_USERNAME
+    password: LDAP_PASSWORD
+```
+
+**microservices**
+Spinnaker is composed of a number of independent microservices:
+- Deck is the browser-based UI.
+- Gate is the API gateway. The Spinnaker UI and all api callers communicate with Spinnaker via Gate.
+- Orca is the orchestration engine. It handles all ad-hoc operations and pipelines. Read more on the Orca Service Overview.
+- Clouddriver is responsible for all mutating calls to the cloud providers and for indexing/caching all deployed resources.
+- Front50 is used to persist the metadata of applications, pipelines, projects and notifications.
+- Rosco is the bakery. It produces immutable VM images (or image templates) for various cloud providers. It is used to produce machine images (for example GCE images, AWS AMIs, Azure VM images). It currently wraps packer, but will be expanded to support additional mechanisms for producing images.
+- Igor is used to trigger pipelines via continuous integration jobs in systems like Jenkins and Travis CI, and it allows Jenkins/Travis stages to be used in pipelines.
+- Echo is Spinnaker’s eventing bus. It supports sending notifications (e.g. Slack, email, SMS), and acts on incoming webhooks from services like Github.
+- Fiat is Spinnaker’s authorization service.It is used to query a user’s access permissions for accounts, applications and service accounts.
+- Kayenta provides automated canary analysis for Spinnaker.
+- Halyard is Spinnaker’s configuration service.Halyard manages the lifecycle of each of the above services. It only interacts with these services during Spinnaker startup, updates, and rollbacks.
+
+![img]({{ '/assets/images/devops/spin_micro_dep.png ' | relative_url }}){: .center-image }*(°0°)*
 
 **Demo**
 [workflow](https://aws.amazon.com/blogs/opensource/deployment-pipeline-spinnaker-kubernetes/)
