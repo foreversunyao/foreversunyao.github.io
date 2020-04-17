@@ -69,3 +69,16 @@ Misc:
  - CPU usage       CPU use Resource: Utilization
  - Network bytes sent/received     Network traffic in/out
 
+
+**Burrow**
+Burrow is a monitoring companion for Apache Kafka that provides consumer lag checking as a service without the need for specifying thresholds. It monitors committed offsets for all consumers and calculates the status of those consumers on demand. An HTTP endpoint is provided to request status on demand, as well as provide other Kafka cluster information. 
+```
+NO THRESHOLDS! Groups are evaluated over a sliding window.
+Multiple Kafka Cluster support
+Automatically monitors all consumers using Kafka-committed offsets
+Configurable support for Zookeeper-committed offsets
+Configurable support for Storm-committed offsets
+HTTP endpoint for consumer group status, as well as broker and consumer information
+Configurable emailer for sending alerts for specific groups
+Configurable HTTP client for sending alerts to another system for all groups
+```
