@@ -80,6 +80,8 @@ Spinnaker is composed of a number of independent microservices:
 
 ![img]({{ '/assets/images/devops/spin_micro_dep.png ' | relative_url }}){: .center-image }*(°0°)*
 
+[refer](https://docs.armory.io/spinnaker-install-admin-guides/architecture/)
+
 **Demo**
 [workflow](https://aws.amazon.com/blogs/opensource/deployment-pipeline-spinnaker-kubernetes/)
 [setup](https://opnfv-clover.readthedocs.io/en/latest/release/configguide/spinnaker_config_guide.html#bake-manifest-stage)
