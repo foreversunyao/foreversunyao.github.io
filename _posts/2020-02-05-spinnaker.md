@@ -42,12 +42,14 @@ Spinnaker supports the red/black (a.k.a. blue/green) strategy, with rolling red/
 Canary is a deployment process in which a change is partially rolled out, then evaluated against the current deployment (baseline) to ensure that the new deployment is operating at least as well as the old. This evaluation is done using key metrics that are chosen when the canary is configured.
 ![img]({{ '/assets/images/devops/spinnaker_strategies.png ' | relative_url }}){: .center-image }*(°0°)*
 
-- workflow
-spinnaker --> git repo -- > aws(infra) --> eks(services) --> jenkins(post-check)
- 1, pipeline invoke jenkins(stage) to generate manifest
- 2, next stage deploy manifests which is in jenkins response
- 3, monitor status
- 4, post-check and qa test
+- workflow(in pipeline)
+git repo changes -> jenkins build job -> spinnaker(trigger) --> spinnaker CI(call jenkins job) --> spinnaker CD -- > aws(infra) --> eks(services) --> jenkins(post-check)
+ 
+ 1, git repo changes 
+ 2, jenkins build job triggered by step 1
+ 3, spinnaker is triggered by jenkins build  and start app CI stage
+ 4, spinnaker start CD stage when CI stage finish successfully
+ 5, spinnaker trigger jenkins to post-check
 
 - pipeline template
 Pipeline Templates help you standardize and distribute reusable Pipelines across your team or among multiple teams. Like "app" is variable with other static env configs.
