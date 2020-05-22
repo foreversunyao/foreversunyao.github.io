@@ -26,6 +26,10 @@ kube-proxy watches K8s Services and Pod Endpoints. If a new Service is created, 
 Also, it periodically syncs IPVS rules with the K8s Services and Endpoints to make sure that the desired state is maintained.
 When Service is accessed, IPVS load balancer redirects traffic to backend Pods.
 
+**debug conn**
+![img]({{ '/assets/images/cloud/kube-proxy-conn.png' | relative_url }}){: .center-image }*(°0°)
+[connection](https://kubernetes.io/blog/2019/03/29/kube-proxy-subtleties-debugging-an-intermittent-connection-reset/)
+
 [refer](https://supergiant.io/blog/understanding-kubernetes-kube-proxy/)
 
 
