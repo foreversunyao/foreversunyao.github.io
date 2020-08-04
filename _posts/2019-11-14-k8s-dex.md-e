@@ -4,7 +4,7 @@ title: "K8s dex"
 date: 2019-11-14 20:10:06
 description: authentication, authorization, OpenID , dex, ldap
 tags:
- - k8s
+ - cloud
 ---
 
 [refer doc](https://flywzj.com/blog/dex/)

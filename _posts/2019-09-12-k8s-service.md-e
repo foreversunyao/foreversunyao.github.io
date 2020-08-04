@@ -4,7 +4,7 @@ title: "K8s service"
 date: 2019-09-12 01:25:06
 description: Kubernetes service
 tags:
- - k8s
+ - cloud
 ---
 
 [refer](https://www.bmc.com/blogs/kubernetes-services/)

@@ -4,7 +4,7 @@ title: "K8s necessary images"
 date: 2019-09-10 23:25:06
 description: Kubernetes cluster necessary images
 tags:
- - k8s
+ - cloud
 ---
 
 **images**

@@ -4,7 +4,7 @@ title: "K8s troubleshoot(WIP)"
 date: 2019-09-26 19:25:06
 description: Kubernetes troubleshoot
 tags:
- - k8s
+ - cloud
 ---
 **troubleshooting-graph**
 [refer](https://learnk8s.io/a/troubleshooting-kubernetes.pdf)

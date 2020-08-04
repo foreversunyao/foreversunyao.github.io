@@ -4,7 +4,7 @@ title: "Spinnaker"
 date: 2020-02-05 10:25:06
 description: Spinnaker, deployment
 tags:
- - spinnaker
+ - devops
 ---
 
 **What is Spinnaker**
