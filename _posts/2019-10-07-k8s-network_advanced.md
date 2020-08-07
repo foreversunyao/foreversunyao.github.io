@@ -4,7 +4,7 @@ title: "K8s network Advanced"
 date: 2019-10-07 14:25:06
 description: canal, flannel, calico ..
 tags:
- - cloud
+ - k8s
 ---
 
 **Container network**

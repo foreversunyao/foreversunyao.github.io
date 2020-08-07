@@ -4,7 +4,7 @@ title: "K8s kube-proxy"
 date: 2019-09-04 22:25:06
 description: Kubernetes kube-proxy
 tags:
- - cloud
+ - k8s
 ---
 
 **kube-proxy**
