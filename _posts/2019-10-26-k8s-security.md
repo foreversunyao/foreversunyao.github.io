@@ -4,7 +4,7 @@ title: "K8s security"
 date: 2019-10-26 01:10:06
 description: authentication, authorization, pod security, network security, csr  and so on
 tags:
- - k8s
+ - cloud
 ---
 
 [refer](https://kubernetes.io/docs/concepts/security/)
