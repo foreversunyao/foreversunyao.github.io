@@ -75,6 +75,11 @@ By default, many containers use UID 0 to launch processes. Because the container
 **k8s-containerd**
 ![img]({{ '/assets/images/devops/container-k8s.png' | relative_url }}){: .center-image }*(°0°)*
 
+**rkt vs docker**
+[rkt](https://joejulian.name/post/kubernetes-container-engine-comparison/)
+[rkt vs docker](https://coreos.com/rkt/docs/latest/rkt-vs-other-projects.html)
+  - daemon
+  - root
 **how to make image smaller**
 - alpine
 alpine linux use musl , on the other hand, most linux distributions use glibc.

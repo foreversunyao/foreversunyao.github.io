@@ -37,7 +37,7 @@ itself uses.
 Flannel does not provide an implementation of the NetworkPolicy resource. 
 [network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
 [flannel vs docker bridge](https://www.edureka.co/blog/kubernetes-networking/)
-
+[flannel subnet](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
 **calico**
 Calico operates at Layer 3 and assigns every workload a
 routable IP address. It prefers to operate by using BGP without
