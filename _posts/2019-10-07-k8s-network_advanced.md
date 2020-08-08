@@ -36,6 +36,7 @@ The target can be an external deployment of etcd or the one that Kubernetes
 itself uses.
 Flannel does not provide an implementation of the NetworkPolicy resource. 
 [network](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
+[flannel vs docker bridge](https://www.edureka.co/blog/kubernetes-networking/)
 
 **calico**
 Calico operates at Layer 3 and assigns every workload a
