@@ -22,3 +22,8 @@ CrashLoopBackOff means that one of the containers in the Pod
 exited unexpectedly even after it was restarted at least once. This
 is a common error. Usually, CrashLoopBackOff means that the Pod
 isn’t configured correctly.
+
+- kubectl apply/replace/patch
+[article](https://blog.atomist.com/kubernetes-apply-replace-patch/)
+- kubectl create/apply
+[vs](https://stackoverflow.com/questions/47369351/kubectl-apply-vs-kubectl-create)
