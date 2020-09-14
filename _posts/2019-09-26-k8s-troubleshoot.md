@@ -74,6 +74,9 @@ kubectl logs ${POD_NAME} ${CONTAINER_NAME}
 kubectl logs --previous ${POD_NAME} ${CONTAINER_NAME}
 kubectl exec ${POD_NAME} -c ${CONTAINER_NAME} -- ${CMD} ${ARG1} ${ARG2} ... ${ARGN}
 
+CrashLoopBackOff
+[refer](https://sysdig.com/blog/debug-kubernetes-crashloopbackoff/)
+
 Pod is running without doing what I told it to do:
 kubectl apply --validate -f mypod.yaml
 
