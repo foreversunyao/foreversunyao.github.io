@@ -2,7 +2,7 @@
 layout: post
 title: "K8s control plane node maintenance"
 date: 2020-10-11 14:25:06
-description: control plane nod
+description: control plane node
 tags:
  - k8s
 
@@ -34,5 +34,5 @@ sudo kubeadm token create --ttl 10m —print-join-command
 sudo kubeadm init phase upload-certs  --upload-certs
 # join as control node
 sudo kubeadm join kube-api:6443 --node-name DDD --token AAA --discovery-token-ca-cert-hash sha256:CCC --control-plane --certificate-key BBB --v=5
-``
+```
 - add vip back and validate`
