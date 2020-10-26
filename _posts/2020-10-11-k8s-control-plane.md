@@ -5,6 +5,7 @@ date: 2020-10-11 14:25:06
 description: control plane node
 tags:
  - k8s
+---
 
 **How to rebuild kube-ctl nodes**
 - backup all old configs(certs/keys/configs)
