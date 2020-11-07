@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "K8s resource limits"
+title: "K8s resource"
 date: 2020-10-13 02:25:06
-description: cpu time, mem
+description: cpu time, mem, disruption budget, priorityclass
 tags:
  - k8s
 ---
@@ -22,3 +22,7 @@ The unit suffix m stands for “thousandth of a core,” so this resources objec
 
 - memory
 [refer](https://medium.com/@betz.mark/understanding-resource-limits-in-kubernetes-memory-6b41e9a955f9)
+
+- disruption budget
+Sometimes one pod would be evicted/preempted by other coming services (which have higher priority class), so need to use disrutpion budget and priority class
+[priority](https://kubernetes.io/blog/2019/04/16/pod-priority-and-preemption-in-kubernetes/#guaranteed-scheduling-with-controlled-cost)
