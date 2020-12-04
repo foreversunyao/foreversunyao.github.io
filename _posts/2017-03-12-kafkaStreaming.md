@@ -6,4 +6,5 @@ description: Kafka Streaming
 tags: 
  - kafka
 ---
+[spark on kafka](https://blog.stratio.com/optimizing-spark-streaming-applications-apache-kafka/)
 
