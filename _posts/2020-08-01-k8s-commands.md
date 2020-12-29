@@ -23,6 +23,9 @@ exited unexpectedly even after it was restarted at least once. This
 is a common error. Usually, CrashLoopBackOff means that the Pod
 isn’t configured correctly.
 
+- kubectl delete pod
+[termination lifecycle](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-terminating-with-grace)
+
 - kubectl apply/replace/patch
 [article](https://blog.atomist.com/kubernetes-apply-replace-patch/)
 - kubectl create/apply
