@@ -36,4 +36,4 @@ tags:
   jaegertracing/jaeger-query:1.13.1
   cluster-proportional-autoscaler-amd64:1.4.0
   alpine3-base:latest
-  addon-resizer:1.8.4
+  addon-resizer:1.8.4 -- vertical scale up and down

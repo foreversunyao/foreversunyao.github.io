@@ -32,6 +32,12 @@ Performance Kafka has high throughput for both publishing and subscribing messag
 
  Consumers are processes that subscribe to one or more topics and process the feeds of published messages from those topics. Kafka consumers keep track of which messages have already been consumed by storing the current offset. Because Kafka retains all messages on disk for a configurable amount of time, consumers can use the offset to rewind or skip to any point in a partition.
 
+```
+❯ kafka-consumer-groups --bootstrap-server kafka.service.host:9092 --group groupA --describe --state
+GROUP                                 COORDINATOR (ID)          ASSIGNMENT-STRATEGY  STATE           #MEMBERS
+groupA         broker0001::9092 (xx) roundrobin 
+```
+
 **Client api**
  - consumer group coordinator
 The group coordinator is nothing but one of the brokers which receives heartbeats (or polling for messages) from all consumers of a consumer group. Every consumer group has a group coordinator. If a consumer stops sending heartbeats, the coordinator will trigger a rebalance.
