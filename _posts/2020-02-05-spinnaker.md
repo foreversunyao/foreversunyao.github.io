@@ -41,6 +41,7 @@ A Stage in Spinnaker is an atomic building block for a pipeline, describing an a
 Spinnaker supports the red/black (a.k.a. blue/green) strategy, with rolling red/black and canary strategies in active development.
 Canary is a deployment process in which a change is partially rolled out, then evaluated against the current deployment (baseline) to ensure that the new deployment is operating at least as well as the old. This evaluation is done using key metrics that are chosen when the canary is configured.
 ![img]({{ '/assets/images/devops/spinnaker_strategies.png ' | relative_url }}){: .center-image }*(°0°)*
+blue/green can avoid the issues when one deployment with newer version but another deployment with current/old version when release deployment is going on
 
 - workflow(in pipeline)
 git repo changes -> jenkins build job -> spinnaker(trigger) --> spinnaker CI(call jenkins job) --> spinnaker CD -- > aws(infra) --> eks(services) --> jenkins(post-check)
