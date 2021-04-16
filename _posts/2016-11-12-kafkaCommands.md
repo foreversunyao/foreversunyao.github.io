@@ -34,7 +34,13 @@ Consumer offset:
 bin/kafka-consumer-offset-checker --group testabc --topic test1 --zookeeper 127.0.0.1:2181
 bin/kafka-consumer-groups --zookeeper 127.0.0.1:2181 --describe --group test1
 
+reassignment:
 
+get skew topic:
+(lastest offset - earlies offset) per partitions
+
+leader rotate per topic:
+part of reassignment 
  
  - Apache Zookeeper Commands
 
