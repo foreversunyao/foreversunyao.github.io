@@ -22,7 +22,7 @@ After deciding on the partition assignment, the consumer leader sends the list o
 **Group management**
 - join group
 - sync group
-- heartbeat
+- heartbeat [refer](https://chrzaszcz.dev/2019/06/kafka-heartbeat-thread/)
 - leave group 
 
 **Rebalance Protocol**
@@ -39,12 +39,15 @@ The first limitation of the rebalance protocol is that we cannot simply rebalanc
 [refer](https://cwiki.apache.org/confluence/display/KAFKA/KIP-345%3A+Introduce+static+membership+protocol+to+reduce+consumer+rebalances)
 
 **issue**
-https://github.com/spring-projects/spring-kafka/issues/1223
-
+- https://github.com/spring-projects/spring-kafka/issues/1223
 max.poll.records
 max.poll.interval.ms
 
-
+- heartbeat failed for group because it's rebalancing [refer](https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing)
+Heartbeats are the basic mechanism to check if all consumers are still up and running. If you get a heartbeat failure because the group is rebalancing, it indicates that your consumer instance took too long to send the next heartbeat and was considered dead and thus a rebalance got triggered.
+session.timeout.ms up
+heartbeat.interval.ms down
+max.poll.records down
 
 
 
