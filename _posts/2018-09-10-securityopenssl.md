@@ -24,3 +24,7 @@ Procedure of generate a self-signed SSL certificate:
 
 Useful commands:
 [refer](https://www.sslshopper.com/article-most-common-openssl-commands.html) 
+
+```
+ echo | openssl s_client -connect site:443 -servername api.com
+```
