@@ -50,6 +50,9 @@ The Loss% column shows the percentage of packet loss at each hop.
 The Snt column counts the number of packets sent.
 Last is the latency(ms) of the last packet sent, Avg is average latency of all packets, while Best and Wrst display the best (shortest) and worst (longest) round trip time for a packet to this host.
 mtr -P 80 -i 0.5 -rwc 50 example.com --mtr in tcp mode to test ports or firewall
+
+- dig
+dig +short domain @dnserver
 **Memory**
 
  - memory leak check
