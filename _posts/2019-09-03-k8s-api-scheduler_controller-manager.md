@@ -20,6 +20,7 @@ kube-scheduler selects a node for the pod in a 2-step operation:
 1,Filtering
 2,Scoring
 
+[refer](https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/#extension-points)
 
 **controller**
 leader
