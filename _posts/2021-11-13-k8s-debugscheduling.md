@@ -8,6 +8,7 @@ tags:
 ---
 
 [refer](https://www.datadoghq.com/blog/debug-kubernetes-pending-pods/#node-affinity-and-anti-affinity-rules)
+[refer2](https://kubernetes.io/docs/concepts/scheduling-eviction/_print/#percentage-of-nodes-to-score)
 
 **Node selection in kube-scheduler**
 ```
@@ -42,3 +43,15 @@ https://kubernetes.io/docs/reference/scheduling/policies/
 2, configure Plugins that implement different scheduling stages, including: QueueSort, Filter, Score, Bind, Reserve, Permit, and others.
 https://kubernetes.io/docs/reference/scheduling/config/#scheduling-plugins
 
+**Higher priority Pods are preempted before lower priority pods**
+The scheduler tries to find nodes that can run a pending Pod. If no node is found, the scheduler tries to remove Pods with lower priority from an arbitrary node in order to make room for the pending pod. If a node with low priority Pods is not feasible to run the pending Pod, the scheduler may choose another node with higher priority Pods (compared to the Pods on the other node) for preemption. The victims must still have lower priority than the preemptor Pod.
+
+When there are multiple nodes available for preemption, the scheduler tries to choose the node with a set of Pods with lowest priority. However, if such Pods have PodDisruptionBudget that would be violated if they are preempted then the scheduler may choose another node with higher priority Pods.
+
+When multiple nodes exist for preemption and none of the above scenarios apply, the scheduler chooses a node with the lowest priority.
+
+**Scheduler performance tuning**
+[refer](https://kubernetes.io/docs/concepts/scheduling-eviction/_print/#percentage-of-nodes-to-score)
+To improve scheduling performance, the kube-scheduler can stop looking for feasible nodes once it has found enough of them. In large clusters, this saves time compared to a naive approach that would consider every node.
+
+You specify a threshold for how many nodes are enough, as a whole number percentage of all the nodes in your cluster. The kube-scheduler converts this into an integer number of nodes. During scheduling, if the kube-scheduler has identified enough feasible nodes to exceed the configured percentage, the kube-scheduler stops searching for more feasible nodes and moves on to the scoring phase.
