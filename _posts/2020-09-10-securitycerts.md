@@ -2,10 +2,32 @@
 layout: post
 title: Cert Chain
 date: 2020-09-10 21:25:06
-description: Cert Chain, SSL, intermediate certs
+description: Cert Chain, SSL, intermediate certs, digital signatures, CA
 tags: 
  - linux
 ---
+
+**digital signatures**
+A digital signature is created using hash algorithms or a scheme of algorithms like DSA and RSA that use public key and private key encryptions. The sender uses the private key to sign the message digest (not the data), and when they do, it forms a digital thumbprint to send the data.
+**digital signatures process**
+```
+To create a digital signature, DSA is used
+Keys generated using algorithms are used to sign a document
+The signature is created using your private key when you sign a document digitally
+A hash is created from the document, using a hash function
+Your private key encrypts the hash
+This DSA-encrypted hash is the digitally signed document
+The signed document is then transmitted
+The public key is used to decrypt the hash with the same hash function
+The signature is verified if the hash values match. 
+```
+[refer](https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq)
+![img]({{ '/assets/images/linux/ingress.png' | relative_url }}){: .center-image }*(°0°)*
+
+**Why need CA**
+To protect the integrity of the signature, PKI requires that the keys be created, conducted, and saved in a secure manner, and often requires the services of a reliable Certificate Authority (CA).
+CA verfies the company/server before issuing an SSL/TLS cert.
+
 **Certificate Chain**
 server cert --> intermediate certs --> root cert
 A certificate chain is an ordered list of certificates, containing an SSL/TLS Certificate and Certificate Authority (CA) Certificates, that enable the receiver to verify that the sender and all CA's are trustworthy.
