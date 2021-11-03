@@ -178,4 +178,17 @@ vpn client -(encrpted)-> vpn server(judge and permit or deny)
 
 
 **RPS/RFS**
-Receive Flow Steering (RFS) extends RPS behavior to increase the CPU cache hit rate and thereby reduce network latency. Where RPS forwards packets based solely on queue length, RFS uses the RPS backend to calculate the most appropriate CPU, then forwards packets based on the location of the application consuming the packet.  
+Receive Flow Steering (RFS) extends RPS behavior to increase the CPU cache hit rate and thereby reduce network latency. Where RPS forwards packets based solely on queue length, RFS uses the RPS backend to calculate the most appropriate CPU, then forwards packets based on the location of the application consuming the packet. 
+
+**OSI**
+Application --> Presentation --> Session --> Transport --> Network --> Data Link --> Physical
+![img]({{ '/assets/images/linux/OSI_layers.png' | relative_url }}){: .center-image }*(°0°    )*
+```
+The application layer serves as an interface between applications and network programs. It supports application programs and end-user processing. Common application-layer programs include remote logins, file transfer, email, and Web browsing.
+The presentation layer is responsible for dealing with data that is formed differently. This protocol layer allows application-layer programs residing on different sides of a communication channel with different platforms to understand each other's data formats regardless of how they are presented.
+The session layer is responsible for creating, managing, and closing a communication connection.
+The transport layer is responsible for providing reliable connections, such as packet sequencing, traffic control, and congestion control.
+The network layer is responsible for routing device-independent data packets from the current hop to the next hop.
+The data-link layer is responsible for encapsulating device-independent data packets into device-dependent data frames. It has two sublayers: logical link control and media access control.
+The physical layer is responsible for transmitting device-dependent frames through some physical media.
+``` 
