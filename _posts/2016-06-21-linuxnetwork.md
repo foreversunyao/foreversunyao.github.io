@@ -191,4 +191,11 @@ The transport layer is responsible for providing reliable connections, such as p
 The network layer is responsible for routing device-independent data packets from the current hop to the next hop.
 The data-link layer is responsible for encapsulating device-independent data packets into device-dependent data frames. It has two sublayers: logical link control and media access control.
 The physical layer is responsible for transmitting device-dependent frames through some physical media.
-``` 
+```
+
+**BGP**
+BGP stands for border gateway protocol. It is a routing protocol that exchanges routing information among multiple Autonomous Systems (AS)
+An Autonomous System is a collection of routers or networks with the same network policy usually under single administrative control.
+BGP tells routers which hop to use in order to reach the destination network.
+BGP is responsible for finding a path to a destination router & the path it chooses should be the shortest and most reliable one.
+This decision is done through a protocol known as Link state. With the link-state protocol, each router broadcasts to all other routers in the network the state of its links and IP subnets. Each router then receives information from the other routers and constructs a complete topology view of the entire network. The next-hop routing table is based on this topology view. 
