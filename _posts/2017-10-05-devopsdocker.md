@@ -33,13 +33,35 @@ Prioritization – some groups may get a larger share of CPU utilization or disk
 Accounting – measures a group's resource usage, which may be used, for example, for billing purposes
 Control – freezing groups of processes, their checkpointing and restarting
 
+```
+blkio — this subsystem sets limits on input/output access to and from block devices such as physical drives (disk, solid state, or USB).
+cpu — this subsystem uses the scheduler to provide cgroup processes access to the CPU. cpuacct — this subsystem generates automatic reports on CPU resources used by processes in a cgroup.
+cpuset — this subsystem assigns individual CPUs (on a multicore system) and memory nodes to processes in a cgroup.
+devices — this subsystem allows or denies access to devices by processes in a cgroup.
+freezer — this subsystem suspends or resumes processes in a cgroup.
+memory — this subsystem sets limits on memory use by processes in a cgroup and generates automatic reports on memory resources used by those processes
+```
+
  - Namespace:
 
-PID Namespace: Anytime a program starts, a unique ID number is assigned to the namespace that is different than the host system. Each container has its own set of PID namespaces for its processes
-MNT Namespace: Each container is provided its own namespace for mount directory paths.
-NET Namespace: Each container is provided its own view of the network stack avoiding privileged access to the sockets or interfaces of another container.
+PID Namespace: Anytime a program starts, a unique ID number is assigned to the namespace that is different than the host system. Each container has its own set of PID namespaces for its processes. A process can be a root process (pid 1) in its own pid namespace and have an entire tree of processes under it.
+MNT(Mount) Namespace: Each container is provided its own namespace for mount directory paths. Any modifications made to these namespaced mount points are not visible outside the namespace. For example it is possible to have a /var within the a mount namespace which is different from /var in the host.
+NET(Network) Namespace: Each container is provided its own view of the network stack avoiding privileged access to the sockets or interfaces of another container.Processes in the same network namespace can have their own ports and route tables.
 UTS Namespace: This provides isolation between the system identifiers; the hostname and the NIS domain name.
 IPC Namespace: The inter-process communication (IPC) namespace creates a grouping where containers can only see and communicate with other processes in the same IPC namespace.
+User Namespace: User namespaces can have their own users and group ids.
+
+an example of parent and child pid namespaces
+The child processes with PID2 and PID3 in the parent namespace also belong to their own PID namespaces in which their PID is 1. From within a child namespace, the PID1 process cannot see anything outside. For example, PID1 in both child namespaces cannot see PID4 in the parent namespace.
+![img]({{ '/assets/images/devops/pid_namespace.png' | relative_url }}){: .center-image }*(°0°)*
+
+```
+sudo unshare --fork --pid --mount-proc bash
+mount |grep "^cgroup"
+ls -l /sys/fs/cgroup/memory/...
+lsns
+cgexec -g memory:mem_group bash -- killed
+```
 
 **Docker Storage** 
 
