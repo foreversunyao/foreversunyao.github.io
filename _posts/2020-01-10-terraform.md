@@ -10,7 +10,7 @@ tags:
 **What is Terraform**
 Terraform is an open source command line tool that can be used to provision any kind of infrastructure on dozens of different platforms and services. Terraform code is written in HCL or the HashiCorp Config Language.
 With Terraform you simply declare resources and how you want them configured and then Terraform will map out the dependencies and build everything for you.
-
+Terraform is declaretive language, which describes the intended goals instead of the steps to reach that goal.
 **Concepts**
 
 - Configurations
@@ -72,5 +72,14 @@ Procedural
 immutable, like deploy a new server
 Declarative, always represent the latest state of your infrasture, without history/timming
 
-
+**modules**
+```
+main.tf -- 
+outputs.tf -- outputs of module returns
+variables.tf -- inputs
+README.md -- documentation
+modules -- sub modules
+examples -- how to use the submodules
+test -- automated integration tests
+```
 
