@@ -108,3 +108,15 @@ alpine linux use musl , on the other hand, most linux distributions use glibc.
 busybox
 
 [refer](https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34)
+
+**LXC vs VM**
+LXC is best for single purpose application enviroments, designed for running applications, share same kernel
+VM is best to host mulitiple application in same environment, designed for running OS and vms ned seperate kernel
+
+
+**LXC vs Docker**
+Lxc main focus is system containers. Containers offer an environment.
+LXC is a container technology that provides you lightweight Linux containers and while Docker is a single application virtualization engine based on the container. 
+You can SSH (log in) to your LXC container, treat it as an OS, and install your application and services and it will work as expected. you can not do this with Docker containers.
+Docker has improved portability, versioning of container images, reuse of images, community support
+![img]({{ '/assets/images/devops/container-lxc.png' | relative_url }}){: .center-image }*(°0°)*
