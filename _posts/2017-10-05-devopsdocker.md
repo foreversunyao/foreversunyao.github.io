@@ -17,6 +17,7 @@ A Docker registry stores Docker images.
 An image is a read-only template with instructions for creating a Docker container.
 A container is a runnable instance of an image.
 Docker Engine combines the namespaces, control groups, and UnionFS into a wrapper called a container format. The default container format is libcontainer.
+![img]({{ '/assets/images/devops/docker_engine.png' | relative_url }}){: .center-image }*(°0°)*
 
 **Docker vs VM**
 
