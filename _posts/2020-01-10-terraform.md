@@ -11,19 +11,26 @@ tags:
 Terraform is an open source command line tool that can be used to provision any kind of infrastructure on dozens of different platforms and services. Terraform code is written in HCL or the HashiCorp Config Language.
 With Terraform you simply declare resources and how you want them configured and then Terraform will map out the dependencies and build everything for you.
 Terraform is declaretive language, which describes the intended goals instead of the steps to reach that goal.
+
 **Concepts**
 
 - Configurations
 A Terraform configuration is the text file that contains the infrastructure resource definitions. You can write Terraform configurations in either Terraform format (using the .tf extension) or in JSON format (using the .tf.json extension)
 
 - Providers
-A provider can be anything in the realm of Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Software as a Service (SaaS). This includes Microsoft Azure, Google Cloud, Amazon Web Services, GitHub, and much, much more.
+A provider can be anything in the realm of Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Software as a Service (SaaS). This includes Microsoft Azure, Google Cloud, Amazon Web Services, GitHub, and much, much more. Through provider you get access to resources.
 
 - Resources
 Terraform resources (in this instance, aws_s3_bucket) are the components of your infrastructure, and they always belong to a specific provider.
 
 - Variables
 Variables serve as parameters for a Terraform module, allowing aspects of the module to be customized without altering the module's own source code, and allowing modules to be shared between different configurations.
+
+- state
+current state
+- core
+analyse config and current state to generate plan: what needs to be created/updated/destroyed
+execute the plan with providers
 
 **Command**
 ```
@@ -70,8 +77,10 @@ Procedural
 
 - Terraform
 immutable, like deploy a new server
-Declarative, always represent the latest state of your infrasture, without history/timming
+Declarative, end/desired state,  always represent the latest state of your infrasture, without history/timming
+Benefits when updating the infrastructure, dont care about how change, just what need to be done
 
+Imperative = define exact steps - HOW
 **modules**
 ```
 main.tf -- 
