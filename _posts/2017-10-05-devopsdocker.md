@@ -17,6 +17,7 @@ A Docker registry stores Docker images.
 An image is a read-only template with instructions for creating a Docker container.
 A container is a runnable instance of an image.
 Docker Engine combines the namespaces, control groups, and UnionFS into a wrapper called a container format. The default container format is libcontainer.
+![img]({{ '/assets/images/devops/docker_engine.png' | relative_url }}){: .center-image }*(°0°)*
 
 **Docker vs VM**
 
@@ -76,6 +77,18 @@ The Device Mapper provides the foundation for a number of higher-level technolog
 
 Volume Data volumes provide several useful features for persistent or shared data: Volumes are initialized when a container is created. If the container’s parent image contains data at the specified mount point, that existing data is copied into the new volume upon volume initialization. (Note that this does not apply when mounting a host directory.) Data volumes can be shared and reused among containers. Changes to a data volume are made directly. Changes to a data volume will not be included when you update an image. Data volumes persist even if the container itself is deleted.
 
+While bind mounts are dependent on the directory structure and OS of the host machine, volumes are completely managed by Docker. Volumes have several advantages over bind mounts:
+![img]({{ '/assets/images/devops/docker-volumes.png' | relative_url }}){: .center-image }*(°0°)*
+```
+Volumes are easier to back up or migrate than bind mounts.
+You can manage volumes using Docker CLI commands or the Docker API.
+Volumes work on both Linux and Windows containers.
+Volumes can be more safely shared among multiple containers.
+Volume drivers let you store volumes on remote hosts or cloud providers, to encrypt the contents of volumes, or to add other functionality.
+New volumes can have their content pre-populated by a container.
+Volumes on Docker Desktop have much higher performance than bind mounts from Mac and Windows hosts.
+```
+
 **Docker Network**
 
 ![img]({{ '/assets/images/devops/docker-network.png' | relative_url }}){: .center-image }*(°0°)*
@@ -108,3 +121,15 @@ alpine linux use musl , on the other hand, most linux distributions use glibc.
 busybox
 
 [refer](https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34)
+
+**LXC vs VM**
+LXC is best for single purpose application enviroments, designed for running applications, share same kernel
+VM is best to host mulitiple application in same environment, designed for running OS and vms ned seperate kernel
+
+
+**LXC vs Docker**
+Lxc main focus is system containers. Containers offer an environment.
+LXC is a container technology that provides you lightweight Linux containers and while Docker is a single application virtualization engine based on the container. 
+You can SSH (log in) to your LXC container, treat it as an OS, and install your application and services and it will work as expected. you can not do this with Docker containers.
+Docker has improved portability, versioning of container images, reuse of images, community support
+![img]({{ '/assets/images/devops/container-lxc.png' | relative_url }}){: .center-image }*(°0°)*
