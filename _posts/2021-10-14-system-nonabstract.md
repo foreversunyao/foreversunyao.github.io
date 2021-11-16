@@ -7,8 +7,17 @@ tags:
  - systemdesign
 ---
 **Application requirements**
-availability of your product or service and this measurable should be owned by the technology team.
-
+1, availability of your product or service and this measurable should be owned by the technology team.
+2, Start from One machine for entire application
+3, calculation for resources
+4, Design process
+```
+1, is it possible ? 
+2, can we do better ? faster,smaller,efficient
+3, is it feasible ? scale the design, given contraints on money, hw
+4, is it resilient ? component fail, network fail, datacenter fail
+5, can we do better again ?
+```
 **SLIs and SLOs**
 - service level indicator, a carefully defined quantitative measure of some aspect of the level of service that is provided.
 like response time for loading the feed
