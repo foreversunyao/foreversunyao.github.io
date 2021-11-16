@@ -125,3 +125,4 @@ sudo conntrack -L | grep $ip
 
 - others
 [k8s failure stories](https://k8s.af)
+[faq](https://wener.me/notes/devops/kubernetes/k8s-faq/)
