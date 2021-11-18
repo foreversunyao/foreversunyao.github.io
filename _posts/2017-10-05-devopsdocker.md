@@ -133,3 +133,8 @@ LXC is a container technology that provides you lightweight Linux containers and
 You can SSH (log in) to your LXC container, treat it as an OS, and install your application and services and it will work as expected. you can not do this with Docker containers.
 Docker has improved portability, versioning of container images, reuse of images, community support
 ![img]({{ '/assets/images/devops/container-lxc.png' | relative_url }}){: .center-image }*(°0°)*
+
+**relevant tools**
+- [dive](https://github.com/wagoodman/dive)
+- ctop
+- [trivy](https://github.com/aquasecurity/trivy) Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues
