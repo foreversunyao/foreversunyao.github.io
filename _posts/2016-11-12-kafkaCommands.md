@@ -2,14 +2,14 @@
 layout: post
 title: "Kafka Commands"
 date: 2016-11-12 12:25:06
-description: Apache Kafka and Zookeeper Commands
+description: Apache Kafka and Zookeeper Commands, troubleshoot
 tags: 
  - kafka
 ---
 
  - Apache Kafka Commands
 
-Topic:
+#Topic:
 bin/kafka-topics --list --zookeeper 127.0.0.1:2181   bin/kafka-topics.sh -zookeeper 127.0.0.1:2181 -describe -topic test1
 bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --create --topic test1 --partitions 1000 --replication-factor 1
 bin/kafka-topics.sh –zookeeper 127.0.0.1:2181 –alter –partitions 20 –topic test1
@@ -21,29 +21,31 @@ cat topic-to-move.json
 }
 bin/kafka-topics.sh --delete --zookeeper 127.0.0.1:2181 --topic test1
 
-Producer:     
+#Producer:     
 bin/kafka-console-producer --broker-list 127.0.0.1:9092--topic test1
 
-Consumer:
+#Consumer:
 bin/kafka-console-consumer --zookeeper 127.0.0.1:2181 --topic test1
+kafka-consumer-groups --bootstrap-server kafka1:9092 --group consumer_group1  --topic topic1:p1 --reset-offsets --shift-by 1 --execute
+kafka-consumer-groups --bootstrap-server kafka1:9092 --group consumer_group1 --describe --state
 
-Consumer throughput:
+#Consumer throughput:
 bin/kafka-consumer-perf-test.sh --zookeeper 127.0.0.1:2181 --messages 5000000 --topic test1 --threads 1
 
-Consumer offset:
+#Consumer offset:
 bin/kafka-consumer-offset-checker --group testabc --topic test1 --zookeeper 127.0.0.1:2181
 bin/kafka-consumer-groups --zookeeper 127.0.0.1:2181 --describe --group test1
 
-reassignment:
+#reassignment:
 
-get skew topic:
+#get skew topic:
 (lastest offset - earlies offset) per partitions
 
-leader rotate per topic:
+#leader rotate per topic:
 part of reassignment 
  
  - Apache Zookeeper Commands
-
+```
 echo stat | nc 127.0.0.1 2181 
 check leader or follower
 
@@ -100,3 +102,13 @@ ZooKeeper -server host:port cmd args
    getAcl path
    close
    connect host:port
+```
+
+- troulbeshooting
+1. stale metadata org.apache.kafka.common.errors.TimeoutException: Timeout of 60000ms expired before the position for partition p1 could be determined
+
+The controller node is in charge of updating topic metadata. If leadership of a topic partition has moved, a consumer will not be able to read it if it does not know which broker is the current leader for the partition. Stale metadata means the controller node isn't doing its job and should be replaced.
+zkCli.sh delete /controller to force a new controller elected
+
+2. leaderrotate if leader got some problems, like bad disk
+
