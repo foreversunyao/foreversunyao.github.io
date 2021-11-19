@@ -7,6 +7,12 @@ tags:
  - devops
 ---
 
+**graphical**
+only these two articles are enough
+[refer1](https://developpaper.com/graphical-docker-architecture/)
+[refer2](https://developpaper.com/understanding-docker/)
+![img]({{ '/assets/images/devops/docker_graphical.jpeg' | relative_url }}){: .center-image }*(°0°)*
+
 **Docker Architecture**
 
 ![img]({{ '/assets/images/devops/Docker-architecture.jpg' | relative_url }}){: .center-image }*(°0°)*
