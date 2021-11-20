@@ -64,9 +64,11 @@ sysctl
 /var/log/messages -- system app/service related errors
 Dmesg -- kernel errors
 ```
-15. file
+15. filesystem
 ```
 stat to check inode
+mount
+tree -L -2 /path
 ```
 
 **container**
@@ -78,7 +80,7 @@ cat /etc/docker/daemon.json
 2. cgroup
 Error response from daemon: Cannot restart container rsnmp_v4: OCI runtime create failed: container_linux.go:349: starting container process caused "process_linux.go:297: applying cgroup configuration for process caused \"mountpoint for devices not found\"": unknown
 [check config](https://github.com/moby/moby/blob/master/contrib/check-config.sh)
-[cgroupfs mount](https://github.com/tianon/cgroupfs-mount/blob/master/cgroupfs-mount) 
+[cgroupfs mount](https://github.com/tianon/cgroupfs-mount/blob/master/cgroupfs-mount)3. mount|grep overlay 
 
 **k8s troubleshoot**
 [another doc](https://foreversunyao.github.io/2019/09/k8s-troubleshoot)

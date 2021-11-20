@@ -94,6 +94,15 @@ Volume drivers let you store volumes on remote hosts or cloud providers, to encr
 New volumes can have their content pre-populated by a container.
 Volumes on Docker Desktop have much higher performance than bind mounts from Mac and Windows hosts.
 ```
+- overlay
+```
+LowerDir: these are the read-only layers of an overlay filesystem. For docker, these are the image layers assembled in order.
+UpperDir: this is the read-write layer of an overlay filesystem. For docker, that is the equivalent of the container specific layer that contains changes made by that container.
+WorkDir: this is a required directory for overlay, it needs an empty directory for internal use.
+MergedDir: this is the result of the overlay filesystem. Docker effectively chroot's into this directory when running the container.
+diff: store the specific file content of the mount point
+link: 
+```
 
 **Docker Network**
 
