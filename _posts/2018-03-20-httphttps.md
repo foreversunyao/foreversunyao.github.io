@@ -62,3 +62,10 @@ curl --header "Content-Type:application/json" http://example.com
 curl --head -v https://www.baidu.com
 curl -v --trace-time https://www.google.com
 curl -w "dns_resolution: %{time_namelookup}, tcp_established: %{time_connect}, ssl_handshake_done: %{time_appconnect}, TTFB: %{time_starttransfer}\n" -o /dev/null -s "https://sushi.herokuapp.com/"
+
+
+**HTTP_PROXY**
+- SET NO_PROXY for internal services(behind firewall) 
+[refer](https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/)
+
+The difference is that http_proxy does not encrypt the data transmission between the client and proxies, while https_proxy does. So https_proxy proxies itself requires a TLS certificate.
