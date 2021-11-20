@@ -18,7 +18,7 @@ only these two articles are enough
 ![img]({{ '/assets/images/devops/Docker-architecture.jpg' | relative_url }}){: .center-image }*(°0°)*
 
 The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.
-The Docker client (docker) is the primary way that many Docker users interact with Docker.
+The Docker client (docker) is the primary way that many Docker users interact with Docker. three ways, tcp , socket and fd
 A Docker registry stores Docker images.
 An image is a read-only template with instructions for creating a Docker container.
 A container is a runnable instance of an image.
