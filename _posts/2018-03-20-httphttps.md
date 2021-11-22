@@ -37,6 +37,11 @@ Content-Length: 45736
 Connection: keep-alive
 
 
+**cookie and session**
+1. cookie is a tag which is set by server when return the request to client, in HTTP header
+2. session is a DS and is stored at server side, cookie only stores sessionID
+3. server side: manager(session expired time, policy, store way), session(be stored at redis/db,handler read session and generate html), provider(hashtable,sid,last access time, LRU..)
+
 **http 2.0 vs http 1.1**
 
 Key differences with http1.1
