@@ -45,3 +45,12 @@ Besides, the Controller Manager performs lifecycle functions such as namespace c
 
 **custom controllers**
 [refer](https://medium.com/@cloudark/kubernetes-custom-controllers-b6c7d0668fdf)
+
+
+**faster reschedule**
+```
+–node-status-update-frequency from 10s to 4s
+–node-monitor-period from 5s to 2s
+–node-monitor-grace-period from 40s to 20s
+–pod-eviction-timeout from 5m to 30s
+```
