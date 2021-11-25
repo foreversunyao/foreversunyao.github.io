@@ -14,3 +14,6 @@ Kubeadm writes static Pod manifest files for control plane components to /etc/ku
 /etc/kubernetes/manifests# ls
 etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
 ```
+
+**apiserver**
+1. using --runtime-config= to test cluster for new change
