@@ -2,7 +2,7 @@
 layout: post
 title: "K8s api scheduler controller-manager"
 date: 2019-09-03 01:25:06
-description: Kubernetes api scheduler controller-manager
+description: Kubernetes apiserver scheduler controller-manager
 tags:
  - k8s
 ---
