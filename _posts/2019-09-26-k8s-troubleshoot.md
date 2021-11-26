@@ -80,6 +80,15 @@ CrashLoopBackOff
 Pod is running without doing what I told it to do:
 kubectl apply --validate -f mypod.yaml
 
+```
+1. Pending, object was created and stored in etcd, but failed to be scheduled. resource not enough? cpu/mem/gpu,hostport..
+2. Waiting or ContainerCreating, image pull failed/cni failure/failed create pod sanbox, input/out error
+4. ImagePullBackOff, pull failed
+5. CrashLoopBackOff, started and crash/exit again --> kubectl logs --previous/kubelet and container logs on Node
+6. Error, failed at starting, like cm, secret,pv, limitrange, securitypolicy,rbac
+7. Terminating or Unknow, the node pod is running on  cant be reachable 
+```
+
 - replication controllers
 kubectl describe rc ${CONTROLLER_NAME}
 

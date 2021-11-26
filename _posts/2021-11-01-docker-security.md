@@ -42,4 +42,10 @@ Docker.socket
 - Use copy instead of add in Dockerfile
 add could add malicious files from remote URLs
 - Enable Docker Content Trust(DCT)
-Docker Content Trust (DCT) uses digital signatures to validate integrity of the images being pulled from the remote Docker registries. 
+Docker Content Trust (DCT) uses digital signatures to validate integrity of the images being pulled from the remote Docker registries.
+
+- Capabilities
+```
+--cap-add
+--cap-drop
+``` 
