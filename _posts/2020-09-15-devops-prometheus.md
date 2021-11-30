@@ -16,6 +16,21 @@ topk(10, count by (__name__)({__name__=~".+"}))
 topk(10, count by (__name__, job)({__name__=~".+"}))
 - which jobs have the most time series
 topk(10, count by (job)({__name__=~".+"}))
+- caculate
+[refer](https://www.robustperception.io/how-much-ram-does-prometheus-2-x-need-for-cardinality-and-ingestion)
+- api(tsdb)
+```
+GET /api/v1/status/tsdb
+headStats: This provides the following data about the head block of the TSDB:
+numSeries: The number of series.
+chunkCount: The number of chunks.
+minTime: The current minimum timestamp in milliseconds.
+maxTime: The current maximum timestamp in milliseconds.
+seriesCountByMetricName: This will provide a list of metrics names and their series count.
+labelValueCountByLabelName: This will provide a list of the label names and their value count.
+memoryInBytesByLabelName This will provide a list of the label names and memory used in bytes. Memory usage is calculated by adding the length of all values for a given label name.
+seriesCountByLabelPair This will provide a list of label value pairs and their series count.
+```
 
 **ha**
 [refer](https://www.metricfire.com/blog/ha-kubernetes-monitoring-using-prometheus-and-thanos/)
@@ -41,5 +56,7 @@ Showing top 10 nodes out of 64
 ...
 ```
 
+**Tune**
+[optimising startup](https://www.robustperception.io/optimising-startup-time-of-prometheus-2-6-0-with-pprof)
 
 
