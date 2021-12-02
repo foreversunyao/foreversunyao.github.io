@@ -87,6 +87,21 @@ kubectl apply --validate -f mypod.yaml
 5. CrashLoopBackOff, started and crash/exit again --> kubectl logs --previous/kubelet and container logs on Node
 6. Error, failed at starting, like cm, secret,pv, limitrange, securitypolicy,rbac
 7. Terminating or Unknow, the node pod is running on  cant be reachable 
+8. InvalidImageName
+9. ImageInspectError, verify image failed
+10. ErrImageNeverPull
+11. ErrImagePull
+12. CreateContainerConfigError
+13. CreateContainerError
+14. m.internalLifecycle.PreStartContainer
+15. RunContainerError
+16. PostStartHookError
+17. ContainersNotInitialized
+18. ContainersNotReady
+19. ContainerCreating
+20. PodInitializing
+21. DockerDaemonNotReady
+22. NetworkPluginNotReady
 ```
 
 - replication controllers
@@ -130,6 +145,17 @@ kubectl exec -it POD -- ping -c 2 $ip
 ```
 ```
 sudo conntrack -L | grep $ip
+```
+- pod exit code
+```
+0: successfully exit, like job
+1: programe failure
+137: SIGKILL, kill-9 or OOM
+139: code problem, SIGSEGV
+143: SIGTERM, docker stop
+126: permission or cant execute
+127: shell script failure
+1 or 255
 ```
 
 - others
