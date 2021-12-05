@@ -37,6 +37,10 @@ pod1 eth0->docker0->flannel.1->node1 eth0->node2 eth0->flannel.1->docker0->pod2 
 [flannel vs docker bridge](https://www.edureka.co/blog/kubernetes-networking/)
 [flannel subnet](https://blog.laputa.io/kubernetes-flannel-networking-6a1cb1f8ec7c)
 
+
+**how a pod get its ip**
+[refer](https://cloud.tencent.com/developer/article/1786342)
+
 **calico**
 1. features
 - layer 3 virtual network
