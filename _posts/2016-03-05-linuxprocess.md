@@ -52,6 +52,10 @@ Thread can access only address in task
 A process starts another process in two phases. First the process creates a fork of itself, an identical copy. Then the forked process executes an exec to replace the forked process with the target child process.
 All threads of a process share its virtual address space and system resources. 
 
+**create and terminate a process**
+[refer](https://www.tutorialspoint.com/process-creation-vs-process-termination-in-operating-system)
+
+![img]({{ '/assets/images/linux/linux_fork.png' | relative_url }}){: .center-image }*(°0°)*
 **Address Space**
 
 ![img]({{ '/assets/images/linux/Process-address-space.jpg' | relative_url }}){: .center-image }*(°0°)*
