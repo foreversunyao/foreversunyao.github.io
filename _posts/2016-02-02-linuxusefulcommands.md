@@ -53,6 +53,10 @@ mtr -P 80 -i 0.5 -rwc 50 example.com --mtr in tcp mode to test ports or firewall
 
 - dig
 dig +short domain @dnserver
+
+- netstat -p
+netstat -s
+
 **Memory**
 
  - memory leak check
