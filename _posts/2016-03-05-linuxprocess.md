@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Process"
 date: 2016-02-02 10:25:06
-description: Linux Process Life and Space
+description: Linux Process Life and Space, systemcall
 tags: 
  - linux
 ---
@@ -87,7 +87,7 @@ ID      Name                Description
 
 **system call**
 - Process Control
-1. fork(), 
+1. fork(), used for creating process, it does it by cloning the calling process but with a new pid and other resources 
 2. exit(), The operating system reclaims resources that were used by the process after the exit() system call.
 3. exec(), any process may call exec() at any time. The currently running program is immediately terminated, and the new program starts executing in the context of the existing process.
 - File Management
@@ -108,3 +108,13 @@ Shared memory(processes share memory region to communicate)
 1. pipe()
 2. shmget()
 3. mmap()
+
+**fork() vs exec()**
+```
+Factors for Differentiation	fork()	exec()
+Invoking	fork() creates a new duplicate child process of the process that invoked fork()	|| exec() replaces a process that invokes it with a new process provided in its parameter.
+Process id	The child process and parent process have unique process id. || 	The new process and the replaced process have the same process id.
+Execution	The parent and child process start simultaneous execution from the instruction just after fork(). || 	The currently running process is terminated and the exec() start execution of the new process from its entry point.
+Arguments	No arguments are passed to fork() system call. || 	Basically, three or more arguments are passed to the exec() system call.
+Format	Pid=fork();	|| exec(cont char *filename, char* const argv[], char* const envp[])
+```
