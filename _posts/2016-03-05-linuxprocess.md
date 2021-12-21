@@ -83,3 +83,28 @@ ID      Name                Description
 4       Not used/User-definable     For special purposes.
 5       Start the system normally with appropriate display manager. (with GUI)  Same as runlevel 3 + display manager.
 6       Reboot              Reboots the system.
+
+
+**system call**
+- Process Control
+1. fork(), 
+2. exit(), The operating system reclaims resources that were used by the process after the exit() system call.
+3. exec(), any process may call exec() at any time. The currently running program is immediately terminated, and the new program starts executing in the context of the existing process.
+- File Management
+1. open()
+2. read()
+3. write()
+4. close()
+- Device Management
+1. ioctl(), device manipulation like reading from device buffers, writing into device buffers, etc. 
+- Information Maintenance
+It handles information and its transfer between the OS and the user program. In addition, OS keeps the information about all its processes and system calls are used to access this information. 
+1. getpid()
+2. alarm(), This system call sets an alarm clock for the delivery of a signal that when it has to be reached.
+3. sleep(), This System call suspends the execution of the currently running process for some interval of time
+- Communication
+Message Passing(processes exchange messages with one another)
+Shared memory(processes share memory region to communicate)
+1. pipe()
+2. shmget()
+3. mmap()
