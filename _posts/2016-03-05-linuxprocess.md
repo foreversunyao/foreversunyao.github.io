@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Process"
 date: 2016-02-02 10:25:06
-description: Linux Process Life and Space, systemcall
+description: Linux Process Life and Space, systemcall, thread
 tags: 
  - linux
 ---
@@ -110,11 +110,58 @@ Shared memory(processes share memory region to communicate)
 3. mmap()
 
 **fork() vs exec()**
-```
 Factors for Differentiation	fork()	exec()
 Invoking	fork() creates a new duplicate child process of the process that invoked fork()	|| exec() replaces a process that invokes it with a new process provided in its parameter.
 Process id	The child process and parent process have unique process id. || 	The new process and the replaced process have the same process id.
 Execution	The parent and child process start simultaneous execution from the instruction just after fork(). || 	The currently running process is terminated and the exec() start execution of the new process from its entry point.
 Arguments	No arguments are passed to fork() system call. || 	Basically, three or more arguments are passed to the exec() system call.
-Format	Pid=fork();	|| exec(cont char *filename, char* const argv[], char* const envp[])
+Format	Pid=fork();	|| exec(cont char * filename, char* const argv[], char* const envp[])
+1. example
 ```
+ strace -f -etrace=execve,clone bash -c '{ ls; }'
+execve("/usr/bin/bash", ["bash", "-c", "{ ls; }"], 0x7fff153d0ed0 /* 36 vars */) = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 115538 attached
+, child_tidptr=0x7fe8b4f10a10) = 115538
+[pid 115538] execve("/usr/bin/ls", ["ls"], 0x55eed8e42be0 /* 36 vars */) = 0
+Desktop  Documents  Downloads  Dropbox	IdeaProjects  Music  Pictures  Public  Templates  Videos  revision  soft
+[pid 115538] +++ exited with 0 +++
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=115538, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
++++ exited with 0 +++
+```
+it takes two steps to create a process:
+
+The clone system call creates the process as a clone of the bash process
+The execve system call then replaces the executable in the process with the ls command binary
+
+2. parent process creates every process in Linux except the PID 1 (INIT process). 
+pstree
+
+**THREAD**
+1. A process is a computer program under execution. Linux processes are isolated and do not interrupt each other’s execution. Process context switching is expensive because the kernel has to save old registers and load current registers, memory maps, and other resources.
+2. Thread, A process can do more than one unit of work concurrently by creating one or more threads. 
+```
+ps -eLf
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+root           1       0       1  0    1 Jun28 ?        00:00:16 /usr/lib/systemd/systemd --switched-root --system --deserialize 31
+root           2       0       2  0    1 Jun28 ?        00:00:00 [kthreadd]
+root           3       2       3  0    1 Jun28 ?        00:00:00 [rcu_gp]
+root           4       2       4  0    1 Jun28 ?        00:00:00 [rcu_par_gp]
+root           6       2       6  0    1 Jun28 ?        00:00:05 [kworker/0:0H-acpi_thermal_pm]
+root           8       2       8  0    1 Jun28 ?        00:00:00 [mm_percpu_wq]
+root          12       2      12  0    1 Jun28 ?        00:00:11 [ksoftirqd/0]
+root          13       2      13  0    1 Jun28 ?        00:01:30 [rcu_sched]
+root          14       2      14  0    1 Jun28 ?        00:00:00 [migration/0]
+root         690       1     690  0    2 Jun28 ?        00:00:00 /sbin/auditd
+root         690       1     691  0    2 Jun28 ?        00:00:00 /sbin/auditd
+root         709       1     709  0    4 Jun28 ?        00:00:00 /usr/sbin/ModemManager
+root         709       1     728  0    4 Jun28 ?        00:00:00 /usr/sbin/ModemManager
+root         709       1     729  0    4 Jun28 ?        00:00:00 /usr/sbin/ModemManager
+root         709       1     742  0    4 Jun28 ?        00:00:00 /usr/sbin/ModemManager
+
+PID: Unique process identifier
+LWP: Unique thread identifier inside a process
+NLWP: Number of threads for a given process
+```
+3. thread shares the same address space of the process. Therefore, spawning a new thread within a process becomes cheap. Internally, the thread has only a stack in the memory, and they share the heap (process memory) with the parent process.
+4. We use fork (or clone) and execve system calls for creating a process in Linux. Here, the fork system call creates a child process equivalent to the parent process. The execve system call replaces the executable of the child process. In modern implementations, the fork system call internally uses the clone system call.
+5. Linux creates every process using a data structure in C called task_struct. The Linux kernel holds them in a dynamic list to represent all the running processes called tasklist. In this tasklist, each element is of task_struct type, which depicts a Linux process. it has  scheduling parameters, memory image, signals, machine registers, system calls state, file descriptors, kernel stack
