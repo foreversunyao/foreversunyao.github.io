@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "basic data structure and algorithms time complexity"
+title: "basic data structure and algorithms time complexity summary"
 date: 2020-11-24 10:50:06
 description: algorithms, data structure, time complexity
 tags: 
