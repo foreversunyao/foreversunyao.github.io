@@ -2,7 +2,7 @@
 layout: post
 title: "Linux boot"
 date: 2019-02-27 17:25:06
-description: boot process, BIOS, boot loader, kernel
+description: boot process, BIOS, boot loader, kernel, user space and kernel space
 tags: 
  - linux
 ---
@@ -30,3 +30,16 @@ Systemd uses the /etc/systemd/system/default.target file to determine the state 
 
 
 ![img]({{ '/assets/images/linux/linux_boot_process.png' | relative_url }}){: .center-image }*(°0°)*
+
+## Kernel
+- kernel
+The kernel is the special piece of the operating system that controls the CPU hardware, allocates memory, accesses data, schedules processes, runs the applications, and protects them from each other. It is the first program loaded on the computer when the computer starts up. The most critical pieces of code in the kernel are loaded into protected areas of memory so that they can't be overwritten by other applications running in the operating system.
+
+- distribution
+“distro,” a Linux distribution is the combination of specific versions of the Linux kernel with other libraries, system daemons, development tools, applications, packaging, and life-cycle management tools that are compatible with each other and tested for interoperability.
+
+- kernel space
+Operating systems all execute their kernel in protected and restricted memory that is called kernel space to prevent the kernel from terminating and crashing the system.
+
+![img]({{ '/assets/images/linux/linux_kernel.png' | relative_url }}){: .center-image }*(°0°)*
+[refer](CUMULUS-NETWORKS-Linux101)
