@@ -74,3 +74,49 @@ curl -w "dns_resolution: %{time_namelookup}, tcp_established: %{time_connect}, s
 [refer](https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/)
 
 The difference is that http_proxy does not encrypt the data transmission between the client and proxies, while https_proxy does. So https_proxy proxies itself requires a TLS certificate.
+
+**HTTP flow**
+- DNS Lookup: The client tries to resolve the domain name for the request.
+Client sends DNS Query to local ISP DNS server.
+DNS server responds with the IP address for hostname.com
+- Connect: Client establishes TCP connection with the IP address of hostname.com
+Client sends SYN packet.
+Web server sends SYN-ACK packet.
+Client answers with ACK packet, concluding the three-way TCP connection establishment.
+- Send: Client sends the HTTP request to the web server.
+- Wait: Client waits for the server to respond to the request.
+Web server processes the request, finds the resource, and sends the response to the Client. Client receives the first byte of the first packet from the web server, which contains the HTTP Response headers and content.
+- Load: Client loads the content of the response.
+Web server sends second TCP segment with the PSH flag set.
+Client sends ACK. (Client sends ACK every two segments it receives. from the host)
+Web server sends third TCP segment with HTTP_Continue.
+- Close: Client sends a a FIN packet to close the TCP connection. FINWAIT_1
+Server is in CLOSEWAIT state and send ACK back to client, client becomes FINWAIT_2
+Server send FIN to Client and server becomes LAST_ACK.
+Client send ACK back to Server and becomes TIMEWAIT(2ms) and then CLOSED
+Server becomes CLOSED after receive ACK.
+
+**TLS flow**
+- tcp handshake
+client -> syn -> server
+client <- syn ack <- server
+client -> ack -> server
+- tls handshake
+client -> clienthello -> server
+client <- serverhello, cert, ServerKeyExchange, serverhellodone  <- server
+client -> clientkeyexchange, change cipher spec, finished -> server
+client <- change cipher spec, finished <- server
+client -> encrypted tls connectoin  -> server
+```
+The client sends a "Client hello" message to the server, along with the client's random value and supported cipher suites.
+The server responds by sending a "Server hello" message to the client, along with the server's random value.
+The server sends its certificate to the client for authentication and may request a certificate from the client. The server sends the "Server hello done" message.
+If the server has requested a certificate from the client, the client sends it.
+The client creates a random Pre-Master Secret and encrypts it with the public key from the server's certificate, sending the encrypted Pre-Master Secret to the server.
+The server receives the Pre-Master Secret. The server and client each generate the Master Secret and session keys based on the Pre-Master Secret.
+The client sends "Change cipher spec" notification to server to indicate that the client will start using the new session keys for hashing and encrypting messages. Client also sends "Client finished" message.
+Server receives "Change cipher spec" and switches its record layer security state to symmetric encryption using the session keys. Server sends "Server finished" message to the client.
+Client and server can now exchange application data over the secured channel they have established. All messages sent from client to server and from server to client are encrypted using session key.
+```
+
+[refer](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0722835)
