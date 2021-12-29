@@ -8,7 +8,58 @@ tags:
 ---
 **troubleshooting-graph**
 [refer](https://learnk8s.io/a/troubleshooting-kubernetes.pdf)
+- error code 
 
+```
+kubernetes:
+    node:
+      - TerminatedAllPods       # Terminated All Pods      (information)
+      - RegisteredNode          # Node Registered          (information)*
+      - RemovingNode            # Removing Node            (information)*
+      - DeletingNode            # Deleting Node            (information)*
+      - DeletingAllPods         # Deleting All Pods        (information)
+      - TerminatingEvictedPod   # Terminating Evicted Pod  (information)*
+      - NodeReady               # Node Ready               (information)*
+      - NodeNotReady            # Node not Ready           (information)*
+      - NodeSchedulable         # Node is Schedulable      (information)*
+      - NodeNotSchedulable      # Node is not Schedulable  (information)*
+      - CIDRNotAvailable        # CIDR not Available       (information)*
+      - CIDRAssignmentFailed    # CIDR Assignment Failed   (information)*
+      - Starting                # Starting Kubelet         (information)*
+      - KubeletSetupFailed      # Kubelet Setup Failed     (warning)*
+      - FailedMount             # Volume Mount Failed      (warning)*
+      - NodeSelectorMismatching # Node Selector Mismatch   (warning)*
+      - InsufficientFreeCPU     # Insufficient Free CPU    (warning)*
+      - InsufficientFreeMemory  # Insufficient Free Mem    (warning)*
+      - OutOfDisk               # Out of Disk              (information)*
+      - HostNetworkNotSupported # Host Ntw not Supported   (warning)*
+      - NilShaper               # Undefined Shaper         (warning)*
+      - Rebooted                # Node Rebooted            (warning)*
+      - NodeHasSufficientDisk   # Node Has Sufficient Disk (information)*
+      - NodeOutOfDisk           # Node Out of Disk Space   (information)*
+      - InvalidDiskCapacity     # Invalid Disk Capacity    (warning)*
+      - FreeDiskSpaceFailed     # Free Disk Space Failed   (warning)*
+    pod:
+      - Pulling           # Pulling Container Image          (information)
+      - Pulled            # Ctr Img Pulled                   (information)
+      - Failed            # Ctr Img Pull/Create/Start Fail   (warning)*
+      - InspectFailed     # Ctr Img Inspect Failed           (warning)*
+      - ErrImageNeverPull # Ctr Img NeverPull Policy Violate (warning)*
+      - BackOff           # Back Off Ctr Start, Image Pull   (warning)
+      - Created           # Container Created                (information)
+      - Started           # Container Started                (information)
+      - Killing           # Killing Container                (information)*
+      - Unhealthy         # Container Unhealthy              (warning)
+      - FailedSync        # Pod Sync Failed                  (warning)
+      - FailedValidation  # Failed Pod Config Validation     (warning)
+      - OutOfDisk         # Out of Disk                      (information)*
+      - HostPortConflict  # Host/Port Conflict               (warning)*
+    replicationController:
+      - SuccessfulCreate    # Pod Created        (information)*
+      - FailedCreate        # Pod Create Failed  (warning)*
+      - SuccessfulDelete    # Pod Deleted        (information)*
+      - FailedDelete        # Pod Delete Failed  (warning)*
+```
 **Nodes**
 - inidivdual node shuts down
 pods on that node stop running
@@ -18,6 +69,12 @@ Collects node problems from daemons and reports them to the apiserver as NodeCon
 **Network**
 - network partition
 partition A thinks the nodes in partiion B are down;partition B thinks the apiserver is down
+- IP Address Shortage
+[refer](https://medium.com/compass-true-north/experiences-for-ip-addresses-shortage-on-eks-clusters-a740f56ac2f5)
+
+```
+/var/log/aws-routed-eni/ipamd.log
+``` 
 
 **Apiserver**
 - server shutdown
@@ -63,21 +120,29 @@ kubectl top
 [ingress and traffic flow](https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120)
 
 - pods
-terminationMessagePath
+1. terminationMessagePath
 
 Pending: Generally this is because there are insufficient resources of one type or another that prevent scheduling. Look at the output of the kubectl describe ... 
 
 Waiting: If a Pod is stuck in the Waiting state, then it has been scheduled to a worker node, but it can’t run on that machine. The most common cause of Waiting pods is a failure to pull the image. There are three things to check:
 
-Crashing or unhealthy: 
+2. Crashing or unhealthy: 
 kubectl logs ${POD_NAME} ${CONTAINER_NAME}
 kubectl logs --previous ${POD_NAME} ${CONTAINER_NAME}
 kubectl exec ${POD_NAME} -c ${CONTAINER_NAME} -- ${CMD} ${ARG1} ${ARG2} ... ${ARGN}
 
-CrashLoopBackOff
+3. CrashLoopBackOff
 [refer](https://sysdig.com/blog/debug-kubernetes-crashloopbackoff/)
+[refer2](https://containersolutions.github.io/runbooks/posts/kubernetes/crashloopbackoff/)
+```
+Gather information
+Examine Events section in describe output
+Check the exit code
+Check readiness/liveness probes
+Check common application issues
+```
 
-Pod is running without doing what I told it to do:
+4. Pod is running without doing what I told it to do:
 kubectl apply --validate -f mypod.yaml
 
 ```
