@@ -61,4 +61,12 @@ array and linked list are physical structures; stack,queue,tree,graph are logica
 - get, if not follow the list to check 
 - resize, create a new array with larger size, re-Hash current entry and put to new array
 8. tree
-- 
+- only one root and its children is also a tree 
+- parent, child, sibling
+- binary tree has at most 2 children per node, full binary tree vs complete binary
+- it can have two physical structures, linked list(data,left,right) and array(level traverse, array[parent], left is array[2 * parent+1] right is array[2 * parent +2]) 
+- binary search tree -> O(logN)
+- traverse DFS(preorder,inorder,postorder) and BFS(level)
+- priority queue is implemented by max heap and min heap 
+- basic operations: search, insert O(logN), delete O(logN), build O(n)
+9. sort
