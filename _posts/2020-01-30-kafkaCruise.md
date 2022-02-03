@@ -14,7 +14,7 @@ Cruise-control is the first of its kind to fully automate the dynamic workload r
 **Architecture**
 [refer](https://engineering.linkedin.com/blog/2017/08/open-sourcing-kafka-cruise-control)
 
-![img]({{ '/assets/images/kafka/cruise-control' | relative_url }}){: .center-image }*(°0°)*
+![img]({{ '/assets/images/kafka/cruise-control.png' | relative_url }}){: .center-image }*(°0°)*
 
 - REST API
 Cruise Control provides a REST API to allow users to interact with it. The REST API supports querying the workload and optimization proposals of the Kafka cluster, as well as triggering admin operations.
