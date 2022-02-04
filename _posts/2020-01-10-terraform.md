@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Terraform"
-date: 2020-01-10 12:25:06
-description: Terraform hashicorp Infrastructure as code
+date: 2021-01-10 12:25:06
+description: Terraform hashicorp Infrastructure as code, terragrunt
 tags:
  - cloud
 ---
@@ -92,3 +92,12 @@ examples -- how to use the submodules
 test -- automated integration tests
 ```
 
+**terragrunt**
+1. Terragrunt is a thin wrapper that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state.
+2. features
+- Explicit dependencies: Share your state easily
+'variables' must be populated before run and static file in terraform, but in terragrunt 'input' can be used to dynamically supply these variables
+- Terragrunt dependencies only define their state configuration once.
+In Terraform, I have to define the dependencies and then, in every single module that requires them(repeatedly)
+- Terragrunt applies dependencies in their implied order.
+Terragrunt creates a dependency tree, and runs all commands in the proper order such that all necessary dependencies are available at execution time.
