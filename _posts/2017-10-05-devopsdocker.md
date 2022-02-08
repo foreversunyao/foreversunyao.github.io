@@ -103,6 +103,8 @@ MergedDir: this is the result of the overlay filesystem. Docker effectively chro
 diff: store the specific file content of the mount point
 link: 
 ```
+[refer](https://towardsdatascience.com/docker-storage-598e385f4efe)
+
 **docker image**
 1. docker image history <img_id>
 [refer](https://windsock.io/explaining-docker-image-ids/)

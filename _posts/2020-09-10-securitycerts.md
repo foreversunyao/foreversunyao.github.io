@@ -22,7 +22,9 @@ The public key is used to decrypt the hash with the same hash function
 The signature is verified if the hash values match. 
 ```
 [refer](https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq)
-![img]({{ '/assets/images/linux/ingress.png' | relative_url }}){: .center-image }*(°0°)*
+
+![img]({{ '/assets/images/linux/CA_CSR_mindmap.png' | relative_url }}){: .center-image }*(°0°)*
+![img]({{ '/assets/images/linux/CA_client_mindmap.png' | relative_url }}){: .center-image }*(°0°)*
 
 **Why need CA**
 To protect the integrity of the signature, PKI requires that the keys be created, conducted, and saved in a secure manner, and often requires the services of a reliable Certificate Authority (CA).
