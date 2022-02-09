@@ -85,6 +85,16 @@ Spinnaker is composed of a number of independent microservices:
 
 [refer](https://docs.armory.io/spinnaker-install-admin-guides/architecture/)
 
+**Kayenta**
+- Automated Canary Analysis
+- features
+1. Metric Retrieval
+2. Jugement(Data validation, Data cleaning, Metric Comparison, Score Computation)
+3. Reporting
+[refer](https://netflixtechblog.com/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69)
+- deployment by Halyard, enable canary
+[refer](https://www.opsmx.com/blog/how-to-integrate-kayenta-with-spinnaker-for-automated-canary-analysis/)
+
 **lifecycle**
 - deployment
 ![img]({{ 'https://www.spinnaker.io/reference/architecture/load/#life-of-a-deployment' | relative_url }}){: .center-image }*(°0°)*
