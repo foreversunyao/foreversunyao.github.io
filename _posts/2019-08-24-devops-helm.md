@@ -4,7 +4,7 @@ title: "K8s helm(WIP)"
 date: 2019-08-24 12:25:06
 description: Kubernetes Helm
 tags:
- - helm
+ - devops
 ---
 
 **What is Helm**
@@ -109,4 +109,47 @@ root
     ├── 02-db.yaml
     ├── 03-backend.yaml
     └── 04-data.yaml
+```
+
+## helm secrets
+1. helm plugin https://github.com/futuresimple/helm-secrets
+2. PGP to generate key pair(read from vault)
+3. create .sops.yaml with fingerprint
+```
+creation_rules:
+    -pgp:"9B08 DC57 18C3 8BA1 160D  EE53 4115 C1D9 D94B D9B2"
+```
+4. create a file secrets and encrypt
+```
+helm secrets enc secrets.yaml
+```
+5. decrypt
+```
+helm secrets dec values.yaml
+```
+## spinnaker access
+1. spinnaker is running on a k8s cluster
+2. other clusters kubeconfig are stored in that cluster as secrets, or using S3 on cloud
+```
+kubectl create secret generic --from-file=$HOME/.kube/config my-kubeconfig
+kubeConfig:
+  enabled: true
+  secretName: my-kubeconfig
+  secretKey: config
+  contexts:
+  # Names of contexts available in the uploaded kubeconfig
+  - my-context
+  # This is the context from the list above that you would like
+  # to deploy Spinnaker itself to.
+  deploymentContext: my-context
+```
+## Halyard BOM
+1. Spinnaker uses a Bill of Materials to describe the services that are part of a release.
+2. Halyard is a tool for configuring, installing, and updating Spinnaker, similar to helm
+```
+├── bom-yaml-1.19.4.tar.gz   ## bom yaml files
+├── halyard.sh               ## halyard init script
+├── halyard.yaml             ## halyard config
+├── ingress.yaml             ## spinnaker ingress
+└── install.sh               ## install
 ```
