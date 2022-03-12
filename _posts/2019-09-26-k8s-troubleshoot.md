@@ -202,8 +202,9 @@ kubectl port-forward NAME 8800 &
 curl localhost:8080
 ```
 ```
+docker ps |grep pod-name
 PID=$(docker inspect --format '{{ .State.Pid }}' ContainerID)
-nsenter -t ${PID} -n ip addr/ping/curl/nslookup
+nsenter -t ${PID} -n ip addr/ping/curl/nslookup/dig
 ```
 ```
 kubectl exec -it POD -- ping -c 2 $ip
