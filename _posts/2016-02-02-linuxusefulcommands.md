@@ -57,6 +57,9 @@ dig +short domain @dnserver
 - netstat -p
 netstat -s
 
+- whois
+whois -h whois.apple.com ip_address
+
 **Memory**
 
  - memory leak check
