@@ -17,6 +17,8 @@ $GOROOT is where Go’s code, compiler, and tooling lives, something like
 $GOPATH environment variable lists places for Go to look for Go Workspaces
 A Go Workspace is how Go manages our source files, compiled binaries, and cached objects used for faster compilation later.
 
+GOBIN=/usr/local/bin/ go install xx
+
 **workspace**
 ```
 .
