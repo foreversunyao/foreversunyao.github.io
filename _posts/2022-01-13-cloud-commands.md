@@ -9,5 +9,9 @@ tags:
 
 **aws**
 [cheat sheet](https://github.com/mdminhazulhaque/aws-cli-cheatsheet)
+```
+aws ec2 create-volume --availability-zone=eu-west-1a --size=10 --volume-type=gp2
+```
+
 **gcp**
 [cheat sheet](https://gist.github.com/pydevops/cffbd3c694d599c6ca18342d3625af97)
