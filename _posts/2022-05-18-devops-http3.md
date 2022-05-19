@@ -34,7 +34,10 @@ tags:
 - TCP
 - IP
 
+
 # http compare
+[refer](https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/6ef36d1e-d91e-43e0-8732-f3e66ba9ea64/protocol-stack-h2-h3.png)
+
 ![img]({{ '/assets/images/devops/http_compare_1_2_3.png' | relative_url }}){: .center-image }*(°0°)*
 
 ![img]({{ '/assets/images/devops/http_compare_2_3.png' | relative_url }}){: .center-image }*(°0°)*
