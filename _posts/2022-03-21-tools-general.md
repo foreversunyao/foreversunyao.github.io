@@ -14,9 +14,14 @@ tags:
 jbd
 - linux process
 strace
+
 ## Stress Test
 - http
 [wrk](https://github.com/wg/wrk)
+
+## k8s
+- [k9s-shell](https://k9scli.io/)
+- [netshoot](https://github.com/nicolaka/netshoot)
 
 ## Other
 - flowchart
