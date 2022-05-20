@@ -22,6 +22,19 @@ strace
 ## k8s
 - [k9s-shell](https://k9scli.io/)
 - [netshoot](https://github.com/nicolaka/netshoot)
+- [node-exporter]
+- [aws-node-termination-handler]
+- [cloudwatch-exporter]
+- [autoscaler-addon-resizer]
+- [kube-cleanup-operator]
+- [configmap-reload]
+- [keda]
+- [jeager]
+- [kube-event-exporter]
+- [kubelet-rubber-stamp]
+
+## kafka
+
 
 ## Other
 - flowchart
