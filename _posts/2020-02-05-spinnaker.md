@@ -104,3 +104,14 @@ Spinnaker is composed of a number of independent microservices:
 **Demo**
 [workflow](https://aws.amazon.com/blogs/opensource/deployment-pipeline-spinnaker-kubernetes/)
 [setup](https://opnfv-clover.readthedocs.io/en/latest/release/configguide/spinnaker_config_guide.html#bake-manifest-stage)
+
+
+**stageEnabled**
+application: xxx
+name: xxx
+pipeline: idxxx
+stageEnabled: { 
+  expression: parameters.cluster matches 'a1|a2|a3|a4'
+  type: expression
+}
+

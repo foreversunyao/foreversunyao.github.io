@@ -27,3 +27,10 @@ acks=0 If set to zero then the producer will not wait for any acknowledgment fro
 acks=1 This will mean the leader will write the record to its local log but will respond without awaiting full acknowledgement from all followers. In this case should the leader fail immediately after acknowledging the record but before the followers have replicated it then the record will be lost.
 
 acks=all This means the leader will wait for the full set of in-sync replicas to acknowledge the record. This guarantees that the record will not be lost as long as at least one in-sync replica remains alive. This is the strongest available 
+
+
+- index file and segment log
+1. the log file contains the actual messages structured in a message format.
+2. Every segment of a log (the files *.log) has it's corresponding index (the files *.index) with the same name as they represent the base offset, it's for broker to lookup offset quickly.
+3. that not every message within a log has it's corresponding message within the index. The configuration parameter index.interval.bytes, which is 4096 bytes by default, sets an index interval which basically describes how frequently
+
