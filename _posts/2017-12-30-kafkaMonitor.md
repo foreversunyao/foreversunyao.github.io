@@ -24,6 +24,10 @@ Available:
    MBean Name: kafka_controller_kafkacontroller_activecontrollercount
  - IsrShrink/IsrExpands: When a broker goes down, ISR will shrink for some of the partitions. When that broker is up again, ISR will be expanded once the replicas have fully caught up.
    MBean Name: kafka_server_replicamanager_isrshrinks_total and kafka_server_replicamanager_isrexpands_total
+- Partition count
+- Leader partition count
+- active controller count
+
 
 Performance:
  - RequestQueue: Request Queue Size
@@ -40,6 +44,8 @@ Performance:
    MBean Name: kafka_server_brokertopicmetrics_bytesout_total
  - ZookeeperReuqestLatency: Kafka Request Zookeeper Latency
    MBean Name: kafka_server_zookeeperclientmetrics_zookeeperrequestlatencyms
+- All topics bytes in rate
+- All topics messages in rate
 
 Misc:
  - PurgatorySize: Number of requests waiting in producer purgatory, Number of requests waiting in fetch purgatory
@@ -69,6 +75,30 @@ Misc:
  - CPU usage       CPU use Resource: Utilization
  - Network bytes sent/received     Network traffic in/out
 
+**Producer Metrics**
+- record-error-rate
+- request-latency-avg
+- record-send-rate
+- request-size-avg
+- records-per-request-avg
+Per-broker and per-topic metrics
+
+**Consumner Metrics**
+- fetch-latency-avg
+- bytes-consumed-rate
+- records-consumed-rate
+- fetch-size-avg
+per-broker and per-topic metrics
+
+**Consumer coordinate metrics**
+consumer can run into a pause in consumption while consumer group synchronizes
+- sync-time-avg
+- sync-rate
+- commit-latency-avg
+- assigned-partitions
+
+**Lag Monitoring**
+- to have an external process that watch both the state of partition on broker, tracking the offset of the most recently produced message, and the state of consumer, tracking the last offset the consumer group has commited for the partition.
 
 **Burrow**
 Burrow is a monitoring companion for Apache Kafka that provides consumer lag checking as a service without the need for specifying thresholds. It monitors committed offsets for all consumers and calculates the status of those consumers on demand. An HTTP endpoint is provided to request status on demand, as well as provide other Kafka cluster information. 
