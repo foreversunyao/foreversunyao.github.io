@@ -10,6 +10,7 @@ tags:
 [refer](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 - config
+
 ```
 kubectl config view
 

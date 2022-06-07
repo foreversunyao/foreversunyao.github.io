@@ -20,6 +20,7 @@ strace
 [wrk](https://github.com/wg/wrk)
 
 ## k8s
+- [versions](https://relnotes.k8s.io)
 - [k9s-shell](https://k9scli.io/)
 - [netshoot](https://github.com/nicolaka/netshoot)
 - [node-exporter]
