@@ -2,10 +2,11 @@
 layout: post
 title: "K8s security"
 date: 2019-10-26 01:10:06
-description: authentication, authorization, pod security, network security, csr  and so on
+description: authentication, authorization, pod security, network security, csr, k8s hardening guide, national security agency, cybersecurity technical report  and so on
 tags:
  - k8s
 ---
+[kubernetes hardening guide](https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/0/CTR_Kubernetes_Hardening_Guidance_1.1_20220315.PDF)
 
 [refer](https://kubernetes.io/docs/concepts/security/)
 
