@@ -37,16 +37,17 @@ users:
   user:
     exec:
       apiVersion: client.authentication.k8s.io/v1alpha1
-      command: aws-iam-authenticator
       args:
-        - "token"
-        - "-i"
+        - --region
+        - "$region_code"
+        - eks
+        - get-token
+        - --cluster-name
         - "$cluster_name"
-        # - "-r"
-        # - "arn:aws:iam::$account_id:role/my-role"
-      # env:
-        # - name: "AWS_PROFILE"
-        #   value: "aws-profile"
+        command: aws
+        env:
+        - name: "AWS_PROFILE"
+          value: "$AWS_PROFILE"
 EOF
 echo "${KUBECONFIG}" > ~/.kube/config_$cluster_name
 
