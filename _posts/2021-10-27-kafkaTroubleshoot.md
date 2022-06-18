@@ -40,3 +40,6 @@ leader election will take 5ms for one partition, and initializing the metadata f
 remove /admin/reassign_partitions from zk node
 foce a controller move
 ```
+
+# isr not in sync Invalid, cause: Record is corrupt
+[refer](https://stacksoft.io/blog/kafka-troubles/)

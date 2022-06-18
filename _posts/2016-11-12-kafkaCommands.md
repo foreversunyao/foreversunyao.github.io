@@ -36,8 +36,25 @@ bin/kafka-consumer-perf-test.sh --zookeeper 127.0.0.1:2181 --messages 5000000 --
 bin/kafka-consumer-offset-checker --group testabc --topic test1 --zookeeper 127.0.0.1:2181
 bin/kafka-consumer-groups --zookeeper 127.0.0.1:2181 --describe --group test1
 
-#reassignment:
+#Consumer read one message from the offset
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --offset 10 --max-messages 1 --topic AA --partition 4 > message.pb
 
+#reassignment:
+```
+{
+  "topics": [
+    {"topic": "topic1"}
+  ],
+  "version":1
+}
+```
+kafka-reassign-partitions --bootstrap-server 127.0.0.1:9092 --generate --topics-to-move-json-file topics.json --broker-list 1019,1012,1017
+```
+{"version":1,
+ "partitions":
+   [{"topic":"topic1","partition":4,"replicas":[1019,1001,1017],"log_dirs":["any","any","any"]}]
+}
+```
 #get skew topic:
 (lastest offset - earlies offset) per partitions
 
