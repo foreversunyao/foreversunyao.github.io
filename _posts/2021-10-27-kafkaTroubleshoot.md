@@ -43,3 +43,16 @@ foce a controller move
 
 # isr not in sync Invalid, cause: Record is corrupt
 [refer](https://stacksoft.io/blog/kafka-troubles/)
+
+# broker connects zookeepr timeout
+- disk IO
+- CPU
+- GC
+- Network
+
+# broker restarting takes long time
+- starting need load log segments and rebuild index
+
+# Unclean leader election
+[refer](https://issues.apache.org/jira/browse/KAFKA-3410)
+
