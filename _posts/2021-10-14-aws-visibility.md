@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS VPC"
-date: 2021-10-17 10:25:06
+title: "AWS visibility"
+date: 2022-03-17 10:25:06
 description: aws, kubernetes,  Athena, visibility, traffic mirroring, cloudwatch
 tags:
  - cloud
