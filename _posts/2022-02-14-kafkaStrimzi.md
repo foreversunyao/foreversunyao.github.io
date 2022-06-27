@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kafka Strimzi(WIP)"
+title: "Kafka Strimzi"
 date: 2022-02-14 12:25:06
 description: Strimzi, operator, kubernetes
 tags: 

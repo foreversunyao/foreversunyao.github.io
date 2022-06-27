@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Prometheus(WIP)"
+title: "Prometheus"
 date: 2020-09-15 10:25:06
 description: prom, ha, thanos, OOM, biggest metrics
 tags:

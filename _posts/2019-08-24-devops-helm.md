@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "K8s helm(WIP)"
-date: 2019-08-24 12:25:06
+title: "K8s helm"
+date: 2022-03-24 12:25:06
 description: Kubernetes Helm
 tags:
  - devops

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "K8s troubleshoot(WIP)"
-date: 2019-09-26 19:25:06
+title: "K8s troubleshoot"
+date: 2021-09-26 19:25:06
 description: Kubernetes troubleshoot
 tags:
  - k8s

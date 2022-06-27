@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kafka MirrorMaker(WIP)"
+title: "Kafka MirrorMaker"
 date: 2022-01-21 12:25:06
 description: MirrorMaker 1, MirrorMaker 2, Kafka connector
 tags: 
