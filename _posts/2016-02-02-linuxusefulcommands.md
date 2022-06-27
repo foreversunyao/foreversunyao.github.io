@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Useful Commands"
 date: 2016-02-02 10:25:06
-description: Linux Usefull Commands
+description: Linux Useful Commands
 tags: 
  - linux
 ---
@@ -123,6 +123,10 @@ dmidecode
  - hardware digest:
 demsg
 
+**others**
+```
+sed -i '' -e "s/string1/string2/g" file
+```
 
 **curl**
 0. view curl version

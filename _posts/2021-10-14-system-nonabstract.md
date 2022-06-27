@@ -4,7 +4,7 @@ title: "Non abstract large system design"
 date: 2021-10-14 10:25:06
 description: NALSD, capacity planning, component isolation, graceful system degradation, SLO/SLI, Scale cube and Availibility cube
 tags:
- - systemdesign
+ - system
 ---
 **Application requirements**
 1, availability of your product or service and this measurable should be owned by the technology team.

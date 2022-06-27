@@ -4,7 +4,7 @@ title: "System troubleshoot"
 date: 2021-10-14 10:25:06
 description: troubleshooting, improvements
 tags:
- - systemdesign
+ - system
 ---
 
 **troubleshooting flowchart**

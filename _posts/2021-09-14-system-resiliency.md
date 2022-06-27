@@ -4,7 +4,7 @@ title: "Resiliency"
 date: 2021-9-14 10:25:06
 description: Quotas, Graceful Degradation, Timeouts, Exponential back-offs, Circuit breakers, Self healing system, Continuous Deployment and integration.
 tags:
- - systemdesign
+ - system
 ---
 [refer](https://linkedin.github.io/school-of-sre/level102/system_design/resiliency/)
 

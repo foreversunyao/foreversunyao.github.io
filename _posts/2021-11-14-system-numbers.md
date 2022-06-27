@@ -4,7 +4,7 @@ title: "Latency Numbers"
 date: 2021-11-14 10:25:06
 description: system, latency, cpu, mem, network, disk
 tags:
- - systemdesign
+ - system
 ---
 [refer](https://static.googleusercontent.com/media/sre.google/en//static/pdf/rule-of-thumb-latency-numbers-letter.pdf)
 

@@ -4,7 +4,7 @@ title: "fault isolation"
 date: 2020-11-15 10:25:06
 description: fault isolation
 tags:
- - systemdesign
+ - system
 ---
 
 **fault isolation**

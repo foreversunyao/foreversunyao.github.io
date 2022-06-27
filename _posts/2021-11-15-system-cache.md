@@ -4,7 +4,7 @@ title: "cache"
 date: 2021-11-15 10:25:06
 description: cache, promise, future
 tags:
- - systemdesign
+ - system
 ---
 **Cache**
 All is well but latency is an issue. The backend you use is slow. To address this, you notice that the vast majority — perhaps 90% — of the requests are the same. One common solution is to introduce a cache: before hitting the backend, you check your cache and use that value if present.
