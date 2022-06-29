@@ -123,6 +123,11 @@ dmidecode
  - hardware digest:
 demsg
 
+**Process**
+```
+ systemctl list-units
+```
+
 **others**
 ```
 sed -i '' -e "s/string1/string2/g" file

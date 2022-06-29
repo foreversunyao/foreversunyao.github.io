@@ -12,12 +12,13 @@ tags:
 Amazon Athena makes it easy to analyze data in Amazon S3 using standard SQL. 
 
 - kubernetes networking patterns
-
+```
 Pod to Pod
 Pod to ClusterIP
 Node to Pod
 Node to ClusterIP
 Load balancer / NodePort
+```
 
 - VPC flow logs
 
@@ -42,4 +43,4 @@ The demo container produces logs to /var/log/containers/application.log. Fluentd
 > docker exec <containerID> /bin/bash -c 'cat <main container interface, e.g., /sys/class/net/eth0/iflink>' #grab interface number
 > ip link |grep ^13 #should return veth in format vethXXXXX format
 > tcpdump -i vethXXXXX
-```.
+```
