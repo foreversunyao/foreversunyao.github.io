@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "K8s debug scheduling"
-date: 2021-10-13 23:25:06
+date: 2022-02-13 23:25:06
 description: debug kube pending pods and scheduling failures
 tags:
  - k8s

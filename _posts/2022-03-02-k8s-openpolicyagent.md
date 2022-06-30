@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "K8s Open Policy Agent"
-date: 2022-03-04 19:25:06
+date: 2021-12-04 19:25:06
 description: Open Policy Agent, validating admission webhook, admission controller
 tags:
  - k8s

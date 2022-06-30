@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CI/CD on cloud"
-date: 2021-03-24 20:10:06
+date: 2022-02-24 20:10:06
 description: ci, cd, cloud, k8s, spinnaker, jenkins, git
 tags:
  - release
