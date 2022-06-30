@@ -1,7 +1,7 @@
 ---
 layout: post
 title: aws gcloud cheat sheet
-date: 2022-01-13 09:25:06
+date: 2020-01-13 09:25:06
 description: gcloud cheat sheet, aws cheat sheet 
 tags: 
  - cloud
