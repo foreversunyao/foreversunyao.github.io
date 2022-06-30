@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Outage"
+title: "Outage template"
 date: 2022-06-25 10:25:06
 description: Outage, Incident, post mortem, cloudflare, BGP
 tags:
