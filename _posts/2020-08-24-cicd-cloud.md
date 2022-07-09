@@ -166,6 +166,26 @@ stages(name,refId,requisiteStageRefIds,type)
 grafana(annotate)
 cloudprovider(kubernetes,manifestartifact)
 ```
+grafana annotate automated, 
+start webhook https://xxx/api/annotations/
+end webhook https://xxx/api/annotations/${ '${'}#stage('Grafana Annotate Start Deploy').context.webhook.body.id }
+```
+  "payload": {
+               "isRegion": true,
+               "tags": [
+                  "${ '${'}parameters['repo'] }",
+                  "${ '${'}parameters['branch'] }",
+                  "${ '${'}parameters['build_number'].toString() }",
+                  "${ '${'}parameters['cluster'] }",
+                  "${ '${'}execution['application'] }",
+                  "deploy",
+                  "${ '${'}#stage('Deploy (Manifest)')['status'] }"
+               ],
+               "text": "Deploy ${ '${'}execution['application'] } end <a href=\"https://spinnaker.com/#/applications/${ '${'}execution['application'] }/executions/details/${ '${'}execution['id'] }?stage=${ '${'}#stage('Deploy (Manifest)').refId }\">Build Link</a>",
+               "time": "${ '${'}#stage('Deploy (Manifest)')['startTime'] }",
+               "timeEnd": "${ '${'}#stage('Deploy (Manifest)')['endTime'] }"
+            },
+```
 8. parameters
 ```
 git_repo
