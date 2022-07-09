@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "K8s DNS for Services and Pods"
-date: 2020-09-11 09:25:06
+date: 2021-09-11 09:25:06
 description: Kubernetes dns, ndots, headless, NodeLocal DNSCache
 tags:
  - k8s
@@ -19,6 +19,7 @@ tags:
 
 **NodeLocal DNSCache**
 [refer](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns/)
+[debug](https://povilasv.me/kubernetes-node-local-dns-cache/)
 
 **Debug**
 ```
