@@ -46,7 +46,7 @@ O(n!)	Factorial	# Find all permutations of a given set/string
 
 ## questions
 - DS
-[refer](https://www.geeksforgeeks.org/data-structures/)
+[refer](https://www.geeksforgeeks.org/data-structures/),[refer 2](https://www.scaler.com/topics/data-structures/)
 
 - Algorithms
 [refer](https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/)
