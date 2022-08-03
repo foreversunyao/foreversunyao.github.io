@@ -60,6 +60,11 @@ netstat -s
 - whois
 whois -h whois.apple.com ip_address
 
+- link layer
+```
+sudo lldpcli show neighbors
+```
+
 **Memory**
 
  - memory leak check
