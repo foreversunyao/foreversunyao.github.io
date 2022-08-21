@@ -133,6 +133,9 @@ By default, many containers use UID 0 to launch processes. Because the container
 **k8s-containerd**
 ![img]({{ '/assets/images/devops/container-k8s.png' | relative_url }}){: .center-image }*(°0°)*
 
+**containerd, shim, runc, container**
+[refer](https://iximiuz.com/en/posts/implementing-container-runtime-shim/)
+
 **rkt vs docker**
 [rkt](https://joejulian.name/post/kubernetes-container-engine-comparison/)
 [rkt vs docker](https://coreos.com/rkt/docs/latest/rkt-vs-other-projects.html)
@@ -161,3 +164,6 @@ Docker has improved portability, versioning of container images, reuse of images
 - [dive](https://github.com/wagoodman/dive)
 - ctop
 - [trivy](https://github.com/aquasecurity/trivy) Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues
+
+**docker engine, runtime**
+[refer](https://mattjhayes.com/2018/05/21/containers-part-2-understanding-docker/)

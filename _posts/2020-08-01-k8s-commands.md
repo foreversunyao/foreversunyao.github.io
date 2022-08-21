@@ -144,6 +144,11 @@ kubectl api-resources --api-group=extensions # All resources in the "extensions"
 
 ```
 
+- raw
+```
+kubectl get --raw /api/v1/nodes/<node>/proxy/stats/summary
+```
+
 - kubectl delete pod
 [termination lifecycle](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-terminating-with-grace)
 

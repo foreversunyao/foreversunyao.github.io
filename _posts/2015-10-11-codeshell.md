@@ -37,3 +37,6 @@ for a in $@; do
     echo $a;
 done
 ```
+
+**other**
+1. echo '10.9.8.11 server01' | sudo tee -a /etc/hosts

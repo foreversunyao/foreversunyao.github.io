@@ -14,15 +14,15 @@ tags:
 
 
 **Network**
-
- - auto exit telnet
+- port
+ nc -v host port
+- auto exit telnet
 echo -e "^]\nclose"| telnet hostname 3306
+- tcpdump
 
- - tcpdump
-
- - tcp state
+- tcp state
      netstat -an|awk '/^tcp/{++S[$NF]}END{for (a in S)print a,S[a]}'
- - nat
+- nat
 A(wan server):
 iptables -t nat -A POSTROUTING -s source/24 -o em1 -j MASQUERADE
 iptables -A FORWARD -s source/24 -o em1 -j ACCEPT
@@ -30,7 +30,7 @@ iptables -A FORWARD -d source/24 -m state --state ESTABLISHED,RELATED -i em1 -j 
 B(lan server):
 route add default gw Aip em2
 
- - network limit(wondershaper and trickle)
+- network limit(wondershaper and trickle)
 wondershaper {interface} {down} {up}  -- limit network interface
 the {down} and {up} are bandwidth in kilobits. So for example if you want to limit the bandwidth of interface eth1 to 256kbps uplink and 128kbps downlink,
 wondershaper eth1 256 128
@@ -40,7 +40,7 @@ trickle -u {up} -d {down} {program}   -- limit programe
 Both {up} and {down} and bandwidth in KB/s. Now if you invoke it as,
 trickle -u 8 -d 8 firefox  
 
- - test open port(without telnet)
+- test open port(without telnet)
  $ timeout 1 bash -c 'cat < /dev/null > /dev/tcp/ipaddress/80'
  $ echo $?
  cat < /dev/tcp/ipaddress/22
@@ -63,6 +63,11 @@ whois -h whois.apple.com ip_address
 - link layer
 ```
 sudo lldpcli show neighbors
+```
+- opening port
+```
+nmap localhost
+nmap <ip>
 ```
 
 **Memory**
@@ -104,6 +109,12 @@ strace -c -p pid
 
  - process env
 /proc/$(pidof kafka)/limits
+
+- parent process
+ps axfo pid,ppid,command
+
+- pstree
+
 **File**  
 
  - list open files
@@ -130,7 +141,9 @@ demsg
 
 **Process**
 ```
- systemctl list-units
+systemctl list-units
+pstree
+lsof 
 ```
 
 **others**
