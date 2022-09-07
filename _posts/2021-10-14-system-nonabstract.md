@@ -6,6 +6,7 @@ description: NALSD, capacity planning, component isolation, graceful system degr
 tags:
  - system
 ---
+
 **Application requirements**
 1, availability of your product or service and this measurable should be owned by the technology team.
 2, Start from One machine for entire application
@@ -19,6 +20,7 @@ tags:
 5, can we do better again ?
 ```
 **SLIs and SLOs**
+[SLO](https://github.com/slok/sloth)
 - service level indicator, a carefully defined quantitative measure of some aspect of the level of service that is provided.
 like response time for loading the feed
 
