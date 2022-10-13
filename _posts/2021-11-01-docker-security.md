@@ -48,4 +48,8 @@ Docker Content Trust (DCT) uses digital signatures to validate integrity of the 
 ```
 --cap-add
 --cap-drop
-``` 
+```
+
+- encrypted container images
+- scanning for images, Notary 
+- audit

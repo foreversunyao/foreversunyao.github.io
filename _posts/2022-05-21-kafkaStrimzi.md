@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Kafka Strimzi"
-date: 2022-005-21 12:25:06
-description: Kafka Strimzi
+date: 2022-05-21 12:25:06
+description: Kafka Strimzi, kubernetes, operator
 tags: 
  - kafka
 ---
