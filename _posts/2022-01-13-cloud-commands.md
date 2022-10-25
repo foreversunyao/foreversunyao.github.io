@@ -9,6 +9,7 @@ tags:
 
 **aws**
 [cheat sheet](https://github.com/mdminhazulhaque/aws-cli-cheatsheet)
+[refer](https://www.bluematador.com/learn/aws-cli-cheatsheet)
 ```
 alias aws-prod="aws --profile work-prod"
 aws ec2 describe-instances | jq ...

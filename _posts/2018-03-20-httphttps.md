@@ -54,6 +54,11 @@ Allows servers to “push” responses proactively into client caches
 
 [refer](https://www.upwork.com/hiring/development/the-http2-protocol-its-pros-cons-and-how-to-start-using-it/)
 
+**HTTP HEADER**
+The HTTP host header is a request header that specifies the domain that a client (browser) wants to access. This header is necessary because it is pretty standard for servers to host websites and applications at the same IP address. However, they don’t automatically know where to direct the request. 
+The reason many websites are hosted on one IP address is due to, on one hand, the exhaustion of IPv4 addresses, as well as due to the popularity of cloud hosting.
+
+
 **curl**
 curl is mostly used for test website working and where is this page deploying
 
@@ -64,6 +69,9 @@ curl is mostly used for test website working and where is this page deploying
 
 curl --user-agent "[User Agent]" [URL]
 curl --header "Content-Type:application/json" http://example.com
+curl -sv --header "Host: xxx" https://abc   # sepcific domian xxx on abc server/abc ip
+curl -sv --resolve domain:ip  http://example.com
+curl -v POST -d @payload.json http://example.com
 curl --head -v https://www.baidu.com
 curl -v --trace-time https://www.google.com
 curl -w "dns_resolution: %{time_namelookup}, tcp_established: %{time_connect}, ssl_handshake_done: %{time_appconnect}, TTFB: %{time_starttransfer}\n" -o /dev/null -s "https://sushi.herokuapp.com/"
