@@ -76,7 +76,8 @@ kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
 kubectl get node --selector='!node-role.kubernetes.io/master'
 # Get ExternalIPs of all nodes
 kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
-
+# Get by Age
+kubectl get nodes --sort-by=".metadata.creationTimestamp"
 ```
 - updating resources
 ```
