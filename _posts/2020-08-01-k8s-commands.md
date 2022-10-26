@@ -27,7 +27,7 @@ kubectl config unset users.foo                       # delete user foo
 
 - apply
 ```
-# Create multiple YAML objects from stdin
+  # Create multiple YAML objects from stdin
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -54,7 +54,7 @@ spec:
     - "1000"
 EOF
 
-# Create a secret with several keys
+  # Create a secret with several keys
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
@@ -69,14 +69,14 @@ EOF
 
 - finding resources
 ```
-# List pods Sorted by Restart Count
+  # List pods Sorted by Restart Count
 kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
-# Get all worker nodes (use a selector to exclude results that have a label
-# named 'node-role.kubernetes.io/master')
+  # Get all worker nodes (use a selector to exclude results that have a label
+  # named 'node-role.kubernetes.io/master')
 kubectl get node --selector='!node-role.kubernetes.io/master'
-# Get ExternalIPs of all nodes
+  # Get ExternalIPs of all nodes
 kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
-# Get by Age
+  # Get by Age
 kubectl get nodes --sort-by=".metadata.creationTimestamp"
 ```
 - updating resources
@@ -92,7 +92,7 @@ kubectl expose rc nginx --port=80 --target-port=8000
 
 - patching resources
 ```
-# Partially update a node
+  # Partially update a node
 kubectl patch node k8s-node-1 -p '{"spec":{"unschedulable":true}}'
 ```
 
@@ -116,7 +116,7 @@ kubectl top pod POD_NAME --containers               # Show metrics for a given p
 ```
 kubectl top node my-node                                              # Show metrics for a given node
 kubectl cluster-info dump                                             # Dump current cluster state to stdout
-# If a taint with that key and effect already exists, its value is replaced as specified.
+  # If a taint with that key and effect already exists, its value is replaced as specified.
 kubectl taint nodes foo dedicated=special-user:NoSchedule
 ```
 
