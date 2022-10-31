@@ -14,6 +14,7 @@ tags:
 alias aws-prod="aws --profile work-prod"
 aws ec2 describe-instances | jq ...
 aws ec2 describe-instances --instance-ids i-0dae5d4daa47fe4a2
+aws ec2 describe-images --image-ids ami-xx --region=us-west-2
 aws ec2 describe-vpcs
 aws ec2 describe-subnets --filter Name=vpc-id,Values=vpc-0d1c1cf4e980ac593
 aws ec2 describe-security-groups
