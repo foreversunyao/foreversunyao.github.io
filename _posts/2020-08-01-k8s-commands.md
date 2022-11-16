@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "K8s command"
+title: "K8s command summary"
 date: 2020-08-01 02:25:06
 description: command
 tags:
