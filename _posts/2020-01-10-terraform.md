@@ -7,6 +7,27 @@ tags:
  - cloud
 ---
 
+**example**
+```
+variable "sg_name" { }   # Usually in a separate file
+variable "sg_desc" { }   # called variables.tf
+
+resource "example_resource" "example_name" {
+  name        = var.sg_name
+  description = var.sg_desc
+...
+}
+
+module "my_module" {
+  source = "./modules/example_mod.tf"
+
+  sg_name = "whatever"  # NOTE the left hand side "sg_name" is the variable name
+  sg_desc = "whatever"
+...
+}
+```
+
+
 **What is Terraform**
 Terraform is an open source command line tool that can be used to provision any kind of infrastructure on dozens of different platforms and services. Terraform code is written in HCL or the HashiCorp Config Language.
 With Terraform you simply declare resources and how you want them configured and then Terraform will map out the dependencies and build everything for you.
