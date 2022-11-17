@@ -9,22 +9,49 @@ tags:
 
 **example**
 ```
-variable "sg_name" { }   # Usually in a separate file
-variable "sg_desc" { }   # called variables.tf
+#variables.tf
+variable "sg_name" { } 
+variable "sg_desc" { }
 
+#overrides.hcl
+inputs = {
+  sg_name = aaa
+  sg_desc = bbb
+}
+
+#xx.tf
 resource "example_resource" "example_name" {
+  count       = var.enable_xxx ? 1 : 0
   name        = var.sg_name
   description = var.sg_desc
-...
+  policy = data.example_data.policy_rules.json
 }
 
 module "my_module" {
+  count = var.enable_xxx ? 1 : 0
   source = "./modules/example_mod.tf"
-
-  sg_name = "whatever"  # NOTE the left hand side "sg_name" is the variable name
-  sg_desc = "whatever"
-...
+  name = "xxx-${var.account_env}-${module.aws_ssm_parameter_ais.account_id}-${var.region_code}"
+  account_id =
+  kms_key_id =
+  tags =
+  vpc_endpoints =
+  cidr_allow_list = ["0.0.0.0/0"]
 }
+
+data "example_data" "policy_rules" {
+  statement {
+    actions = []
+    resources = []
+    effect = "Allow"
+    principals {
+      type = "AWS"
+      identifiers = [
+        "arn:aws:iam::xxx:role/account"
+      ]
+    }
+  }
+}
+
 ```
 
 
@@ -103,10 +130,13 @@ Benefits when updating the infrastructure, dont care about how change, just what
 
 Imperative = define exact steps - HOW
 **modules**
+Modules are the main way to package and reuse resource configurations with Terraform.
+
 ```
 main.tf -- 
 outputs.tf -- outputs of module returns
-variables.tf -- inputs
+variables.tf -- variables
+override.tf -- input
 README.md -- documentation
 modules -- sub modules
 examples -- how to use the submodules
