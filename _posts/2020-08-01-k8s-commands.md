@@ -160,4 +160,11 @@ kubectl get --raw /api/v1/nodes/<node>/proxy/stats/summary
 [vs](https://stackoverflow.com/questions/47369351/kubectl-apply-vs-kubectl-create)
 
 
+## etcd
+
+```
+etcdctl --endpoints 127.0.0.1:2379,127.0.0.1:2380,127.0.0.1:2381 endpoint status --cluster -w table
+etcdctl defrag —command-timeout=5m
+ETCDCTL_API=3 etcdctl move-leader ${MEMBER_ID} --endpoints http://etcd-0.etcd:2380,http://etcd-1.etcd:2380,http://etcd-2.etcd:2380
+```
 ## tools
