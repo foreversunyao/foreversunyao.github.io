@@ -35,7 +35,13 @@ strace
 - [kubelet-rubber-stamp]
 
 ## kafka
+- kafka mananger
+- curise control
+- burrow
+- strimzi(on k8s)
 
+## cloud
+- atlantis (tf)
 
 ## Other
 - flowchart

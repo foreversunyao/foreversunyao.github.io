@@ -16,6 +16,7 @@ alias aws-prod-login="aws-login -b x-chrome <profile>"
 aws ec2 describe-instances | jq ...
 aws ec2 describe-instances --instance-ids i-xxx | jq -r '.Reservations[] | .Instances[] | .PrivateDnsName + " " + .ImageId' | sort -k2
 aws ec2 describe-images --image-ids ami-xx --region=us-west-2
+aws ec2 copy-image 
 aws ec2 describe-vpcs
 aws ec2 describe-subnets --filter Name=vpc-id,Values=vpc-0d1c1cf4e980ac593
 aws ec2 describe-security-groups

@@ -133,7 +133,7 @@ Imperative = define exact steps - HOW
 Modules are the main way to package and reuse resource configurations with Terraform.
 
 ```
-main.tf -- 
+main.tf -- resources need to create
 outputs.tf -- outputs of module returns
 variables.tf -- variables
 override.tf -- input
@@ -144,6 +144,7 @@ test -- automated integration tests
 ```
 
 **terragrunt**
+[refer](https://www.padok.fr/en/blog/terraform-code-terragrunt#The_issue)
 1. Terragrunt is a thin wrapper that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state.
 2. features
 - Explicit dependencies: Share your state easily
@@ -152,3 +153,30 @@ test -- automated integration tests
 In Terraform, I have to define the dependencies and then, in every single module that requires them(repeatedly)
 - Terragrunt applies dependencies in their implied order.
 Terragrunt creates a dependency tree, and runs all commands in the proper order such that all necessary dependencies are available at execution time.
+
+- decouple
+The main advantage of Terragrunt is that it allows decoupling the logic of your code Terraform (which lies in your Terraform modules) from its implementation (which lies in the configuration of the different environments calling Terraform modules). Terragrunt can thus be considered a tool to orchestrate your Terraform modules.
+
+- terragrunt.hcl
+terragrunt.hcl file specifies a terraform { ...  } block that specifies from where to download the Terraform code, as well as the environment-specific values for the input variables in that Terraform code.
+```
+terraform {
+  # Deploy version v0.0.3 in stage
+  source = "git::git@github.com:foo/modules.git//app?ref=v0.0.3"
+}
+
+inputs = {
+  instance_count = 3
+  instance_type  = "t2.micro"
+}
+```
+
+
+**Helm Provider**
+The Helm provider is used to deploy software packages in Kubernetes.
+resource: helm_release
+A Release is an instance of a chart running in a Kubernetes cluster.
+A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.
+
+**tools**
+[atlantis](https://github.com/runatlantis/atlantis)
