@@ -27,33 +27,7 @@ kubectl config unset users.foo                       # delete user foo
 
 - apply
 ```
-  # Create multiple YAML objects from stdin
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Pod
-metadata:
-  name: busybox-sleep
-spec:
-  containers:
-  - name: busybox
-    image: busybox
-    args:
-    - sleep
-    - "1000000"
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: busybox-sleep-less
-spec:
-  containers:
-  - name: busybox
-    image: busybox
-    args:
-    - sleep
-    - "1000"
-EOF
-
+  //oneline
   # Create a secret with several keys
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
@@ -132,20 +106,19 @@ kubectl api-resources --api-group=extensions # All resources in the "extensions"
 
 - log verbosity
 ```
---v=0	Generally useful for this to always be visible to a cluster operator.
---v=1	A reasonable default log level if you don't want verbosity.
---v=2	Useful steady state information about the service and important log messages that may correlate to significant changes in the system. This is the recommended default log level for most systems.
---v=3	Extended information about changes.
---v=4	Debug level verbosity.
---v=5	Trace level verbosity.
---v=6	Display requested resources.
---v=7	Display HTTP request headers.
---v=8	Display HTTP request contents.
---v=9	Display HTTP request contents without truncation of contents.
-
+ //
+ --v=0	Generally useful for this to always be visible to a cluster operator.
+ --v=1	A reasonable default log level if you don't want verbosity.
+ --v=2	Useful steady state information about the service and important log messages that may correlate to significant changes in the system. This is the recommended default log level for most systems.
+ --v=3	Extended information about changes.
+ --v=4	Debug level verbosity.
+ --v=5	Trace level verbosity.
+ --v=6	Display requested resources.
+ --v=7	Display HTTP request headers.
+ --v=8	Display HTTP request contents.
+ --v=9	Display HTTP request contents without truncation of contents.
 ```
-
-- raw
+- raw api
 ```
 kubectl get --raw /api/v1/nodes/<node>/proxy/stats/summary
 ```
