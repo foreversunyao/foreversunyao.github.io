@@ -4,7 +4,7 @@ title: aws gcloud cheat sheet
 date: 2020-01-13 09:25:06
 description: gcloud cheat sheet, aws cheat sheet 
 tags: 
- - cloud
+- cloud
 ---
 
 **aws**
@@ -43,6 +43,11 @@ aws iam list-users | jq -r '.Users[]|.UserId+" "+.UserName'
 aws ec2 create-volume --availability-zone=eu-west-1a --size=10 --volume-type=gp2
 aws ec2 terminate-instances --instance-ids INSTANCE_ID
 
+```
+**terraform/terragrunt**
+```
+terraform state list
+terragrunt apply -target=''
 ```
 
 **gcp**
