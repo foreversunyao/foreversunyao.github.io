@@ -29,6 +29,12 @@ class HelloWorld(AutobotSkill):
         await event.respond('World')
 ```
 
+**Send to slack**
+```
+slack = self.opsdroid.get_connector("slack")
+```
+
+
 **Libraries**
 
 ```
