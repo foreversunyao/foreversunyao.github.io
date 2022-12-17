@@ -6,6 +6,7 @@ description: Kafka Strimzi, kubernetes, operator
 tags: 
  - kafka
 ---
+
 ## Quick start
 1. download from https://github.com/strimzi/strimzi-kafka-operator/releases or git clone https://github.com/strimzi/strimzi-kafka-operator.git
 2. change default namespace to your customised 
@@ -32,17 +33,17 @@ spec:
   kafka:
     replicas: 1
     listeners:
-      - name: plain
+      \- name: plain
         port: 9092
         type: internal
         tls: false
-      - name: tls
+      \- name: tls
         port: 9093
         type: internal
         tls: true
         authentication:
           type: tls
-      - name: external
+      \- name: external
         port: 9094
         type: nodeport
         tls: false
@@ -68,6 +69,7 @@ spec:
     topicOperator: {}
     userOperator: {}
 ```
+
 6. create topic
 ```
 apiVersion: kafka.strimzi.io/v1beta2
@@ -85,9 +87,10 @@ spec:
  kubectl exec -i -t sam-testing-kafka-cluster-kafka-0 -n sam-kafka
 ```
 
-## Strimzi
+# Strimzi
 Strimzi supports kafka using Operators to deploy and manage the componenets and edependencies of Kafka to Kubernetes.
-# Components
+
+## Components
 - zookeeper
 brokers registration, heartbeat to keep the broker list updated
 maintaining a list of topics
@@ -112,11 +115,20 @@ kafka bridge
 - topic operator
 - user operator
 
-
 ## on AWS
 - storage optimized, i3, d3, h1
 - node affinity to let kafka brokers running on these nodes
 - anti-affnity to let kafka brokers and zookeeper run on separate nodes
+
+## Volume sizing and retention period
+- JBOD
+use multiple disks in each Kafka broker for storing commit log
+- Persistent-claim
+
+## High availability
+- replication
+- ack:0,1,2
+- rack awareness
 
 ## zookeeper performance
 - low latency
@@ -130,15 +142,6 @@ kafka bridge
 - only requests , without limits
 [refer](https://home.robusta.dev/blog/stop-using-cpu-limits/)
 
-## Volume sizing and retention period
-- JBOD 
-use multiple disks in each Kafka broker for storing commit log
-- Persistent-claim
-
-## High availability
-- replication
-ack:0,1,2
-- rack awareness
 - disaster recovery 
 multi-region strategy that services are deployed with backup in geographically distributed data centers.
 
@@ -159,22 +162,6 @@ Communication is always encrypted between brokers, zookeepers, operators, export
 ## Kafka auto-scaler in KEDA
 - rely on consumer groups and message retention by brokers
 - consumer scaler thing if too many qps on producer side, trigger is lagRhreshold
-
-## connection from outside the k8s
-- route - to use OpenShift routes and the default HAProxy router
-- loadbalancer - to use loadbalancer services
-- nodeport - to use ports on Kubernetes nodes (external access)
-- ingress - to use Kubernetes Ingress and the NGINX Ingress Controller for Kubernetes.
-```
-# ...
-listeners:
-# ...
-  - name: external
-    port: 9094
-    type: route/nodeport/loadbalancer/ingress (any one of them)
-    tls: true
-# ...
-```
 
 ## Monitoring
 - JMX
