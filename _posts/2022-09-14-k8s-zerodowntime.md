@@ -26,11 +26,11 @@ tags:
 ```
 - Pod's IP address is still serving requests till it's removed from iptables
 - preStop hook should be good enough to solve pod is terminated before iptables change , the down side might be the cost of resource for non-serving pods(endpoints removed but pod still running) if we set  preStop to wait too long
-- terminationGracePeriodSeconds  is 30s by default, need to adjust if we want to make clean close for long-running tasks(call third party api or job)
+- terminationGracePeriodSeconds  is 30s by default, need to adjust if we want to make clean close for long-running tasks(call third party api or job )
+
 ```
         lifecycle:
           preStop:
             exec:
-
 ```
 [refer](https://learnk8s.io/graceful-shutdown)

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS Python scripts"
-date: 2022-08-21 10:25:06
+date: 2022-01-21 10:25:06
 description: aws, python, hands-on, scripts
 tags:
  - cloud
