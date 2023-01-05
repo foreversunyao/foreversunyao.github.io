@@ -158,6 +158,11 @@ test -- automated integration tests
 
 ![img]({{ '/assets/images/cloud/cloud_terraform_output.png' | relative_url }}){: .center-image }*(°0°)*
 
+**state**
+a state is a metadata repository of your infra configration. terraform.tfstate stores the bindings between objects in a remote system and resource instances.
+![img]({{ '/assets/images/cloud/cloud_terraform_state' | relative_url }}){: .center-image }*(°0°)*
+  
+
 **terragrunt**
 [refer](https://www.padok.fr/en/blog/terraform-code-terragrunt#The_issue)
 1. Terragrunt is a thin wrapper that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state.
