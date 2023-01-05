@@ -117,6 +117,19 @@ terraform can import current arn config to terraform state, example as bellow
 aws kafka list-configurations
 terraform import  aws_msk_configuration.cfg_msg_limit_10mb [arn]
 ```
+
+**meta-argument**
+- count
+create multiple instances according to the value assigned to the count
+- for_each
+create multiple resource instances as per a set of strings
+- depends_on
+specify explicit dependency
+- lifecycle
+define life cycle of a resource
+- provider
+select a non-default provider configuration
+
 **Terraform vs Ansible**
 - Ansible 
 is a configuration management tool and to install and mamange software on **exisiting server instances**. (e.g., installation of packages, starting of services, installing scripts or config files on the instance). They do the heavy lifting of making one or many instances perform their roles without the user needing to specify the exact commands.
@@ -134,14 +147,16 @@ Modules are the main way to package and reuse resource configurations with Terra
 
 ```
 main.tf -- resources need to create
-outputs.tf -- outputs of module returns
+outputs.tf -- outputs of module returns or pass resource attributes as input var to other module/resource
 variables.tf -- variables
-override.tf -- input
 README.md -- documentation
-modules -- sub modules
+modules -- sub modules, a bunch of files
 examples -- how to use the submodules
 test -- automated integration tests
 ```
+![img]({{ '/assets/images/cloud/cloud_terraform.png' | relative_url }}){: .center-image }*(°0°)*
+
+![img]({{ '/assets/images/cloud/cloud_terraform_output.png' | relative_url }}){: .center-image }*(°0°)*
 
 **terragrunt**
 [refer](https://www.padok.fr/en/blog/terraform-code-terragrunt#The_issue)
