@@ -19,6 +19,12 @@ strace
 - http
 [wrk](https://github.com/wg/wrk)
 
+## develop
+- conda
+[conda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+multiple python, go, xx env tools
+
+
 ## k8s
 - [versions](https://relnotes.k8s.io)
 - [k9s-shell](https://k9scli.io/)
