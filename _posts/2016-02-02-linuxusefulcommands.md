@@ -315,5 +315,9 @@ openssl x509 -in example.der -inform der -out example.pem
 ```
 
 
-
+- pgp, public key
+wget -qO - https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg -v
+wget -qO https://packages.cloud.google.com/apt/doc/apt-key.gpg.asc > google-cloud.key
+gpg  --keyring /tmp/temp.gpg  --no-default-keyring --import google.gp
+gpg  --keyring /tmp/temp.gpg  --no-default-keyring  --export -a
 

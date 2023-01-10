@@ -37,5 +37,9 @@ sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/rabbit
 
 # fingerprint
 1.  a public key fingerprint is a short sequence of bytes used to identify a longer public key
+
+# retrevie and add to trusted set of keys
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --keyserver-options http-proxy=xxx  --recv-keys xxx
+
 # Commands
 [refer](http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/)
