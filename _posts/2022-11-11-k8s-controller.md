@@ -6,31 +6,29 @@ description: kubernetes, controller, custom resources, operatiors, kubebuilder
 tags:
  - k8s
 ---
-
-**Controller**
+# Controller
 1. a control loop to describe a never-ending loop that tries to bring a system’s current state into the desired state, state is stored in ETCD.
 2. it tracks at least one kind of kubernetes resource and is responsible to bring the state of the existing resources to the desired state. it talks to API server for the current state and comparing it to desired ones
 
 ![img]({{ '/assets/images/cloud/k8s_controller.png' | relative_url }}){: .center-image }*(°0°)*
 
-**API and objects**
+# API and objects
 - object
 A Kubernetes object is a “record of intent” - once you create the object, the Kubernetes system will constantly work to ensure that object exists.
 We can think about object as a representation of 'group + version + type' , like '/api+v1+Pod'
 object spec and object status
-```
-basic:
-- Pod
-- Service
-- Volume
-- Namespace
+- basic:
+Pod
+Service
+Volume
+Namespace
+- controller objects:
+ReplicaSet
+Deployment
+StatefulSet
+Job
 
-controller objects:
-- ReplicaSet
-- Deployment
-- StatefulSet
-- Job
-```
+- demo
 ```
 apiVersion: xx
 kind: xxx
@@ -46,22 +44,20 @@ API group is specificed in a REST path and in the apiVersion field of a serializ
 kubectl api-versions
 ```
 
-
-**Resource**
+# Resource
 resource, is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind. 
 /api/v1/pods resource -> a list of v1 pod objects
 custom resource (CR), is an object that adds objects to the existing Kubernetes API or allows you to introduce your own API into a project or a cluster.
 the state of a Kubernetes cluster is fully defined by the state of the resources it contains
 
-**CRD**
+# CRD
 Defining a CRD object creates a new custom resource with a name and schema that you specify. The Kubernetes API serves and handles the storage of your custom resource. This frees you from writing your own API server to handle the custom resource, but the generic nature of the implementation means you have less flexibility than with API server aggregation
 ```
 - deploying a CRD into the cluster causes the Kubernetes API server to begin serving the specified custom resource,
 - with a CRD in place, users gain access to a significant subset of Kubernetes API functionality, such as CRUD, RBAC, lifecycle hooks, and garbage collection.
 ```
 
-
-**Operators**
+# Operators
 An Operator is an application-specific controller that extends the Kubernetes API to create, configure and manage instances of complex STATEFUL applications on behalf of a Kubernetes user. 
 
 Advantage of operators:
@@ -74,11 +70,11 @@ Advantage of operators:
 
 [operatorhub.io](https://operatorhub.io)
 
-**kubebuilder**
+# kubebuilder
 Kubebuilder is a framework for building Kubernetes APIs using custom resource definitions (CRDs).
 [kubebuilder](https://book.kubebuilder.io/architecture.html)
 
-**operator-sdk**
+# operator-sdk
 The Operator SDK is a framework that uses the controller-runtime library to make writing operators easier by providing:
 
 - High level APIs and abstractions to write the operational logic more intuitively
