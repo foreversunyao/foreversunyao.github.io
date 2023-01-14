@@ -27,6 +27,7 @@ aws autoscaling describe-scaling-activities --auto-scaling-group-name AAA
 aws s3 ls
 aws s3 cp s3://my-awesome-new-bucket .
 aws s3api help
+aws s3api get-bucket-policy --bucket xxx --query Policy --output text 
 aws apigateway get-rest-apis 
 aws elbv2 describe-load-balancers --query 'LoadBalancers[*].DNSName'
 aws elbv2 describe-target-groups | jq -r '.TargetGroups[] | .TargetGroupArn'
