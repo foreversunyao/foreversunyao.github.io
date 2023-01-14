@@ -96,7 +96,15 @@ node marked unhealthy
 replication controllers start new pods elsewhere
 
 **kube-proxy**
+service -> pods
 
+**statefulset**
+```
+kubectl get volumeattachment
+kubectl get pvc
+kubectl describe pv <> # find volume ID from 'VolumeHandle' tag
+kubectl patch pvc data00-# -p '{"metadata":{"finalizers":null}}'
+```
 
 **Logs**
 - Master
