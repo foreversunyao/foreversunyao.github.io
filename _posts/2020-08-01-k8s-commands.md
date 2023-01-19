@@ -83,6 +83,7 @@ kubectl run -i --tty busybox --image=busybox -- sh  # Run pod as interactive she
 kubectl attach my-pod -i                            # Attach to Running Container
 kubectl port-forward my-pod 5000:6000               # Listen on port 5000 on the local machine and forward to port 6000 on my-pod
 kubectl exec my-pod -- ls /                         # Run command in existing pod (1 container case)
+kubectl exec -it $(kubectl get pod -l app=AA -o name) -- ls /
 kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
 ```
 
