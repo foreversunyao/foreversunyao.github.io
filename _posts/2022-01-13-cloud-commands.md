@@ -18,9 +18,9 @@ aws ec2 describe-instances --instance-ids i-xxx | jq -r '.Reservations[] | .Inst
 aws ec2 describe-images --image-ids ami-xx --region=us-west-2
 aws ec2 copy-image 
 aws ec2 describe-vpcs
-aws ec2 describe-subnets --filter Name=vpc-id,Values=vpc-0d1c1cf4e980ac593
+aws ec2 describe-subnets --filter Name=vpc-id,Values=vpc-xxx
 aws ec2 describe-security-groups
-aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=eu-west-3b --region eu-west-3 | jq '.InstanceTypeOfferings[] | .InstanceType'
+aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=eu-west-xx --region eu-west-x | jq '.InstanceTypeOfferings[] | .InstanceType'
 aws ssm start-session --target <instanceid> --profile PROFILE --region REGION
 aws  --profile PROFILE --region REGION  autoscaling describe-auto-scaling-groups | jq '.AutoScalingGroups[] | .AutoScalingGroupName' 
 aws autoscaling describe-scaling-activities --auto-scaling-group-name AAA

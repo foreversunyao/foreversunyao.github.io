@@ -8,7 +8,7 @@ tags:
 ---
 
 ## 2.4.0
-# consuming messages from closet replicas 
+# consuming messages from closest replicas 
 [refer](https://developers.redhat.com/blog/2020/04/29/consuming-messages-from-closest-replicas-in-apache-kafka-2-4-0-and-amq-streams#is_the_rack_aware_selector_right_for_your_use_case_)
 - features
 1. KIP-392 implements a new broker plugin interface, ReplicaSelector, that lets you provide custom logic to determine which replica a consumer should use. You configure the plugin using the replica.selector.class option. Kafka provides two selector implementations. LeaderSelector always selects the leader replica, so messaging works exactly like it did before. LeaderSelector is also the default selector, so by default Kafka 2.4.0's messaging behavior is the same as in previous versions.
