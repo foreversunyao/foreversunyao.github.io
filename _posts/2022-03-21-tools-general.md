@@ -23,7 +23,7 @@ strace
 - conda
 [conda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 multiple python, go, xx env tools
-
+- jq
 
 ## k8s
 - [versions](https://relnotes.k8s.io)
@@ -48,6 +48,9 @@ multiple python, go, xx env tools
 
 ## cloud
 - atlantis (tf)
+
+## local
+- ohmyz.sh (zsh)
 
 ## Other
 - flowchart
