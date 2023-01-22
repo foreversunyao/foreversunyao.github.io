@@ -49,8 +49,14 @@ multiple python, go, xx env tools
 ## cloud
 - atlantis (tf)
 
+## security
+- osquery(fb)
+- sonarqube
+
 ## local
 - ohmyz.sh (zsh)
+- vagrant
+
 
 ## Other
 - flowchart
