@@ -48,7 +48,7 @@ multiple python, go, xx env tools
 
 ## cloud
 - atlantis (tf)
-
+- [AWS resource](https://instances.vantage.sh/)
 ## security
 - osquery(fb)
 - sonarqube

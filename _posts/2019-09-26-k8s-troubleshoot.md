@@ -105,6 +105,7 @@ kubectl get pvc
 kubectl describe pv <> # find volume ID from 'VolumeHandle' tag
 kubectl patch pvc data00-# -p '{"metadata":{"finalizers":null}}'
 ```
+[expand pv](https://serverfault.com/questions/955293/how-to-increase-disk-size-in-a-stateful-set)
 
 **Logs**
 - Master
