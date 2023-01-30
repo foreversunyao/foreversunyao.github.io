@@ -28,6 +28,7 @@ use G1 instead of CMS
 
 # too many partitions
 leader election will take 5ms for one partition, and initializing the metadata from zookeeper will take 2ms per    partitions, so it will take more time to recovery if setting up many partitions in one topic
+[refer](https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/)
 
 # killing a partition move
 - the normal operational flow for a partition reassignment is:
@@ -62,6 +63,8 @@ foce a controller move
 The controller node is in charge of updating topic metadata. If leadership of a topic partition has moved, a consumer will not be able to read it if it does not know which broker is the current leader for the partition. Stale metadata means the controller node isn't doing its job and should be replaced.
 zkCli.sh delete /controller to force a new controller elected
 
+# consumer group lag 
+coordinator failed to update with latest consumer group info, have to restart the coordinator to force consumer group rebalance again
 
 # Tunning
 1. OS

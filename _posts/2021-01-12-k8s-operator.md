@@ -7,10 +7,14 @@ tags:
  - k8s
 
 **Why Operator**
+[refer](https://www.cncf.io/blog/2022/06/15/kubernetes-operators-what-are-they-some-examples/)
+Operators actually allow for automatic implementation of typical Day-1 tasks (installation, configuration, etc.) and Day-2 tasks (reconfiguration, upgrade, backup, failover, recovery, etc.), for a software running within the Kubernetes cluster, integrating natively with Kubernetes concepts and APIs.
 for stateful applications which need preparation and post-provisioning steps
+
 
 **What is Operator**
 “An operator is a way of building an application and driving an application on top of Kubernetes, behind Kubernetes APIs.
+In order to do these things, the Operator uses Custom Resources (CR) that define the desired configuration and state of a specific application through Custom Resource Definitions (CRD). The Operator’s role is to reconcile the actual state of the application with the state desired by the CRD using a control loop in which it can automatically scale, update, or restart the application
 
 **Componenets**
 An operator consists of two things:
@@ -28,4 +32,4 @@ A running piece of software that reads the custom resources, and acts in respons
 
 **example**
 [create operator](https://opensource.com/article/20/3/kubernetes-operator-sdk)
-
+[kubebuilder](https://kubebuilder.io/)
