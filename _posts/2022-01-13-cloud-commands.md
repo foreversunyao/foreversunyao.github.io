@@ -38,6 +38,7 @@ aws cloudwatch describe-alarms
 aws route53 list-hosted-zones
 aws dynamodb list-tables
 aws cloudfront list-distributions
+aws ecr get-login-password --region <region> | docker login --password-stdin <accountid>.dkr.ecr.<region>.amazonaws.com --username AWS
 aws ecr describe-repositories | jq -r '.repositories[] | .repositoryName'
 aws eks list-clusters | jq -r .clusters[]
 aws eks update-kubeconfig --name devtest
