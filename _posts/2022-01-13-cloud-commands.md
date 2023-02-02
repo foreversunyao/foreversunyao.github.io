@@ -42,6 +42,7 @@ aws ecr get-login-password --region <region> | docker login --password-stdin <ac
 aws ecr describe-repositories | jq -r '.repositories[] | .repositoryName'
 aws eks list-clusters | jq -r .clusters[]
 aws eks update-kubeconfig --name devtest
+eksctl utils describe-addon-versions --kubernetes-version 1.22
 aws iam list-users | jq -r '.Users[]|.UserId+" "+.UserName'
 aws ec2 create-volume --availability-zone=eu-west-1a --size=10 --volume-type=gp2
 aws ec2 terminate-instances --instance-ids INSTANCE_ID

@@ -50,6 +50,32 @@ resource, is an endpoint in the Kubernetes API that stores a collection of API o
 custom resource (CR), is an object that adds objects to the existing Kubernetes API or allows you to introduce your own API into a project or a cluster.
 the state of a Kubernetes cluster is fully defined by the state of the resources it contains
 
+```
+kubectl api-resources -v 6
+NAME                              SHORTNAMES               APIVERSION                             NAMESPACED   KIND
+bindings                                                   v1                                     true         Binding
+componentstatuses                 cs                       v1                                     false        ComponentStatus
+configmaps                        cm                       v1                                     true         ConfigMap
+```
+
+# Objects
+- Kind has three types: Objects, Lists, Op on objects(status, scale..)
+- Objects are persistent entities in the Kubernetes system that represent an intent (desired state) and the status (actual state) of the cluster.
+- Define
+```
+kind - a string that identifies the schema this object should have
+apiVersion - a string that identifies the version of the schema the object should have
+metadata.namespace - a string with the namespace (defaults to "default")
+metadata.name - a string that uniquely identifies this object within the current namespace
+metadata.uid - a unique in time and space value used to distinguish between objects with the same name that have been deleted and recreated.
+spec: desired state
+status: actual state
+```
+- Object example
+```
+kubectl get --raw /api/v1/namespaces/AAA/pods/BBB
+```
+
 # CRD
 Defining a CRD object creates a new custom resource with a name and schema that you specify. The Kubernetes API serves and handles the storage of your custom resource. This frees you from writing your own API server to handle the custom resource, but the generic nature of the implementation means you have less flexibility than with API server aggregation
 ```
@@ -59,6 +85,10 @@ Defining a CRD object creates a new custom resource with a name and schema that 
 
 # Operators
 An Operator is an application-specific controller that extends the Kubernetes API to create, configure and manage instances of complex STATEFUL applications on behalf of a Kubernetes user. 
+
+An operator consists of two things:
+One or more Kubernetes custom resource definitions, or CRDs. These describe to Kubernetes a new kind of resource, including what fields +++it should have. There may be multiple, for example etcd-cluster-operator has both EtcdCluster and EtcdPeer to encapsulate different  +++concepts.
+A running piece of software that reads the custom resources, and acts in response, usually a controller
 
 Advantage of operators:
 - handling updates from one version to another
