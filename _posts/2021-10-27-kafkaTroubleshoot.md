@@ -66,3 +66,5 @@ zkCli.sh delete /controller to force a new controller elected
 ** consumer group lag 
 coordinator failed to update with latest consumer group info, have to restart the coordinator to force consumer group rebalance again
 
+** NotLeaderForPartitionException
+adjust producer retry and retry.backoff
