@@ -74,8 +74,16 @@ Terraform resources (in this instance, aws_s3_bucket) are the components of your
 - Variables
 Variables serve as parameters for a Terraform module, allowing aspects of the module to be customized without altering the module's own source code, and allowing modules to be shared between different configurations.
 
-- state
-current state
+- state file
+1. terraform.tfstate
+When you run terraform apply command to create an infrastructure on cloud, Terraform creates a state file called “terraform.tfstate”. This State File contains full details of resources in our terraform code. When you modify something on your code and apply it on cloud, terraform will look into the state file, and compare the changes made in the code from that state file and the changes to the infrastructure based on the state file.  
+2. s3 bukcet and dynamodb
+share access for statefile and lock/unlock when writing
+3. terraform workspaces
+We can give a single file of the resources for multiple environments. So, if you need to modify only in staging environment, you can do it with workspaces.
+on S3 buckets, we have a folder env:/ , and workspaces folders under it.
+create ec2 in different env, like default/test1/prod1
+
 - core
 analyse config and current state to generate plan: what needs to be created/updated/destroyed
 execute the plan with providers
@@ -109,6 +117,14 @@ All other commands:
     force-unlock       Manually unlock the terraform state
     push               Obsolete command for Terraform Enterprise legacy (v1)
     state              Advanced state management
+
+terraform state list
+terraform state show <resource_name>
+terraform state mv <resource_name>
+terraform state pull/push
+terraform destroy --target resource_name
+
+
 ```
 **import**
 terraform can import current arn config to terraform state, example as bellow
@@ -142,6 +158,7 @@ Declarative, end/desired state,  always represent the latest state of your infra
 Benefits when updating the infrastructure, dont care about how change, just what need to be done
 
 Imperative = define exact steps - HOW
+
 **modules**
 Modules are the main way to package and reuse resource configurations with Terraform.
 

@@ -4,7 +4,7 @@ title: "docker troubleshoot"
 date: 2021-02-26 19:25:06
 description: docker troubleshoot
 tags:
- - k8s
+ - devops
 ---
 
 ## large disk usage
@@ -22,8 +22,16 @@ do
 done
 ```
 
-4. garbage collection by kubelet
+4. namespace
 ```
-HighThresholdPercent, tigger garbage collection
-LowThresholdPercent, stop garbage collection till 
+lsns -p <pid>
+unshare
+nsenter -t <pid> -u command
+```
+
+5. cgroup
+```
+/sys/fs/cgroup/memory/foo/memory.limit_in_bytes
+echo 2428 > /sys/fs/cgroup/memory/foo/cgroup.procs
+ps -o cgroup 2428
 ```
