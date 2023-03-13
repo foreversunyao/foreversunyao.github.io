@@ -11,7 +11,12 @@ tags:
 
 ![img]({{ '/assets/images/linux/Linux-diagnosis.png' | relative_url }}){: .center-image }*(°0°)*
 
-
+**perf**
+[refer](https://github.com/brendangregg/FlameGraph)
+```
+# perf record -F 99 -a -g -- sleep 60
+# perf script > out.perf
+```
 
 **Network**
 - port

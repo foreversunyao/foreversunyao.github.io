@@ -6,7 +6,7 @@ description: command
 tags:
  - k8s
 ---
-
+[debug](https://thenewstack.io/living-with-kubernetes-12-commands-to-debug-your-workloads/)
 [refer](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 [refer2](https://gist.github.com/asaphe/e7f1b341a6eb1cb9eee53353c6bbceb1)
 - config
@@ -133,6 +133,11 @@ kubectl get --raw /api/v1/nodes/<node>/proxy/stats/summary
 - kubectl create/apply
 [vs](https://stackoverflow.com/questions/47369351/kubectl-apply-vs-kubectl-create)
 
+
+## container
+```
+ time cat /sys/fs/cgroup/memory/memory.stat >/dev/null
+```
 
 ## etcd
 

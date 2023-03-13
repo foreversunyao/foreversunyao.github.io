@@ -8,6 +8,8 @@ tags:
 ---
 
 **Application requirements**
+identify system boundaries -> define capacbilities by each system -> natural language definition of "available" for reach capability -> define corresponding technical SLs -> start measuring to get a baseline -> define SLO targets -> iterate and tune
+[Setting SLOs and SLIs in the Real World](https://www.youtube.com/watch?v=3Aem8DAGyAk)
 1, availability of your product or service and this measurable should be owned by the technology team.
 2, Start from One machine for entire application
 3, calculation for resources
@@ -19,6 +21,7 @@ tags:
 4, is it resilient ? component fail, network fail, datacenter fail
 5, can we do better again ?
 ```
+
 **SLIs and SLOs**
 [SLO](https://github.com/slok/sloth)
 - service level indicator, a carefully defined quantitative measure of some aspect of the level of service that is provided.
