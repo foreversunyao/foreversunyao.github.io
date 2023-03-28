@@ -233,6 +233,29 @@ sudo conntrack -L | grep $ip
 1 or 255
 ```
 
+- memory request, oom
+[refer](https://medium.com/@betz.mark/understanding-resource-limits-in-kubernetes-memory-6b41e9a955f9)
+```
+$ docker ps | grep busy | cut -d' ' -f1
+8fec6c7b6119
+$ docker inspect 8fec6c7b6119 --format '{{.HostConfig.Memory}}'
+104857600
+$ ps ax | grep /bin/sh
+   29532 ?      Ss     0:00 /bin/sh -c while true; do sleep 2; done
+$ sudo cat /proc/29532/cgroup
+...
+6:memory:/kubepods/burstable/pod88f89108-daf7-11e8-b1e1-42010a800070/8fec6c7b61190e74cd9f88286181dd5fa3bbf9cf33c947574eb61462bc254d11
+$ sudo cat /sys/fs/cgroup/memory/kubepods/burstable/pod88f89108-daf7-11e8-b1e1-42010a800070/8fec6c7b61190e74cd9f88286181dd5fa3bbf9cf33c947574eb61462bc254d11/memory.limit_in_bytes
+104857600
+```
+- cpu request and limit, throttling
+[refer](https://medium.com/@betz.mark/understanding-resource-limits-in-kubernetes-cpu-time-9eff74d3161b)
+```
+100m
+quota
+period
+```
+
 - others
 [k8s failure stories](https://k8s.af)
 [faq](https://wener.me/notes/devops/kubernetes/k8s-faq/)

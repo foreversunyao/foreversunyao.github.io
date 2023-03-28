@@ -9,6 +9,11 @@ tags:
 [debug](https://thenewstack.io/living-with-kubernetes-12-commands-to-debug-your-workloads/)
 [refer](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 [refer2](https://gist.github.com/asaphe/e7f1b341a6eb1cb9eee53353c6bbceb1)
+
+- -v6
+```
+kubectl scale deployment AA --replicas=6 -v 6
+```
 - config
 
 ```

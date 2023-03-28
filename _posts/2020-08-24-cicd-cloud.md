@@ -2,10 +2,17 @@
 layout: post
 title: "CI/CD on cloud"
 date: 2022-02-24 20:10:06
-description: ci, cd, cloud, k8s, spinnaker, jenkins, git
+description: ci, cd, cloud, k8s, spinnaker, jenkins, git, docker
 tags:
  - release
 ---
+
+## docker.build and docker.runtime
+- to split build images and runtime images
+- build image is base image + libraries(rarely change)
+- runtime image is for application change
+
+
 ##  workflow
 1. git and jenkins integration
 - github has webhook(https://jenkins-hostname/jenkins/github-webhook/) for jenkins on issue comments, pull requests, pushes, repositories
