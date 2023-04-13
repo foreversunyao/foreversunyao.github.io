@@ -253,6 +253,8 @@ curl --request POST \
   "hello": "world"
 }
 EOF
+
+curl -X POST -H "Content-Type: application/json" -H "xxx" -d 'json content'
 ```
 20. check HTTP status code
 ```

@@ -107,6 +107,8 @@ kubectl patch pvc data00-# -p '{"metadata":{"finalizers":null}}'
 ```
 [expand pv](https://serverfault.com/questions/955293/how-to-increase-disk-size-in-a-stateful-set)
 
+
+
 **Logs**
 - Master
 /var/log/kube-apiserver.log - API Server, responsible for serving the API

@@ -2,9 +2,12 @@
 layout: post
 title: "K8s operator"
 date: 2021-01-12 02:25:06
-description: operator, k8s patterns, CRD lifecycle, operator-sdk
+description: operator, k8s patterns, CRD lifecycle, operator-sdk, kind
 tags:
  - k8s
+
+
+operator = custom fields + control loop
 
 **Why Operator**
 [refer](https://www.cncf.io/blog/2022/06/15/kubernetes-operators-what-are-they-some-examples/)
@@ -30,6 +33,28 @@ A running piece of software that reads the custom resources, and acts in respons
 - more code need to maintain
 
 
+**personal demo**
+[simple-k8s-operator](https://github.com/foreversunyao/simple-k8s-operator)
+```
+ tree -L 1
+.
+├── Dockerfile
+├── Makefile  - all userful make targets(generate code, manifest, build and push docker image, install crds, deploying controller)
+├── PROJECT   - metadata         
+├── README.md
+├── api       - Spec and status for CR
+├── bin
+├── config    - all yaml files
+├── controllers  - reconcile logic
+├── go.mod    - all basic dependencies 
+├── go.sum
+├── hack
+└── main.go    - entry point of the project
+
+5 directories, 7 files
+```
+
+
 **example**
-[create operator](https://opensource.com/article/20/3/kubernetes-operator-sdk)
+[video](https://www.youtube.com/watch?v=9QR3sRp-6Xk)
 [kubebuilder](https://kubebuilder.io/)

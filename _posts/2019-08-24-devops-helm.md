@@ -2,7 +2,7 @@
 layout: post
 title: "K8s helm"
 date: 2021-11-24 12:25:06
-description: Kubernetes Helm
+description: Kubernetes Helm, vs kustomize
 tags:
  - devops
 ---
@@ -153,3 +153,16 @@ kubeConfig:
 ├── ingress.yaml             ## spinnaker ingress
 └── install.sh               ## install
 ```
+
+
+**vs kustomize**
+
+```
+	                  Kustomize	  Helm
+Method of operation	overlays	templating
+Ease of use	simple	complex
+Support for packaging	no	yes
+Native kubectl integration	yes	no
+Declarative/ imperative	declarative	imperative
+```
+
