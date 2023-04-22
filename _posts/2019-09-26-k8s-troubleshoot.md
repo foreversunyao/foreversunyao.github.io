@@ -98,14 +98,23 @@ replication controllers start new pods elsewhere
 **kube-proxy**
 service -> pods
 
-**statefulset**
+**volume**
+- detach
 ```
 kubectl get volumeattachment
 kubectl get pvc
 kubectl describe pv <> # find volume ID from 'VolumeHandle' tag
 kubectl patch pvc data00-# -p '{"metadata":{"finalizers":null}}'
 ```
+- expand
 [expand pv](https://serverfault.com/questions/955293/how-to-increase-disk-size-in-a-stateful-set)
+
+- missing pvc, reuse pv by new pvc
+[refer](https://webera.blog/recreate-an-existing-pvc-in-a-new-namespace-but-reusing-the-same-pv-without-data-loss-2c7326c0035a)
+[refer2](https://docs.avisi.cloud/docs/runbooks/claim-existing-pv-with-pvc/)
+
+- volume snapshots
+[volume snapshot](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/examples/kubernetes/snapshot/README.md)
 
 
 
@@ -126,6 +135,17 @@ Internet -- LB -- k8s ingress -- k8s service -- k8s pods
 - cluster
 kubectl top
 
+- k8s scheduling
+1. FailedScheduling
+```
+0/200 nodes are available -> 200 nodes in total
+90 has taint XXX -> pods cannot tolerate
+50 did not match Pod's node affinity/selector -> affinity/selector
+40 unschedulable -> unschedulable
+10 had insufficient memeory
+1 had in sufficient cpu
+9 had volume node affinity conflict
+```
 - ingress
 [tracing through an ingress](https://managedkube.com/kubernetes/trace/ingress/service/port/not/matching/pod/k8sbot/2019/02/13/trace-ingress.html)
 [ingress and traffic flow](https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120)

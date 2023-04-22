@@ -53,7 +53,9 @@ data "example_data" "policy_rules" {
 }
 
 ```
-
+**IAM and SA**
+- grant IAM role To SA account for pods requesting AWS resource, such as logging to kinesis
+- oidc_fully_qualified_subjects
 
 **What is Terraform**
 Terraform is an open source command line tool that can be used to provision any kind of infrastructure on dozens of different platforms and services. Terraform code is written in HCL or the HashiCorp Config Language.
