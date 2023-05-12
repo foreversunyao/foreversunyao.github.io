@@ -264,6 +264,11 @@ curl -s --write-out '%{http_code}' http://kushaldas.in -o /dev/null
 ```
 curl --user-agent "ABC/1.0" http://a.com --next https://b.com
 ```
+22. curl with key, cert and token
+```
+curl -vk --key private-client-key.pem --cert xx.com.chain.pem -H 'Accept: application/json' -H "Authorization: Bearer $(cat token-api)" "https://www"2
+```
+
 
 ** openssl **
 1. checking certificate validity
