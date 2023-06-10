@@ -157,4 +157,7 @@ sudo iptables -L KUBE-NODEPORTS -t nat
 sudo iptables -L KUBE-MARK-MASQ -t nat
 ```
 
-## tools
+## bash alias
+```
+kall() { kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName="$1"; }
+```
