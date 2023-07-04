@@ -23,6 +23,7 @@ aws ec2 describe-security-groups
 aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=eu-west-xx --region eu-west-x | jq '.InstanceTypeOfferings[] | .InstanceType'
 aws ssm start-session --target <instanceid> --profile PROFILE --region REGION
 aws  --profile PROFILE --region REGION  autoscaling describe-auto-scaling-groups | jq '.AutoScalingGroups[] | .AutoScalingGroupName' 
+aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names k8s-node-pool |jq '.AutoScalingGroups | .[]| .AutoScalingGroupName, .MinSize'
 aws autoscaling describe-scaling-activities --auto-scaling-group-name AAA
 aws s3 ls
 aws s3 cp s3://my-awesome-new-bucket .

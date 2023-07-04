@@ -30,3 +30,19 @@ tags:
 4. effective postmortems
 
 
+- practice
+```
+Roles:
+    Incident commander -> coordinating
+    Scribe -> timeline and records decisions
+    Drivers -> engineers involed in fixing the issue
+
+
+incident management lifecycle:
+    start comms(identify level, roles assigned) - contain and fix(find ways to restore/rollback,keep evidence) -> resolve and review(verify, stakeholders, post-mortem)
+
+
+tools:
+    slack(incident-bot)
+    attribution(owner: slack channel, slack_aliases, emails, app_id, radar, pagerduty_service_id, runbook, stakeholders)
+```
