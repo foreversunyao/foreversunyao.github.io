@@ -39,7 +39,9 @@ Roles:
 
 
 incident management lifecycle:
-    start comms(identify level, roles assigned) - contain and fix(find ways to restore/rollback,keep evidence) -> resolve and review(verify, stakeholders, post-mortem)
+    1. start comms(identify level, roles assigned) 
+    2. contain and fix(find ways to restore/rollback,keep evidence) 
+    3. resolve and review(verify, stakeholders, post-mortem)
 
 
 tools:
