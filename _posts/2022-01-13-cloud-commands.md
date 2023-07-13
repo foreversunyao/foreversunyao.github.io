@@ -21,6 +21,7 @@ aws ec2 describe-vpcs
 aws ec2 describe-subnets --filter Name=vpc-id,Values=vpc-xxx
 aws ec2 describe-security-groups
 aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=eu-west-xx --region eu-west-x | jq '.InstanceTypeOfferings[] | .InstanceType'
+aws ec2 describe-tags --region ap-northeast-1 --filters "NAME=resource-id,Values=i-xxx" "Name=key,Values=Name" --output text | cut -f5)
 aws ssm start-session --target <instanceid> --profile PROFILE --region REGION
 aws  --profile PROFILE --region REGION  autoscaling describe-auto-scaling-groups | jq '.AutoScalingGroups[] | .AutoScalingGroupName' 
 aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names k8s-node-pool |jq '.AutoScalingGroups | .[]| .AutoScalingGroupName, .MinSize'

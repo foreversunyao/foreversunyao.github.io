@@ -237,7 +237,7 @@ curl --resolve www.domain.com:80:localhost http://www.domain.com/
 19. curl with TLS client certificate
 ```
 A. generate a client private key client.key and certificate signing request client.csr
-openssl req -newkey rsa:2048 -keyout client.key -out client.csr
+openssl req -new -config "cnfile" -newkey rsa:2048 -keyout client.key -out client.csr
 B. submit the certificate signing request client.csr to a CA and get back a CA-signed certificate(CA will sign out client cert signing request using their CA-cert and CA    +++private key, and give us back a signed client certificate client.crt)
 openssl x509 -req -in client.csr -out client.crt -CA server.crt -CAkey server.key -set_serial 01 -days 365
 C. curl with client.crt and client.key
