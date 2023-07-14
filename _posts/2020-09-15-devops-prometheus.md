@@ -60,3 +60,5 @@ Showing top 10 nodes out of 64
 [optimising startup](https://www.robustperception.io/optimising-startup-time-of-prometheus-2-6-0-with-pprof)
 
 
+**how to scrape metrics**
+[refer](https://se7entyse7en.dev/posts/how-to-set-up-kubernetes-service-discovery-in-prometheus/)
