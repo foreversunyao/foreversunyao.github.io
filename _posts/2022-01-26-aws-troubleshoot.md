@@ -15,3 +15,7 @@ tags:
 ```
 aws eks describe-addon --cluster-name my-cluster --addon-name aws-ebs-csi-driver --query "addon.addonVersion" --output text
 ```
+
+**filesystem**
+- disable journaling
+- use xfs instead of ext4 fx
