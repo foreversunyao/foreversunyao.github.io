@@ -27,3 +27,10 @@ container1: ping google.com
 same network namespace: sudo nsenter -t xxx -n tcpdump -i eth0 udp port 53
 ```
 
+**UDP tuning for coredns**
+```
+        'net.core.netdev_budget = 900',
+        'net.core.netdev_max_backlog = 131072',
+        'net.core.rmem_default = 262144000',
+        'net.core.rmem_max = 262144000',
+```
