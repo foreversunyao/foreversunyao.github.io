@@ -48,3 +48,10 @@ tools:
     slack(incident-bot)
     attribution(owner: slack channel, slack_aliases, emails, app_id, radar, pagerduty_service_id, runbook, stakeholders)
 ```
+
+- in real life
+oncall -> first responder(oncall) 
+firefighter -> incident channel, live call, rollout blocks(notify leader on next action)
+comms -> sending periodic updates , escalating, get more firefighters
+scribe -> document incident, recording any incidents for future reference
+leader -> should not be firefighter, coordinate, keep people focused, care for the participants(not in good state, tired), take decisions, high level viewing
