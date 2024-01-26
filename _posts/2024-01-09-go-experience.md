@@ -20,12 +20,12 @@ func getNumber() int {
 	go func() {
 		i = 5
 	}()
-
 	return i
 }
+```
 
 - adding waitgroups
-
+```
 func getNumber() int {
 	var i int
 	// Initialize a waitgroup variable
@@ -44,3 +44,7 @@ func getNumber() int {
 }
 
 ```
+
+- go-callvis
+go-callvis is a development tool to help visualize call graph of a Go program using interactive view.
+[refer](https://github.com/ondrajz/go-callvis)
