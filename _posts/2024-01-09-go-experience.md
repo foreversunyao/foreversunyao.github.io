@@ -15,7 +15,9 @@ GO111MODULE=on: This value enables the Go module system and uses modules to mana
 
 - data race 
 [refer](https://www.sohamkamani.com/golang/data-races/?utm_content=cmp-true)
-We don't know which goroutine(main or i=5) will be executed firstly
+
+We dont know which goroutine( main or i=5 ) will be executed firstly
+
 ```
 func main() {
 	fmt.Println(getNumber())
@@ -30,15 +32,16 @@ func getNumber() int {
 }
 ```
 - memory allocation
-new() function allocates but does not initialize memory, reaults in zeroed storage but returns a memory address
+new( ) function allocates but does not initialize memory, reaults in zeroed storage but returns a memory address
 
-make() function allocates and initializes memory, allocates non-zeroed storage and returns a memory address
+make( ) function allocates and initializes memory, allocates non-zeroed storage and returns a memory address
 
-Memory is deallocated by garbage collector(GC)
+Memory is deallocated by garbage collector( GC )
 
 Objects out of scope or set to nil are eligible
 
 - pointer, reference variable
+
 ```
 import "fmt"
 func main() {
@@ -48,8 +51,10 @@ func main() {
 
 }
 ```
+
 - receiver
 the print() function is a function which can receive a person.
+
 ```
 type person struct {
 	name string
@@ -67,8 +72,11 @@ func main() {
 	}
 	alex.print()
 }
+
 ```
+
 - adding waitgroups
+
 ```
 func getNumber() int {
 	var i int
