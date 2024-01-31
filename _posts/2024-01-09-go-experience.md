@@ -7,6 +7,12 @@ tags:
  - code
 ---
 
+- GO111MODULE
+
+GO111MODULE=off: This value disables the Go module system and uses the legacy GOPATH mode instead. In this mode, dependencies are downloaded and stored in the GOPATH directory, and the go command looks for packages in the directories specified by the GOPATH environment variable.
+
+GO111MODULE=on: This value enables the Go module system and uses modules to manage dependencies. In this mode, the go command looks for the go.mod file in the project directory to determine the required dependencies and their versions. If the file exists, the command downloads the required dependencies and stores them in a local cache, which can be shared between projects.
+
 - data race 
 [refer](https://www.sohamkamani.com/golang/data-races/?utm_content=cmp-true)
 We don't know which goroutine(main or i=5) will be executed firstly
@@ -23,7 +29,45 @@ func getNumber() int {
 	return i
 }
 ```
+- memory allocation
+new() function allocates but does not initialize memory, reaults in zeroed storage but returns a memory address
 
+make() function allocates and initializes memory, allocates non-zeroed storage and returns a memory address
+
+Memory is deallocated by garbage collector(GC)
+
+Objects out of scope or set to nil are eligible
+
+- pointer, reference variable
+```
+import "fmt"
+func main() {
+  anInt := 42
+  var p = &anInt
+  fmt.Println("value of p:", *p)
+
+}
+```
+- receiver
+the print() function is a function which can receive a person.
+```
+type person struct {
+	name string
+	age int
+}
+
+func (p person) print() {
+	fmt.Printf("%s is of %d years \n", p.name, p.age)
+}
+
+func main() {
+	alex := person{
+		name: "Alex",
+		age: 18,
+	}
+	alex.print()
+}
+```
 - adding waitgroups
 ```
 func getNumber() int {
