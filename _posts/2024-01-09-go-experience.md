@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "go experiences"
+title: "GO experience"
 date: 2024-01-11 12:25:06
 description: go experiences 
 tags:
@@ -96,6 +96,10 @@ func getNumber() int {
 }
 
 ```
+
+- defer, panic, and recover
+[refer](https://go.dev/blog/defer-panic-and-recover)
+
 
 - go-callvis
 go-callvis is a development tool to help visualize call graph of a Go program using interactive view.
