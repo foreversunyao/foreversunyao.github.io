@@ -165,3 +165,10 @@ NLWP: Number of threads for a given process
 3. thread shares the same address space of the process. Therefore, spawning a new thread within a process becomes cheap. Internally, the thread has only a stack in the memory, and they share the heap (process memory) with the parent process.
 4. We use fork (or clone) and execve system calls for creating a process in Linux. Here, the fork system call creates a child process equivalent to the parent process. The execve system call replaces the executable of the child process. In modern implementations, the fork system call internally uses the clone system call.
 5. Linux creates every process using a data structure in C called task_struct. The Linux kernel holds them in a dynamic list to represent all the running processes called tasklist. In this tasklist, each element is of task_struct type, which depicts a Linux process. it has  scheduling parameters, memory image, signals, machine registers, system calls state, file descriptors, kernel stack
+
+- flock()
+[refer](https://apenwarr.ca/log/20101213)
+```
+flock() locks an entire file at a time. It supports shared locks (LOCK_SH: multiple people can have the file locked for read at the same time) and exclusive locks (LOCK_EX: only one person can make an exclusive lock on the file; shared and exclusive locks are not allowed to coexist). If you learned about concurrency in textbooks, flock() locks are "reader/writer" locks. A shared lock is a reader lock, and an exclusive lock is a writer lock.
+```
+

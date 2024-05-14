@@ -41,6 +41,8 @@ class Turtle:
 ```
 
 # pytest
+pytest -v src/tests/test_abc.py::test_check
+[patch decorator](https://www.fugue.co/blog/2016-02-11-python-mocking-101)
 ```
 from xx import Point
 def test_make_one_point():
