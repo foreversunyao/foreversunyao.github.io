@@ -7,6 +7,7 @@ tags:
  - code
 ---
 
+
 [refer](https://community.snowflake.com/s/article/Hikari-Connection-Pool-Timeout-Error-java-sql-SQLTransientConnectionException-pool-name-Connection-is-not-available-request-timed-out-after-n-ms)
 
 - Possible casues
