@@ -6,6 +6,7 @@ description: pagerduty, incident response process
 tags: 
  - sre
 ---
+
 [refer](https://response.pagerduty.com)
 
 - being on-call
