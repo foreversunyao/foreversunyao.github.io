@@ -7,6 +7,27 @@ tags:
  - cloud
 ---
 
+
+# think terraform in another way
+[refer](https://spacelift.io/blog/how-to-use-terraform-variables)
+```
+terraform/module == function
+input variables == arguments
+output variables == return values
+local variables == local variables
+```
+
+**input variables**
+The difference between local and input variables is that input variables allow you to pass values before the code execution.
+Further, the main function of the input variables is to act as inputs to modules. Modules are self-contained pieces of code that perform certain predefined deployment tasks. Input variables declared within modules are used to accept values from the root directory.
+
+**Output variables**
+This information is also available in Terraform state files. But state files are large, and normally we would have to perform an intricate search for this kind of information.
+Output variables in Terraform are used to display the required information in the console output after a successful application of configuration for the root module. 
+Output variables are used by child modules to expose certain values to the root module. 
+
+
+
 **example**
 ```
 #variables.tf
