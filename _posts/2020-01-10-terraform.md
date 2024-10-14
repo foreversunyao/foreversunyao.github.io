@@ -4,7 +4,7 @@ title: "Terraform"
 date: 2021-01-10 12:25:06
 description: Terraform hashicorp Infrastructure as code, terragrunt
 tags:
- - cloud
+ - terraform
 ---
 
 
@@ -168,6 +168,7 @@ specify explicit dependency
 define life cycle of a resource
 - provider
 select a non-default provider configuration
+
 
 **Terraform vs Ansible**
 - Ansible 

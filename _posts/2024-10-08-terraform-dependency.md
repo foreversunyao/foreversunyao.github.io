@@ -4,7 +4,7 @@ title: "Terraform dependency"
 date: 2024-10-09 12:25:06
 description: Terraform dependency, implicit dependency, explicit dependency, depends_on
 tags:
- - cloud
+ - terraform
 ---
 
 **Dependencies in terraform**

@@ -4,7 +4,7 @@ title: "Terraform Features"
 date: 2023-11-10 12:25:06
 description: Terraform useful features 
 tags:
- - cloud
+ - terraform
 ---
 
 **Moved Block**
@@ -87,3 +87,86 @@ resource "aws_security_group" "sg-webserver" {
     }
 }
 ```
+
+**count,for_each and for loops**
+- count
+access object by index in the sequence 
+```
+variable "projects" {
+  type        = list(string)
+  default     = ["test-project-1", "test-project-2", "test-project-3"]
+}
+
+resource "aws_s3_bucket" "bucket" {
+  count = length(var.projects)
+
+  bucket = "bucket-${var.projects[count.index]}"
+}
+
+output "bucket_names" {
+  value       = aws_s3_bucket.bucket[*].id 
+}
+```
+- for_each
+iterate map/set by using each key and value instead of index
+```
+variable "projects" {
+  type  = map(map(string))
+  default = {
+    "test-project-1" = {
+      tag_name = "Test Project 1", object_lock_enabled = true 
+    },
+    "test-project-2" = {
+      tag_name = "Test Project 2", object_lock_enabled = false
+    },
+    "test-project-3" = {
+      tag_name = "Test Project 3", object_lock_enabled = false
+    }
+  }
+}
+
+variable "common_tags" {
+  type    = map(string)
+  default = {
+    "Team"      = "devops",
+    "CreatedBy" = "terraform"
+  }
+}
+
+resource "aws_s3_bucket" "bucket" {
+  for_each  = var.projects
+
+  bucket   = "bucket-${each.key}"
+  object_lock_enabled = each.value.object_lock_enabled
+  tags  = merge(var.common_tags, {Name = each.value.tag_name})
+}
+```
+- for
+filtering and transformation operations on variable values.
+```
+output "bucket_names" {
+  value       = [for a in values(aws_s3_bucket.bucket)[*].id : upper(a)]
+}
+variable "common_tags" {
+  type    = map(string)
+  default = {
+    "Team"      = "devops",
+    "CreatedBy" = "terraform"
+  }
+}
+
+output "common_tags" {
+  value       = [for a, b in var.common_tags : "Key: ${a} value: ${b}" ]
+}
+
+```
+
+
+**map object**
+```
+output "bucket_names" {
+  value       = values(aws_s3_bucket.bucket)[*].id 
+}
+```
+
+[reference](https://itnext.io/terraform-count-for-each-and-for-loops-1018526c2047)
