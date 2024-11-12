@@ -89,8 +89,10 @@ resource "aws_security_group" "sg-webserver" {
 ```
 
 **count,for_each and for loops**
+
 - count
-access object by index in the sequence 
+access object by index in the sequence
+
 ```
 variable "projects" {
   type        = list(string)
@@ -107,8 +109,10 @@ output "bucket_names" {
   value       = aws_s3_bucket.bucket[*].id 
 }
 ```
+
 - for_each
 iterate map/set by using each key and value instead of index
+
 ```
 variable "projects" {
   type  = map(map(string))
@@ -141,8 +145,10 @@ resource "aws_s3_bucket" "bucket" {
   tags  = merge(var.common_tags, {Name = each.value.tag_name})
 }
 ```
+
 - for
 filtering and transformation operations on variable values.
+
 ```
 output "bucket_names" {
   value       = [for a in values(aws_s3_bucket.bucket)[*].id : upper(a)]
@@ -163,6 +169,7 @@ output "common_tags" {
 
 
 **map object**
+
 ```
 output "bucket_names" {
   value       = values(aws_s3_bucket.bucket)[*].id 
