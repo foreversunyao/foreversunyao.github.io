@@ -9,3 +9,6 @@ tags:
 
 **egress security**
 [egress filter](https://a.aviatrix.com/answers/how-should-i-filter-egress-traffic-from-aws-vpcs/)
+
+**Cross-service confused deputy prevention**
+[reference](https://docs.aws.amazon.com/dms/latest/userguide/cross-service-confused-deputy-prevention.html)
