@@ -1,11 +1,72 @@
 ---
 layout: post
-title: "Kafka New Features"
-date: 2022-06-03 12:25:06
+title: "Kafka New Features(ongoing)"
+date: 2024-06-03 12:25:06
 description: Kafka New Features
 tags: 
  - kafka
 ---
+
+## 3.7.0
+TODO
+
+## 3.6.0
+# Kafka Tiered Storage (Early Access)
+
+# Accept duplicate listener on port for IPv4/IPv6
+
+# Metadata Transactions for KRaft
+
+
+## 3.5.0
+# Rack-aware Partition Assignment for Kafka Consumers
+
+# Replicas with stale broker epoch should not be allowed to join the ISR
+
+## 3.4.0
+# ZooKeeper to KRaft Migration
+??
+
+## 3.3.1
+# Mark KRaft as Production Ready
+# Monitor KRaft Controller Quorum health
+# Exactly-Once support for source connectors
+
+## 3.2.0
+# Rack-aware standby task assignment in Kafka Streams 
+
+
+## 3.1.0 
+# Custom partitioners in foreign-key joins
+
+## 3.0.0
+# Kafka Raft support for snapshots of the metadata topic and other improvements in the self-managed quorum
+
+# Optimizations in OffsetFetch and FindCoordinator requests
+
+
+## 2.8.0
+??
+
+## 2.7.0
+# Add TRACE-level end-to-end latency metrics to Streams
+TODO
+# Add Sliding-Window support for Aggregations
+TODO
+
+
+## 2.6.0
+# Significant performance improvements for large numbers of partitions
+TODO
+# Kafka Streams support for emit on change
+TODO
+# New metrics for better operational insight
+TODO
+
+
+## 2.5.0
+# Incremental rebalance for Kafka Consumer
+TODO
 
 ## 2.4.0
 # consuming messages from closest replicas 
