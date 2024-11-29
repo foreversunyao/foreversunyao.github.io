@@ -27,5 +27,9 @@ Prompt Engineering requires an understanding of how AI models process informatio
 5. Closing: e.g. “I want to host it as an AWS Lambda function.”
 
 ```
-Act as a software engineer. You're an expert in Python and AWS technologies. I want you to develop software to manage my record collection. Make it a web based application written in Python. Generate the code for the program, and I want to host it as a Lambda function.
+Act as a software engineer. 
+You're an expert in Python and AWS technologies. 
+I want you to develop software to manage my record collection. 
+Make it a web based application written in Python. 
+Generate the code for the program, and I want to host it as a Lambda function.
 ```
