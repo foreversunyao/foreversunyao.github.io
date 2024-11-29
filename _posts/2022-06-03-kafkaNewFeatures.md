@@ -7,8 +7,22 @@ tags:
  - kafka
 ---
 
+
+## 3.9.0
+# Implement disable & re-enablement for Tiered Storage
+
+# Add remote log metadata flag to the dump log tool
+
+## 3.8.0
+# KIP-974: Docker Image for GraalVM based Native Kafka Broker
+
+
 ## 3.7.0
-TODO
+# Client Exponential Backoff Implementation
+
+# KIP-975: Docker Image for Apache Kafka
+
+# Streams StandbyTaskUpdateListener
 
 ## 3.6.0
 # Kafka Tiered Storage (Early Access)
