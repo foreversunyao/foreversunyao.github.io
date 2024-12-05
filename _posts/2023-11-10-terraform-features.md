@@ -167,6 +167,18 @@ output "common_tags" {
 
 ```
 
+**import**
+```
+import {
+  to = aws_instance.example
+  id = "i-abcd1234"
+}
+
+resource "aws_instance" "example" {
+  name = "renderer"
+}
+```
+
 
 **map object**
 
