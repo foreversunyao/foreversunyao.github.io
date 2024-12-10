@@ -39,8 +39,9 @@ Generate the code for the program, and I want to host it as a Lambda function.
 2. User prompt
 3. Completion
 4. Iterative prompting
+
 ```
-You are an expert in all aspects of Linux troubleshooting. I am a technical professional;
+You are an expert in all aspects of Linux troubleshooting. I am a technical professional
 speak to me in tech language.
 
 My Ubuntu 18.04 mail server experienced a kernel panic:
@@ -48,11 +49,12 @@ invalid opcode: 0000
 
 Please help me troubleshoot the problem.
 
-<reponse>
+reponse
 
-Tell me more about some_driver.c:1134
+Tell me more about some_driver.c
 
-Give me a script of mock network traffic/rsync 
+Give me a script of mock network traffic,rsync 
+
 ```
 
 # tools
