@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "Terraform security"
+title: "Terraform alternative"
 date: 2024-11-25 12:25:06
-description: terraform, state, secret, security 
+description: terraform, opentofu 
 tags:
  - terraform
 ---
+[refer](https://opentofu.org/)
 
 
