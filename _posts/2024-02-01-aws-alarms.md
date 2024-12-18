@@ -6,46 +6,36 @@ description: cloudwatch, monitoring,  alarms, terraform, RDS
 tags:
  - cloud
 ---
+
 [RDS metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
 
 # Monitoring metrics
-1. Monitoring plan
+###  Monitoring plan
+
 ```
 What are your monitoring goals?
-
 Which resources will you monitor?
-
 How often will you monitor these resources?
-
 Which monitoring tools will you use?
-
 Who will perform the monitoring tasks?
-
 Whom should be notified when something goes wrong?
 ```
 
-2. Performance baseline(take RDS as an example)
+### Performance baseline(take RDS as an example)
 To achieve your monitoring goals, you need to establish a baseline. To do this, measure performance under different load conditions at various times in your Amazon RDS environment.
+
 ```
 Network throughput
-
 Client connections
-
 I/O for read, write, or metadata operations
-
 Burst credit balances for your DB instances
 ```
-
-3. Performance guidelines
+### Performance guidelines
 ```
 High CPU or RAM consumption 
-
 Disk space consumption
-
 Network traffic 
-
 Database connections 
-
 IOPS metrics 
 ```
 
