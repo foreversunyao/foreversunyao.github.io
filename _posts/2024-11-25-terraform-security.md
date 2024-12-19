@@ -2,7 +2,7 @@
 layout: post
 title: "Terraform security"
 date: 2024-11-25 12:25:06
-description: terraform, state, secret, security 
+description: terraform, state, secret, security, trivy 
 tags:
  - terraform
 ---
@@ -49,4 +49,11 @@ provider "postgresql" {
 resource "postgresql_database" "db" {
   name = "new_db"
 }
+```
+
+# Trivy
+[refer](https://trivy.dev/v0.46/tutorials/misconfiguration/terraform/)
+```
+trivy config <specify the directory> 
+trivy fs --scanners secret,config ./
 ```
