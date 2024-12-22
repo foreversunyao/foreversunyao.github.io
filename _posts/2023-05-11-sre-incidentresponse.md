@@ -27,8 +27,7 @@ tags:
 - after an incident
 1. after an incident
 2. postmortem process
-3. postmorterm template
-4. effective postmortems
+3. follow-ups(finish in time for high priority ones)
 
 
 - practice
@@ -56,3 +55,6 @@ firefighter -> incident channel, live call, rollout blocks(notify leader on next
 comms -> sending periodic updates , escalating, get more firefighters
 scribe -> document incident, recording any incidents for future reference
 leader -> should not be firefighter, coordinate, keep people focused, care for the participants(not in good state, tired), take decisions, high level viewing
+
+- slow burning incidents
+Don't start new features without sufficient alerts
