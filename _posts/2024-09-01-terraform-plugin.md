@@ -35,3 +35,4 @@ Data Sources are an abstraction that allow Terraform to reference external data.
 
 Functions are an abstraction that allow Terraform to reference computational logic. Providers can implement their own custom logic functions to augment the Terraform configuration language built-in functions.
 
+[reference](https://superorbital.io/blog/custom-terraform-providers/)
