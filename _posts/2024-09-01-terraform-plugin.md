@@ -13,6 +13,10 @@ terraform is for customers to easier manage the APIs.
 # When need a custom provider
 The use case like where your company provides an API to your customers, but those customers heavily rely of Terraform to help them build and maintain their complex infrasturcture. 
 
+![img]({{ '/assets/images/cloud/cloud_terraform_provider_1.png' | relative_url }}){: .center-image }*(°0°)*
+
+![img]({{ '/assets/images/cloud/cloud_terraform_provider_2.png' | relative_url }}){: .center-image }*(°0°)*
+
 # Plugin framework
 Each plugin exposes an implementation for a specific service, such as AWS, or provisioner, such as bash. All Providers and Provisioners used in Terraform configurations are plugins. They are executed as a separate process and communicate with the main Terraform binary over an RPC interface.
 
