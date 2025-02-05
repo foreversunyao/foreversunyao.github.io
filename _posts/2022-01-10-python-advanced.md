@@ -84,3 +84,38 @@ python3 -m timeit '"-".join(str(n) for n in range(100))'
 import timeit
 timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
 ```
+
+# unittest
+patch will modify the behaviour/pointer of the object in the test function
+```
+# my_module.py
+import requests
+
+def fetch_data(url):
+    response = requests.get(url)
+    return response.json()
+
+
+# test_my_module.py
+import unittest
+from unittest.mock import patch
+from my_module import fetch_data
+
+class TestMyModule(unittest.TestCase):
+    @patch('my_module.fetch_data') #the function in the specific module be called, not the defintion one
+    def test_fetch_data(self, mock_fetch_data: MagicMock):
+        # Mock the return value of fetch_data
+        mock_fetch_data.return_value = MagicMock(key="value",attribute="X")
+
+        # Call the function
+        result = fetch_data('http://example.com')
+
+        # Assert the function was called
+        mock_fetch_data.assert_called_once_with('http://example.com')
+
+        # Assert the result is as expected
+        self.assertEqual(result, {'key': 'value'})
+
+if __name__ == '__main__':
+    unittest.main()
+```

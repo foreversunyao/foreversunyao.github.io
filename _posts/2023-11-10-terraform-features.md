@@ -189,3 +189,27 @@ output "bucket_names" {
 ```
 
 [reference](https://itnext.io/terraform-count-for-each-and-for-loops-1018526c2047)
+
+**multi-regions**
+```
+provider "aws" {
+  region = "us-east-1"
+}
+
+provider "aws" {
+  alias  = "eu_central_1"
+  region = "eu-central-1"
+}
+
+resource "aws_instance" "default_region" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+}
+
+resource "aws_instance" "europe_region" {
+  provider      = aws.eu_central_1
+  ami           = "ami-0b69ea66ff7391e80"
+  instance_type = "t2.micro"
+}
+
+```
